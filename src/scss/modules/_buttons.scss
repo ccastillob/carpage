@@ -1,0 +1,9 @@
+.button {
+	padding: em(4px) em(8px);
+	background: $button-primary;
+	font-size:  web-fz(content);
+
+	&:hover {
+		background: $button-hover;
+	}
+}

@@ -1,0 +1,99 @@
+
+*, *::after, *::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: web-fz(normal);
+	font-family: $main-font;
+	line-height: 1.6;
+	margin: 0 1em;
+}
+
+h1 {
+	font-size: mobile-fz(title);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(title);
+	}
+}
+
+h2 {
+	font-size: mobile-fz(subtitle);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(subtitle);
+	}
+}
+
+h3, p {
+	font-size: mobile-fz(content);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(content);
+	}
+}
+
+h4 {
+	font-size: mobile-fz(normal);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(normal);
+	}
+}
+
+h5, small {
+	font-size: mobile-fz(small);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(small);
+	}
+}
+
+h6 {
+	font-size: mobile-fz(smaller);
+	@media screen and (min-width: 1024px) {
+		font-size: web-fz(smaller);
+	}
+}
+
+h1, h2 {
+	font-weight: $bold;
+	line-height: 1.3;
+}
+
+h3, h4, h5, h6, p, small {
+	font-weight: $regular;
+	font-family: $secondary-font;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	height: auto;
+	width: auto;
+}
+
+.main-banner {
+	position: relative;
+	&__content {
+		position: relative;
+	}
+	&__hero-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&__overlay {
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		position: absolute;
+		background: util-color(bgFullScreenImage);
+		opacity: .7;
+	}
+
+}
