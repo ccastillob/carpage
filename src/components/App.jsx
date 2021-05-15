@@ -1,80 +1,68 @@
 
 import React from 'react'
-// Importacion de la libreria
-import "../library/ed-grid.scss";
+// Importacion de la libreria(ya no existe)
+// import "../library/ed-grid.scss";
 
 // Estilos personalizados
-import "../css/styles.css";
+import "../scss/styles.scss";
+
+// Icons
+import Logo from "./icons/static/Logo";
+import ShopIcon from "./icons/static/ShopIcon";
+import ShopNavIcon from './icons/dinamic/ShopNavIcon';
+import DiscountIcon from './icons/dinamic/DiscountIcon';
+import EventIcon from './icons/dinamic/EventIcon';
+import MaintenanceIcon from './icons/dinamic/MaintenanceIcon';
+import ModelIcon from './icons/dinamic/ModelIcon';
+import HomeIcon from './icons/dinamic/HomeIcon';
+import CheckIcon from './icons/special/CheckIcon';
+import DeleteIcon from './icons/special/DeleteIcon';
+import CancelIcon from './icons/static/CancelIcon';
+import CustomizeIcon from './icons/static/CustomizeIcon';
+import MoonIcon from './icons/static/MoonIcon';
+import PaymentIcon from './icons/static/PaymentIcon';
+import SuccessIcon from './icons/static/SuccessIcon';
+import SunIcon from './icons/static/SunIcon';
 
 const App = () => {
+
   return (
 		<>
-		<h1>Hola</h1>
-		<h2>Hola</h2>
-		<h3>Hola</h3>
-		<h4>Hola</h4>
-		<h5>Hola</h5>
-		<h6>Hola</h6>
-		<p className="button">Hola parrafo</p>
-		<small>soy un small</small>
-		{/* <div className="main-banner">
-			<img className="main-banner__hero-image" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-			<div className="main-banner__overlay"></div>
-			<div className="main-banner__content">
+		<header className="main-header">
+			<div className="ed-container">
 				<h1>Hola</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos esse facilis aspernatur? Placeat tempore consequatur architecto nam sit tenetur vero repellendus nihil vitae delectus corporis, aspernatur numquam, quod mollitia quae.</p>
+				<h2>Hola</h2>
+				<h3>Hola</h3>
+				<h4>Hola</h4>
+				<h5>Hola</h5>
+				<h6>Hola</h6>
 			</div>
-		</div> */}
-		{/* <div className="ed-grid s-grid-4">
-			<div className="s-cols-3">
-				<div className="main-banner o-aspect-ratio o-aspect-ratio--16-9">
-					<img className="main-banner__hero-image o-aspect-ratio__target" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-					<div className="main-banner__content">
-						<h1>Hola</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos esse facilis aspernatur? Placeat tempore consequatur architecto nam sit tenetur vero repellendus nihil vitae delectus corporis, aspernatur numquam, quod mollitia quae.</p>
-					</div>
-				</div>
-			</div>
-			<div className="">
-				<div className="o-aspect-ratio o-aspect-ratio--16-9">
-					<img className="o-aspect-ratio__target" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-				</div>
-			</div>
-		</div> */}
-		<div className="ed-grid s-grid-3">
-			<div className="s-cols-3 s-rows-4">
-				<div className="main-banner o-aspect-ratio o-aspect-ratio--16-9">
-					<img className="main-banner__hero-image o-aspect-ratio__target" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-				</div>
-			</div>
-			<div className="pos">Hola</div>
-		</div>
+		</header>
+		<Logo />
+		<Logo width={75} height={54} />
+		<ShopIcon />
+		<ShopNavIcon status="active" />
+		<ShopNavIcon />
+		<EventIcon />
+		<DiscountIcon />
+		<DiscountIcon status="active" />
+		<MaintenanceIcon />
+		<ModelIcon />
+		<HomeIcon />
+		<CheckIcon />
+		<DeleteIcon />
+		<CancelIcon />
+		<CustomizeIcon />
+		<MoonIcon />
+		<PaymentIcon />
+		<SuccessIcon />
+		<SunIcon />
+		<button className="button">Hola</button>
 
-		{/* <div className="ed-grid s-grid-12">
-			<div className="mlr">
-				<div className="main-banner o-aspect-ratio o-aspect-ratio--16-9">
-					<img className="main-banner__hero-image o-aspect-ratio__target" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-				</div>
-			</div>
-		</div> */}
-
-		{/* EDGRID */}
-
-		{/* <div className="ed-grid s-grid-12">
-			<div className="s-cols-6 s-x-4 s-ratio-4-3 img-container">
+		<div className="ed-grid s-grid-12" style={{margin: '0 1em' }}>
+			<div className="s-cols-6 s-x-4 s-ratio-16-9 img-container">
 				<img className="" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
 			</div>
-		</div> */}
-
-
-
-	<div className="ed-grid s-grid-3">
-		<div className="s-cols-3 s-rows-4">
-			<div className="main-banner s-ratio-16-9 img-container">
-				<img className="main-banner__hero-image" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />
-			</div>
-		</div>
-		<div className="pos">Hola</div>
 		</div>
 		</>
   )

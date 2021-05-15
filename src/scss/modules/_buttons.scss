@@ -1,9 +1,17 @@
 .button {
 	padding: em(4px) em(8px);
-	background: $button-primary;
-	font-size:  web-fz(content);
+	background: button-color(secondary);
+	font-size:  mobile-fz(content);
+	// border-radius: em(4px);
 
 	&:hover {
-		background: $button-hover;
+		background: button-color(secondary-hover);
 	}
 }
+
+.s-red {
+	&:hover {
+		color: green;
+	}
+}
+

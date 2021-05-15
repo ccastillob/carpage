@@ -1,0 +1,58 @@
+
+// Colores variables tema claro
+$light-color: (
+	body: #E4E4E4,
+	container: #FBFBFE,
+	title: #252B2D,
+	content: #424C50,
+	auxiliary: #9CA9AE
+);
+
+// Colores variables tema oscuro
+$dark-color: (
+	body: #001A29,
+	container: #132F40,
+	title: #FBFDFE,
+	content: #BBCAD2,
+	auxiliary: #9CA9AE
+);
+
+$button-color: (
+	primary: #0080CA,
+	primary-alt: #0070B1,
+	secondary: #ff321f,
+	secondary-alt: #ff230e,
+	ternary: #129f00,
+	ternary-alt: #120eaa
+);
+
+// Colores variables para acentuar y eventos
+$accent-color: (
+	success-200: #4DF6DA,
+	success-400: #0CEDC7,
+	success-500: #0AC9A9,
+	success-700: #08977F,
+	warning-200: #EFCE5B,
+	warning-400: #E8BA19,
+	warning-500: #C9A114,
+	warning-700: #97790F,
+	error-200: #EF845B,
+	error-400: #E85319,
+	error-500: #C94714,
+	error-700: #97350F
+);
+
+// Colores variables para imagen y borde
+$util-color: (
+	bg-overlay-image: hsla(0,0,3, .15),
+	bg-overlay-section: hsla(0,0,3, .7),
+	border: #9CA9AE
+);
+
+// Colores variables para boton en tema claro y oscuro
+$theme-color: (
+	bg-light: #65C7FF,
+	bg-dark: #004065,
+	bg-icon-light: #E4E4E4,
+	bg-icon-dark: #001A29
+);

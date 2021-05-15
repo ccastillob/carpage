@@ -1,19 +1,44 @@
 // Aqui se importaran los componentes del proyecto
+// Breakpoints
+$breakpoints : (
+  s  : 0,
+  m  : 768px,
+  lg : 1024px,
+  xl : 1440px
+);
 
-// Config
- @import "config";
+$prototype        : true;         // Activa los estilos de prototipado
+$max-width        : 1200px;       // Ancho máximo de los contenedores ed-container y ed-grid
+$l-unit           : .25rem;        // (4px) Unidad básica de layout (para separaciones verticales, margin y padding)
+
+// Importacion de la libreria
+@import "~ed-grid/ed-grid";
+
+// Variables de tipografia y colores
+@import "config";
+
+// Funciones
+// @import "./utils/functions";
+
+// Mixins
+// @import "./utils/mixins";
 
 // Estilos base
-// @import "base/normalize";
 @import "base/base";
 
+// Theme
+@import "theme/icons";
+
 // Layout
-@import "layout/grid";
-// @import "layout/header";
+// @import "layout/grid";
+@import "layout/header";
 
 // Modules
 @import "modules/buttons";
+@import "modules/menu";
 
 // Components
-// @import "components/nav";
+@import "components/nav";
+
+
 

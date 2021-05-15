@@ -1,129 +1,20 @@
-// Aqui se guardaran las variables
+// Variables de la tipografia y color
 
-// Importar tipografia
-@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Ubuntu:wght@700&display=swap');
+// Tipografia
+@import "./theme/typografy";
 
-// Fuentes
-$main-font: 'Ubuntu', sans-serif;
-$secondary-font: 'Oxygen', sans-serif;
-$bold: 700;
-$regular: 400;
-$gap: 16px;
+// Colores
+@import "./theme/colors";
 
-// Convertir px a em
-@function em($el, $parent: 16px) {
-	@return ($el / $parent) * 1em;
-}
 
-// Convertir px a rem
-@function rem($el) {
-	@return ($el / 16px) * 1rem;
-}
 
-// font-size variables para web >= 1024
-$web-font-size: (
-	title: 36px,
-	subtitle: 28px,
-	content: 20px,
-	normal: 16px,
-	small: 14px,
-	smaller: 13px
-);
 
-// Funcion para obtener el font-size en web
-@function web-fz($value) {
-	@return em(map-get($web-font-size, $value ));
-};
 
-// font-size variables para movil < 1024
-$mobile-font-size: (
-	title: 24px,
-	subtitle: 20px,
-	content: 16px,
-	normal: 14px,
-	small: 13px,
-	smaller: 12px
-);
 
-// Funcion para obtener el font-size en movil
-@function mobile-fz($value) {
-	@return em(map-get($mobile-font-size, $value ), 16px);
-};
 
-// Colores variables tema claro
-$light-colors: (
-	body: #E4E4E4,
-	container: #FBFBFE,
-	title: #252B2D,
-	content: #424C50,
-	auxiliary: #9CA9AE
-);
 
-// Funcion para obtener el color en tema claro
-@function light-color($color) {
-	@return map-get($light-colors, $color );
-};
 
-// Colores variables tema oscuro
-$dark-colors: (
-	body: #001A29,
-	container: #132F40,
-	title: #FBFDFE,
-	content: #BBCAD2,
-	auxiliary: #9CA9AE
-);
 
-// Funcion para obtener el color en tema oscuro
-@function dark-color($color) {
-	@return map-get($dark-colors, $color );
-};
 
-// Colores variables botones
-$button-primary: #0080CA;
-$button-hover: #0070B1;
 
-// Colores variables para acentuar y eventos
-$accents-colors: (
-	success200: #4DF6DA,
-	success400: #0CEDC7,
-	success500: #0AC9A9,
-	success700: #08977F,
-	warning200: #EFCE5B,
-	warning400: #E8BA19,
-	warning500: #C9A114,
-	warning700: #97790F,
-	error200: #EF845B,
-	error400: #E85319,
-	error500: #C94714,
-	error700: #97350F
-);
 
-// Funcion para obtener el color para acentuar
-@function accent-color($color) {
-	@return map-get($accents-colors, $color );
-};
-
-// Colores variables para imagen y borde
-$util-colors: (
-	bgImageDark: hsla(0,0,3, .15),
-	bgFullScreenImage: hsla(0,0,3, .7),
-	border: #9CA9AE
-);
-
-// Funcion para obtener el color de imagenes y borde
-@function util-color($color) {
-	@return map-get($util-colors, $color );
-};
-
-// Colores variables para boton en tema claro y oscuro
-$themes-colors: (
-	bgLight: #65C7FF,
-	bgDark: #004065,
-	bgIconLight: #E4E4E4,
-	bgIconDark: #001A29
-);
-
-// Funcion para obtener el color para boton en tema claro y oscuro
-@function theme-color($color) {
-	@return map-get($themes-colors, $color );
-};

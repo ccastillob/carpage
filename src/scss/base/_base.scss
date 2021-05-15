@@ -5,70 +5,147 @@
 	margin: 0;
 }
 
-body {
-	font-size: web-fz(normal);
-	font-family: $main-font;
+// CSS Variables
+:root {
+
+	// Tipografia
+	--main-font: #{map-get($type-font, main-font )};
+	--secondary-font: #{map-get($type-font, secondary-font )};
+
+	// Colores
+		// Colores Bases
+	--primary-color: #{map-get($button-color, primary )};
+	--primary-alt-color: #{map-get($button-color, primary-alt )};
+	--secondary-color: #{map-get($button-color, secondary )};
+	--secondary-alt-color: #{map-get($button-color, secondary-alt )};
+	--ternary-color: #{map-get($button-color, ternary )};
+	--ternary-alt-color: #{map-get($button-color, ternary-alt )};
+
+		// Colores Tema Claro
+	--bg-body: #{map-get($light-color, body )};
+	--bg-container: #{map-get($light-color, container )};
+	--title-color: #{map-get($light-color, title )};
+	--content-color: #{map-get($light-color, content )};
+	--auxiliary-color: #{map-get($light-color, auxiliary )};
+
+		// Colores para acentuar
+	--success-200: #{map-get($accent-color, success-200 )};
+	--success-400: #{map-get($accent-color, success-400 )};
+	--success-500: #{map-get($accent-color, success-500 )};
+	--success-700: #{map-get($accent-color, success-700 )};
+	--warning-200: #{map-get($accent-color, warning-200 )};
+	--warning-400: #{map-get($accent-color, warning-400 )};
+	--warning-500: #{map-get($accent-color, warning-500 )};
+	--warning-700: #{map-get($accent-color, warning-700 )};
+	--error-200: #{map-get($accent-color, error-200 )};
+	--error-400: #{map-get($accent-color, error-400 )};
+	--error-500: #{map-get($accent-color, error-500 )};
+	--error-700: #{map-get($accent-color, error-700 )};
+
+		// Colores utilitarios para border e imagen
+	--bg-overlay-image: #{map-get($util-color, bg-overlay-image )};
+	--bg-overlay-section: #{map-get($util-color, bg-overlay-section )};
+	--border-color: #{map-get($util-color, border )};
+
+		// Colores para el boton en tema claro y oscuro
+	--bg-section-icon-light: #{map-get($theme-color, bg-light )};
+	--bg-icon-light: #{map-get($theme-color, bg-icon-light )};
+	--bg-section-icon-dark:  #{map-get($theme-color, bg-dark )};
+	--bg-icon-dark: #{map-get($theme-color, bg-icon-dark )};
+
+
+	--color-test: #{map-get($accent-color, warning-200 )};
+
+  // Variables para prototipar
+  --border-radius          : #{$l-unit * 2}; // 8px
+  // layout
+  --vertical-block-space   : #{$l-unit};   // 1rem
+  --vertical-content-space : #{$l-unit};   // 1rem
+  --gap                    : #{$l-unit * 4};   // 1rem
+  --max-width              : #{$max-width};
+
+  @include from(lg) {
+    --vertical-block-space : #{$l-unit * 0};
+    --gap                  : #{$l-unit * 8};    // 2rem
+  }
+}
+
+body.dark {
+	// Colores Tema Oscuro
+	--bg-body: #{map-get($dark-color, body )};
+	--bg-container: #{map-get($dark-color, container )};
+	--title-color: #{map-get($dark-color, title )};
+	--content-color: #{map-get($dark-color, content )};
+	--auxiliary-color: #{map-get($dark-color, auxiliary )};
+
+}
+
+html {
+	font-size: em(map-get($web-fz, normal ));
+	font-family: var(--main-font);
 	line-height: 1.6;
-	margin: 0 1em;
+}
+
+body {
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+	background: var(--bg-body);
+	// margin: 0 1em;
 }
 
 h1 {
-	font-size: mobile-fz(title);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(title);
+	font-size: em(map-get($mobile-fz, title ));
+	margin-bottom: var(--vertical-content-space);
+	color: var(--color-test);
+	@include from(lg) {
+		font-size: em(map-get($web-fz, title ));
 	}
 }
 
 h2 {
-	font-size: mobile-fz(subtitle);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(subtitle);
+	font-size: em(map-get($mobile-fz, subtitle ));
+	@include from(lg) {
+		font-size: em(map-get($web-fz, subtitle ));
 	}
 }
 
 h3, p {
-	font-size: mobile-fz(content);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(content);
+	font-size: em(map-get($mobile-fz, content ));
+	@include from(lg) {
+		font-size: em(map-get($web-fz, content ));
 	}
 }
 
 h4 {
-	font-size: mobile-fz(normal);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(normal);
+	font-size: em(map-get($mobile-fz, normal ));
+	@include from(lg) {
+		font-size: em(map-get($web-fz, normal ));
 	}
 }
 
 h5, small {
-	font-size: mobile-fz(small);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(small);
+	font-size: em(map-get($mobile-fz, small ));
+	@include from(lg) {
+		font-size: em(map-get($web-fz, small ));
 	}
 }
 
 h6 {
-	font-size: mobile-fz(smaller);
-	@media screen and (min-width: 1024px) {
-		font-size: web-fz(smaller);
+	font-size: em(map-get($mobile-fz, smaller ));
+	@include from(lg) {
+		font-size: em(map-get($web-fz, smaller ));
 	}
 }
 
 h1, h2 {
-	font-weight: $bold;
+	font-weight: 700;
 	line-height: 1.3;
 }
 
-h3, h4, h5, h6, p, small {
-	font-weight: $regular;
-	font-family: $secondary-font;
-}
-
-img {
-	max-width: 100%;
-	display: block;
-	height: auto;
-	width: auto;
+h3, h4, h5, h6, p, small, span {
+	font-weight: 400;
+	font-family: var(--secondary-font);
 }
 
 .main-banner {
