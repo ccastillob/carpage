@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Event = ( {width, status} ) => {
+const Event = ( {status} ) => {
 	return (
-		<div className={ `${status} container-icon icon` }>
-			<svg width={width} height={width} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<div className="container-icon">
+			<svg className={ `${status} icon` } width="currentSize" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M22.5625 8.5625C21.6564 8.5625 20.9219 7.82799 20.9219 6.92188V3.64062C20.9219 2.73451 21.6564 2 22.5625 2C23.4686 2 24.2031 2.73451 24.2031 3.64062V6.92188C24.2031 7.82799 23.4686 8.5625 22.5625 8.5625Z" fill="currentColor"/>
 				<path d="M26.9922 5.28125H25.8438V6.92188C25.8438 8.73116 24.3718 10.2031 22.5625 10.2031C20.7532 10.2031 19.2812 8.73116 19.2812 6.92188V5.28125H12.7188V6.92188C12.7188 8.73116 11.2468 10.2031 9.4375 10.2031C7.62822 10.2031 6.15625 8.73116 6.15625 6.92188V5.28125H5.00781C3.3493 5.28125 2 6.63055 2 8.28906V11.9531H30V8.28906C30 6.63055 28.6507 5.28125 26.9922 5.28125Z" fill="currentColor"/>
 				<path d="M9.4375 8.5625C8.53138 8.5625 7.79688 7.82799 7.79688 6.92188V3.64062C7.79688 2.73451 8.53138 2 9.4375 2C10.3436 2 11.0781 2.73451 11.0781 3.64062V6.92188C11.0781 7.82799 10.3436 8.5625 9.4375 8.5625Z" fill="currentColor"/>
@@ -15,7 +15,6 @@ const Event = ( {width, status} ) => {
 
 Event.defaultProps = {
 	status: "",
-	width: '32'
 }
 
 export default Event;

@@ -2,14 +2,14 @@
 .container-icon {
 	display: inline-flex;
 	cursor: pointer;
-
+	// Contenedor para el icono de carrito con productos
 	&-shopnav {
 		display: inline-flex;
 		cursor: pointer;
 		position: relative;
-		max-width: rem(36px);
+		max-width: 36px;
 		width: 100%;
-		height: rem(36px);
+		height: 36px;
 
 		&:hover > .container__svg,
 		&.active > .container__svg {
@@ -23,10 +23,10 @@
 		}
 
 	}
-
+	// Contenedor para el icono de eliminar
 	&-delete {
-		width: rem(32px);
-		height: rem(32px);
+		width: 32px;
+		height: 32px;
 		display: inline-flex;
 		cursor: pointer;
 		justify-content: center;
@@ -47,26 +47,51 @@
 
 .icon {
 	color: var(--content-color);
+	width: 62px;
+
+	&.active {
+		color: var(--secondary-color);
+	}
+
 	&:hover{
 		color: var(--primary-color);
 	}
+	// Icono para logo
+	&-logo {
+		width: 61px;
+		height: 44px;
+		// Icono para logo en tamaños > 768px(lg)
+		@include from(lg) {
+			width: 75px;
+			height: 54px;
+		}
+	}
+	// Icono que estan en botones secundarios y ghost
+	&-static {
+		width: 16px;
+	}
+	// Icono de check para contenido
 	&-special-content {
 		cursor: auto;
+		width: 16px;
 		color: var(--content-color);
 	}
+	// Icono de eliminar
 	&-special-title {
+		width: 18px;
 		color: var(--title-color);
 	}
 }
 
+// Contenedor solo para el carrito en shopnav
 .container__svg {
 	display: flex;
 	position: absolute;
-	height: 100%;
-	align-items: flex-end;
+	bottom: 0;
 	color: var(--content-color);
 }
 
+// Elipse para el producto en shopnav
 .circle__icon {
 	position: absolute;
 	top: 0;
@@ -74,8 +99,8 @@
 	font-size: em(map-get($mobile-fz, smaller ));
 	margin: 0;
 	border-radius: 9999px;
-	min-width: rem(24px);
-	height: rem(24px);
+	min-width: 24px;
+	height: 24px;
 	padding: rem(4px) rem(8px);
 	display: inline-block;
 	text-align: center;

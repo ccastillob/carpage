@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CustomizeIcon = ( {width} ) => {
+const CustomizeIcon = () => {
 	return (
-		<div className="container-icon">
-			<svg width={width} height={width} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<div className="container-icon s-mr-2">
+			<svg className="icon-static" width="currentSize" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M2 4H5.28125V12.2031H2V4Z" fill="#FBFDFE"/>
 				<path d="M26.7188 20.4062H30V28.6094H26.7188V20.4062Z" fill="#FBFDFE"/>
 				<path d="M14.3594 12.2031H17.6406V20.4062H14.3594V12.2031Z" fill="#FBFDFE"/>
@@ -14,10 +14,6 @@ const CustomizeIcon = ( {width} ) => {
 			</svg>
 		</div>
 	)
-}
-
-CustomizeIcon.defaultProps = {
-	width: '16'
 }
 
 export default CustomizeIcon;

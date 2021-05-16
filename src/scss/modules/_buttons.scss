@@ -1,17 +1,108 @@
-.button {
-	padding: em(4px) em(8px);
-	background: button-color(secondary);
-	font-size:  mobile-fz(content);
-	// border-radius: em(4px);
 
-	&:hover {
-		background: button-color(secondary-hover);
+// Button para tema claro y oscuro
+
+.container-theme {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 66px;
+	height: 42px;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+	// Tema claro
+	& + .label-theme {
+		// Fondo label
+		background: var(--bg-section-icon-light);
+		// Fondo icono
+		& .ball {
+				background: var(--bg-icon-light);
+				border: 1px solid var(--bg-section-icon-light);
+		}
+	}
+	// Tema oscuro
+	&:checked + .label-theme {
+		// Fondo label
+		background: var(--bg-section-icon-dark);
+		// Fondo icono
+		& .ball {
+			background: var(--bg-icon-dark);
+			transform: translateX(21px);
+			border: 1px solid var(--bg-section-icon-dark);
+		}
 	}
 }
 
-.s-red {
+.label-theme {
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: em(5px);
+	position: relative;
+	height: 26px;
+	width: 50px;
+	// Posicionamiento del circulo respecto al label
+	& .ball {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		height: 22px;
+		width: 22px;
+		transform: translateX(-3px);
+		transition: transform 0.2s linear;
+	}
+
+}
+
+.button {
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: inherit;
+	font-family: #{map-get($type-font, secondary-font)};
+	border-radius: var(--border-radius);
+	transition: transform .05s;
+	color: #{map-get($dark-color, title)};
+	padding: rem(8px) rem(16px);
+	border: none;
+
+	&-primary {
+		background: var(--primary-color);
+		font-size:  em(map-get($mobile-fz, content ));
+
+		@include from(lg) {
+			font-size:  em(map-get($web-fz, content ));
+		}
+	}
+
+	&-secondary,
+	&-ghost {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--primary-color);
+		font-size:  em(map-get($mobile-fz, normal ));
+
+		@include from(lg) {
+			font-size:  em(map-get($web-fz, normal ));
+		}
+	}
+
+	&-ghost {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #{map-get($dark-color, title)};
+		background: transparent;
+	}
+
 	&:hover {
-		color: green;
+		background: var(--primary-alt-color);
 	}
 }
 

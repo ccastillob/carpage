@@ -23,8 +23,11 @@ import MoonIcon from './icons/static/MoonIcon';
 import PaymentIcon from './icons/static/PaymentIcon';
 import SuccessIcon from './icons/static/SuccessIcon';
 import SunIcon from './icons/static/SunIcon';
+import ChangeThemeButton from './molecules/ChangeThemeButton';
 
 const App = () => {
+
+	const mystate = "active";
 
   return (
 		<>
@@ -39,15 +42,15 @@ const App = () => {
 			</div>
 		</header>
 		<Logo />
-		<Logo width={75} height={54} />
+		<Logo />
 		<ShopIcon />
 		<ShopNavIcon status="active" />
 		<ShopNavIcon />
-		<EventIcon />
+		<EventIcon status={"active"} />
 		<DiscountIcon />
 		<DiscountIcon status="active" />
 		<MaintenanceIcon />
-		<ModelIcon />
+		<ModelIcon status={mystate} />
 		<HomeIcon />
 		<CheckIcon />
 		<DeleteIcon />
@@ -57,7 +60,18 @@ const App = () => {
 		<PaymentIcon />
 		<SuccessIcon />
 		<SunIcon />
-		<button className="button">Hola</button>
+		<button className="button button-primary">Primary</button>
+		<button className="button button-secondary">Secondary</button>
+		<div className="button button-secondary">
+			<ShopIcon />
+			<h4>Añádelo</h4>
+		</div>
+		<button className="button button-ghost">Ghost</button>
+		<div className="button button-ghost">
+			<CustomizeIcon />
+			<h4>Personaliza</h4>
+		</div>
+		<ChangeThemeButton />
 
 		<div className="ed-grid s-grid-12" style={{margin: '0 1em' }}>
 			<div className="s-cols-6 s-x-4 s-ratio-16-9 img-container">

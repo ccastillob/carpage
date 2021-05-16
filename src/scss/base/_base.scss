@@ -59,14 +59,15 @@
   // Variables para prototipar
   --border-radius          : #{$l-unit * 2}; // 8px
   // layout
-  --vertical-block-space   : #{$l-unit};   // 1rem
-  --vertical-content-space : #{$l-unit};   // 1rem
-  --gap                    : #{$l-unit * 4};   // 1rem
+	--margin-base:  #{$l-unit}; // (4px)
+  --vertical-block-space   : #{$l-unit * 0};   // (0px)
+  --vertical-content-space : #{$l-unit * 0};   // (0px)
+  --gap                    : #{$l-unit * 4};   // (16px)
   --max-width              : #{$max-width};
 
   @include from(lg) {
-    --vertical-block-space : #{$l-unit * 0};
-    --gap                  : #{$l-unit * 8};    // 2rem
+    --vertical-block-space : #{$l-unit * 0};		// (0px)
+    --gap                  : #{$l-unit * 8};    // 2rem(32px)
   }
 }
 
@@ -81,7 +82,7 @@ body.dark {
 }
 
 html {
-	font-size: em(map-get($web-fz, normal ));
+	font-size: rem(map-get($web-fz, normal ));
 	font-family: var(--main-font);
 	line-height: 1.6;
 }
@@ -95,46 +96,46 @@ body {
 }
 
 h1 {
-	font-size: em(map-get($mobile-fz, title ));
+	font-size: rem(map-get($mobile-fz, title ));
 	margin-bottom: var(--vertical-content-space);
 	color: var(--color-test);
 	@include from(lg) {
-		font-size: em(map-get($web-fz, title ));
+		font-size: rem(map-get($web-fz, title ));
 	}
 }
 
 h2 {
-	font-size: em(map-get($mobile-fz, subtitle ));
+	font-size: rem(map-get($mobile-fz, subtitle ));
 	@include from(lg) {
-		font-size: em(map-get($web-fz, subtitle ));
+		font-size: rem(map-get($web-fz, subtitle ));
 	}
 }
 
 h3, p {
-	font-size: em(map-get($mobile-fz, content ));
+	font-size: rem(map-get($mobile-fz, content ));
 	@include from(lg) {
-		font-size: em(map-get($web-fz, content ));
+		font-size: rem(map-get($web-fz, content ));
 	}
 }
 
 h4 {
-	font-size: em(map-get($mobile-fz, normal ));
+	font-size: rem(map-get($mobile-fz, normal ));
 	@include from(lg) {
-		font-size: em(map-get($web-fz, normal ));
+		font-size: rem(map-get($web-fz, normal ));
 	}
 }
 
 h5, small {
-	font-size: em(map-get($mobile-fz, small ));
+	font-size: rem(map-get($mobile-fz, small ));
 	@include from(lg) {
-		font-size: em(map-get($web-fz, small ));
+		font-size: rem(map-get($web-fz, small ));
 	}
 }
 
 h6 {
-	font-size: em(map-get($mobile-fz, smaller ));
+	font-size: rem(map-get($mobile-fz, smaller ));
 	@include from(lg) {
-		font-size: em(map-get($web-fz, smaller ));
+		font-size: rem(map-get($web-fz, smaller ));
 	}
 }
 
