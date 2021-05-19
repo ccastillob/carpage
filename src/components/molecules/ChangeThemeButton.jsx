@@ -12,7 +12,7 @@ const ChangeThemeButton = () => {
 	}
 
 	return (
-		<div className="container-theme">
+		<div className="container-theme s-cross-center s-main-center s-mr-4">
 			<input className="checkbox" type="checkbox" id="chk" />
 			<label onClick={handleClickIcon} className="label-theme" htmlFor="chk">
 				<div className="ball">

@@ -1,5 +1,14 @@
 // Parte superior
 
-.main-header{
-	background: var(--primary-color);
+.main-header {
+	background: var(--bg-container);
+	height: var(--header-height-mobile);
+	position: fixed;
+	z-index: var(--z-fixed);
+	width: 100%;
+	overflow: hidden;
+
+	@include from(m) {
+		height: var(--header-height-web);
+	}
 }

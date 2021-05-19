@@ -1,0 +1,14 @@
+
+.model__content {
+	position: relative;
+	padding-top: rem(48px);
+	padding-bottom: rem(72px);
+
+	@include from(m) {
+		padding-bottom: rem(96px);
+	}
+}
+
+.content__bottom {
+	padding: rem(16px);
+}

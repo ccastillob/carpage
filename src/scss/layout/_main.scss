@@ -1,0 +1,11 @@
+// Contenedor de las secciones
+
+.main-container {
+	position: relative;
+	margin-top: var(--header-height-mobile);
+
+	@include from(m) {
+		margin-top: var(--header-height-web);
+	}
+
+}

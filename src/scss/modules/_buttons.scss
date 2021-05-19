@@ -2,9 +2,6 @@
 // Button para tema claro y oscuro
 
 .container-theme {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 	width: 66px;
 	height: 42px;
 }
@@ -59,10 +56,13 @@
 
 }
 
+// Botón primario, secundario y fantasma(sin Bg)
+
 .button {
 	display: inline-block;
 	cursor: pointer;
 	text-decoration: none;
+	width: max-content;
 	line-height: inherit;
 	font-family: #{map-get($type-font, secondary-font)};
 	border-radius: var(--border-radius);
@@ -75,7 +75,7 @@
 		background: var(--primary-color);
 		font-size:  em(map-get($mobile-fz, content ));
 
-		@include from(lg) {
+		@include from(m) {
 			font-size:  em(map-get($web-fz, content ));
 		}
 	}
@@ -88,7 +88,7 @@
 		background: var(--primary-color);
 		font-size:  em(map-get($mobile-fz, normal ));
 
-		@include from(lg) {
+		@include from(m) {
 			font-size:  em(map-get($web-fz, normal ));
 		}
 	}

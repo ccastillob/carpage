@@ -1,0 +1,21 @@
+// Secciones que corresponden a las paginas
+
+.section-banner {
+	position: relative;
+	max-height: calc(100vh - var(--header-height-mobile));
+	height: calc(100vh - var(--header-height-mobile));
+
+	@include from(m) {
+		height: 620px;
+		max-height: none;
+		// height: calc(100vh - var(--header-height-web));
+	}
+
+	@include from(lg) {
+		height: 744px;
+		max-height: none;
+		// height: calc(100vh - var(--header-height-web));
+	}
+
+}
+

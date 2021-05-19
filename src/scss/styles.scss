@@ -27,18 +27,30 @@ $l-unit           : .25rem;        // (4px) Unidad básica de layout (para separ
 @import "base/base";
 
 // Theme
-@import "theme/icons";
 
 // Layout
 // @import "layout/grid";
 @import "layout/header";
+@import "layout/footer";
+@import "layout/main";
+@import "layout/grilla";
 
 // Modules
 @import "modules/buttons";
+@import "modules/icons";
 @import "modules/menu";
 
 // Components
+@import "components/banner";
+@import "components/cards";
+@import "components/discount";
+@import "components/event";
+@import "components/home";
+@import "components/maintenance";
+@import "components/model";
 @import "components/nav";
+@import "components/section";
+@import "components/shop";
 
 
 

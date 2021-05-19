@@ -1,0 +1,30 @@
+// Banner para secciones que ocupan todo el ancho maximo
+
+.banner {
+
+	&__content {
+		position: relative;
+		padding-top: rem(48px);
+	}
+	&__hero-image,
+	&__overlay  {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		// height: calc(100vh - var(--header-height-mobile));
+		object-fit: cover;
+		object-position: center;
+
+		// @include from(m) {
+		// 	height: calc(100vh - var(--header-height-web));
+		// }
+	}
+
+	&__overlay {
+		object-fit: fill;
+		object-position: 50% 50%;
+		background: var(--bg-overlay-section);
+	}
+}

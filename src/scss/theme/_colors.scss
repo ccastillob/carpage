@@ -46,7 +46,8 @@ $accent-color: (
 // Colores variables para imagen y borde
 $util-color: (
 	bg-overlay-image: hsla(0,0,3, .15),
-	bg-overlay-section: hsla(0,0,3, .7),
+	bg-overlay-section-dark: hsla(0,0,3, .7),
+	bg-overlay-section-light: hsla(0,0,3, .5),
 	border: #9CA9AE
 );
 
@@ -57,3 +58,33 @@ $theme-color: (
 	bg-icon-light: #E4E4E4,
 	bg-icon-dark: #001A29
 );
+
+.title-color {
+	color: var(--title-color);
+	&-light {
+		color: #{map-get($light-color, title)};
+	}
+	&-dark {
+		color: #{map-get($dark-color, title)};
+	}
+}
+
+.content-color {
+	color: var(--content-color);
+	&-light {
+		color: #{map-get($light-color, content)};
+	}
+	&-dark {
+		color: #{map-get($dark-color, content)};
+	}
+}
+
+.auxiliary-color {
+	color: var(--auxiliary-color);
+	&-light {
+		color: #{map-get($light-color, auxiliary)};
+	}
+	&-dark {
+		color: #{map-get($dark-color, auxiliary)};
+	}
+}

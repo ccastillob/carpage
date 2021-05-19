@@ -8,7 +8,7 @@
 		cursor: pointer;
 		position: relative;
 		max-width: 36px;
-		width: 100%;
+		width: 36px;
 		height: 36px;
 
 		&:hover > .container__svg,
@@ -61,7 +61,7 @@
 		width: 61px;
 		height: 44px;
 		// Icono para logo en tamaños > 768px(lg)
-		@include from(lg) {
+		@include from(m) {
 			width: 75px;
 			height: 54px;
 		}
@@ -69,6 +69,10 @@
 	// Icono que estan en botones secundarios y ghost
 	&-static {
 		width: 16px;
+		// Icono para botones(secundario y ghost) en tamaños > 768px(lg)
+		@include from(m) {
+			width: 18px;
+		}
 	}
 	// Icono de check para contenido
 	&-special-content {
