@@ -47,15 +47,12 @@
 
 .icon {
 	color: var(--content-color);
-	width: 62px;
+	width: 32px;
 
-	&.active {
-		color: var(--secondary-color);
+	@include from(360px) {
+		width: 48px;
 	}
 
-	&:hover{
-		color: var(--primary-color);
-	}
 	// Icono para logo
 	&-logo {
 		width: 61px;

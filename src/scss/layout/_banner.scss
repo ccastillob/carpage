@@ -2,10 +2,10 @@
 
 .banner {
 
-	&__content {
-		position: relative;
-		padding-top: rem(48px);
-	}
+	// &__content {
+	// 	position: relative;
+	// 	padding-top: rem(48px);
+	// }
 	&__hero-image,
 	&__overlay  {
 		position: absolute;
@@ -27,4 +27,9 @@
 		object-position: 50% 50%;
 		background: var(--bg-overlay-section);
 	}
+}
+
+.article__banner {
+	position: relative;
+	padding-top: rem(48px);
 }

@@ -1,5 +1,7 @@
 
-.model__content {
+.article-model,
+.article-maintenance,
+.article-event {
 	position: relative;
 	padding-top: rem(48px);
 	padding-bottom: rem(72px);
@@ -9,6 +11,33 @@
 	}
 }
 
-.content__bottom {
-	padding: rem(16px);
+.group-left__description,
+.group-right__description {
+	@include showFrom(m);
 }
+
+.border {
+
+	&-section,
+	&-header-top {
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	&-header-bottom {
+		border-top: 1px solid var(--border-color);
+	}
+
+	@include from(m) {
+		&::before {
+			content: "";
+			position: absolute;
+			height: 90%;
+			width: 1px;
+			background: var(--border-color);
+			top: 16px;
+			left: 50%;
+		}
+
+	}
+}
+

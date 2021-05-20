@@ -5,7 +5,7 @@ import ChangeThemeButton from './ChangeThemeButton'
 
 const HeaderMenu = () => {
 	return (
-		<div className="main-header s-main-center">
+		<header className="main-header s-main-center">
 			<div className="ed-grid">
 				<div className="s-cross-center">
 					<Logo />
@@ -15,7 +15,7 @@ const HeaderMenu = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</header>
 	)
 }
 

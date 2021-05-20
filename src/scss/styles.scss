@@ -30,10 +30,12 @@ $l-unit           : .25rem;        // (4px) Unidad básica de layout (para separ
 
 // Layout
 // @import "layout/grid";
+@import "layout/banner";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/main";
 @import "layout/grilla";
+@import "layout/section";
 
 // Modules
 @import "modules/buttons";
@@ -41,7 +43,6 @@ $l-unit           : .25rem;        // (4px) Unidad básica de layout (para separ
 @import "modules/menu";
 
 // Components
-@import "components/banner";
 @import "components/cards";
 @import "components/discount";
 @import "components/event";
@@ -49,7 +50,6 @@ $l-unit           : .25rem;        // (4px) Unidad básica de layout (para separ
 @import "components/maintenance";
 @import "components/model";
 @import "components/nav";
-@import "components/section";
 @import "components/shop";
 
 

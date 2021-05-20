@@ -63,8 +63,6 @@
 	--header-height-mobile: 3.5em;
 	--header-height-web: 4em;
 
-	--color-test: #{map-get($accent-color, warning-200 )};
-
   // Variables para prototipar
   --border-radius          : #{$l-unit * 2}; // 8px
   // layout
@@ -109,7 +107,6 @@ body {
 h1 {
 	font-size: rem(map-get($mobile-fz, title ));
 	margin-bottom: var(--vertical-content-space);
-	color: var(--color-test);
 	@include from(m) {
 		font-size: rem(map-get($web-fz, title ));
 	}
