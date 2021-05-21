@@ -1,0 +1,29 @@
+
+.discountpage {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - var(--header-height-mobile));
+
+	@include from(m) {
+		min-height: calc(100vh - var(--header-height-web));
+	}
+}
+
+.discount-box__percentage {
+	position: absolute;
+	background: var(--error-400);
+	color: map-get($dark-color, title);
+	width: 100%;
+	height: calc( (100% - 1rem * 3 ) / 4);
+	border-radius: var(--border-radius);
+
+	@include fromTo(400px, 540px) {
+		font-size: rem(map-get($mobile-fz, content ));
+	}
+
+	@include fromTo(540px, 768px) {
+		font-size: rem(map-get($mobile-fz, title ));
+	}
+}
