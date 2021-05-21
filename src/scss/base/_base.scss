@@ -46,6 +46,7 @@
 	--bg-overlay-image: #{map-get($util-color, bg-overlay-image )};
 	--bg-overlay-section: #{map-get($util-color, bg-overlay-section-light )};
 	--border-color: #{map-get($util-color, border )};
+	--box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
 
 		// Colores para el boton en tema claro y oscuro
 	--bg-section-icon-light: #{map-get($theme-color, bg-light )};
@@ -86,7 +87,7 @@ body.dark {
 	--content-color: #{map-get($dark-color, content )};
 	--auxiliary-color: #{map-get($dark-color, auxiliary )};
 	--bg-overlay-section: #{map-get($util-color, bg-overlay-section-dark )};
-
+	--box-shadow: none;
 
 }
 
@@ -155,5 +156,9 @@ h1, h2 {
 h3, h4, h5, h6, p, small, span {
 	font-weight: 400;
 	font-family: var(--secondary-font);
+}
+
+a:hover {
+	text-decoration: none;
 }
 

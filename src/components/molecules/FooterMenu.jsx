@@ -5,31 +5,28 @@ import MaintenanceIcon from '../icons/dinamic/MaintenanceIcon'
 import HomeIcon from '../icons/dinamic/HomeIcon'
 import DiscountIcon from '../icons/dinamic/DiscountIcon'
 import EventIcon from '../icons/dinamic/EventIcon'
+import { Link } from 'react-router-dom'
 
-const FooterMenu = () => {
-
-	const handleClickIcon = () => {
-		console.log("CLICK");
-	}
+const FooterMenu = ({ status }) => {
 
 	return (
 		<footer className="main-footer s-main-center">
 			<div className="ed-grid s-grid-5 s-gap-0">
-				<div className="footer-icon s-main-center s-croos-center">
+				<Link to="/models" className={`footer-icon s-main-center s-croos-center ${status === "model" && "active"}`}>
 					<ModelIcon />
-				</div>
-				<div className="footer-icon s-main-center s-croos-center">
+				</Link>
+				<Link to="/maintenances" className={`footer-icon s-main-center s-croos-center ${status === "maintenance" && "active"}`}>
 					<MaintenanceIcon />
-				</div>
-				<div onClick={handleClickIcon} className="footer-icon active s-main-center s-croos-center">
+				</Link>
+				<Link to="/" className={`footer-icon s-main-center s-croos-center ${status === "home" && "active"}`}>
 					<HomeIcon />
-				</div>
-				<div className="footer-icon s-main-center s-croos-center">
+				</Link>
+				<Link to="/discounts" className={`footer-icon s-main-center s-croos-center ${status === "discount" && "active"}`}>
 					<DiscountIcon />
-				</div>
-				<div className="footer-icon s-main-center s-croos-center">
+				</Link>
+				<Link to="/events" className={`footer-icon s-main-center s-croos-center ${status === "event" && "active"}`}>
 					<EventIcon />
-				</div>
+				</Link>
 			</div>
 		</footer>
 	)

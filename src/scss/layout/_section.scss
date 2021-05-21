@@ -8,13 +8,11 @@
 	@include from(m) {
 		height: 620px;
 		max-height: none;
-		// height: calc(100vh - var(--header-height-web));
 	}
 
 	@include from(lg) {
 		height: 744px;
 		max-height: none;
-		// height: calc(100vh - var(--header-height-web));
 	}
 
 }
@@ -28,4 +26,15 @@
 	object-fit: fill;
 	object-position: 50% 50%;
 	background: var(--bg-overlay-image);
+}
+
+.section-card {
+	position: relative;
+	padding-top: rem(32px);
+	padding-bottom: rem(88px);
+
+	@include from(m) {
+		padding-top: rem(80px);
+		padding-bottom: rem(80px);
+	}
 }
