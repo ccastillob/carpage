@@ -75,7 +75,7 @@
 	&-special-content {
 		cursor: auto;
 		width: 16px;
-		color: var(--content-color);
+		color: map-get($dark-color, content);
 	}
 	// Icono de eliminar
 	&-special-title {

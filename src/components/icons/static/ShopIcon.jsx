@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Shop = () => {
+const ShopIcon = () => {
 	return (
 		<div className="container-icon s-mr-2">
 			<svg className="icon-static" width="currentSize" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,4 +10,4 @@ const Shop = () => {
 	)
 }
 
-export default Shop;
+export default ShopIcon;

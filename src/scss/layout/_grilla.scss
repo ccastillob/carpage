@@ -74,6 +74,10 @@
 	margin-top: rem(32px);
 }
 
+.mr-32 {
+	margin-right: rem(32px);
+}
+
 // Column gap
 
 .ed-grid.col-gap-8 {
@@ -95,6 +99,11 @@
 }
 
 // Row gap
+.ed-grid.row-gap-4 {
+	grid-row-gap: 0.25rem;
+	row-gap: 0.25rem;
+}
+
 .ed-grid.row-gap-16 {
 	grid-row-gap: 1rem;
 	row-gap: 1rem;
