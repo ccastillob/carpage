@@ -5,7 +5,7 @@ import HeaderMenu from '../molecules/HeaderMenu'
 export const MaintenancePage = () => {
 	return (
 		<>
-			<HeaderMenu />
+			<HeaderMenu status="maintenance"/>
 			<main className="main-container maintenancepage">
 				<h1>Pagina Mantenimiento</h1>
 			</main>

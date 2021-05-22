@@ -1,1 +1,19 @@
 // Contenido dentro del navbar(seccion de letras)
+
+.menu-container {
+
+	@include hideTo(m)
+}
+
+.menu-list {
+
+	&:hover > .content-color {
+		font-weight: bold;
+	}
+
+	& > .active {
+		font-weight: bold;
+		color: var(--title-color);
+	}
+}
+

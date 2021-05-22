@@ -5,7 +5,7 @@ import HeaderMenu from '../molecules/HeaderMenu'
 export const EventPage = () => {
 	return (
 		<>
-			<HeaderMenu />
+			<HeaderMenu status="event"/>
 			<main className="main-container eventpage">
 				<h1>Pagina Eventos</h1>
 			</main>

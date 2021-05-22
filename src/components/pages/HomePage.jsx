@@ -7,7 +7,7 @@ import PrimaryButton from '../atoms/PrimaryButton';
 export const HomePage = () => {
 	return (
 		<>
-		<HeaderMenu />
+		<HeaderMenu status="home"/>
 		<main className="main-container homepage">
 			<section className="section-banner border-section">
 				<img className="banner__hero-image" src="https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="cubone" />

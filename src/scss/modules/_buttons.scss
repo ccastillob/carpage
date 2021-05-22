@@ -6,32 +6,7 @@
 	height: 42px;
 }
 
-.checkbox {
-	opacity: 0;
-	position: absolute;
-	// Tema claro
-	& + .label-theme {
-		// Fondo label
-		background: var(--bg-section-icon-light);
-		// Fondo icono
-		& .ball {
-				background: var(--bg-icon-light);
-				border: 1px solid var(--bg-section-icon-light);
-		}
-	}
-	// Tema oscuro
-	&:checked + .label-theme {
-		// Fondo label
-		background: var(--bg-section-icon-dark);
-		// Fondo icono
-		& .ball {
-			background: var(--bg-icon-dark);
-			transform: translateX(21px);
-			border: 1px solid var(--bg-section-icon-dark);
-		}
-	}
-}
-
+// Tema claro
 .label-theme {
 	border-radius: 50px;
 	cursor: pointer;
@@ -42,6 +17,13 @@
 	position: relative;
 	height: 26px;
 	width: 50px;
+	background: var(--bg-section-icon-light);
+
+	// Tema oscuro
+	&.dark {
+		background: var(--bg-section-icon-dark);
+	}
+	// Tema claro
 	// Posicionamiento del circulo respecto al label
 	& .ball {
 		display: flex;
@@ -52,6 +34,14 @@
 		width: 22px;
 		transform: translateX(-3px);
 		transition: transform 0.2s linear;
+		background: var(--bg-icon-light);
+		border: 1px solid var(--bg-section-icon-light);
+		// Tema oscuro
+		&.dark {
+			background: var(--bg-icon-dark);
+			border: 1px solid var(--bg-section-icon-dark);
+			transform: translateX(21px);
+		}
 	}
 
 }

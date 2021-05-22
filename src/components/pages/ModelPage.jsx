@@ -8,7 +8,7 @@ export const ModelPage = () => {
 
 	return (
 		<>
-			<HeaderMenu />
+			<HeaderMenu status="model"/>
 			<main className="main-container modelpage">
 				<section className="section-card ed-grid s-grid-12 rows-gap">
 					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">

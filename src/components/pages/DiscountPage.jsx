@@ -6,7 +6,7 @@ import HeaderMenu from '../molecules/HeaderMenu'
 export const DiscountPage = () => {
 	return (
 		<>
-			<HeaderMenu />
+			<HeaderMenu status="discount"/>
 			<main className="main-container discountpage">
 				<section className="section-card ed-grid s-grid-12 rows-gap">
 					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">

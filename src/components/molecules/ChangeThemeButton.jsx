@@ -1,28 +1,58 @@
-import React, { useState } from 'react'
-import MoonIcon from '../icons/static/MoonIcon'
-import SunIcon from '../icons/static/SunIcon'
+import React, { useEffect, useState } from 'react'
+
+import MoonIcon from '../icons/static/MoonIcon';
+import SunIcon from '../icons/static/SunIcon';
 
 const ChangeThemeButton = () => {
 
-	const [show, setshow] = useState(false);
+	const [mode, setMode] = useState(() => localStorage.getItem("mode"));
 
-	const handleClickIcon = () => {
-		setshow(!show);
-		document.body.classList.toggle('dark');
+	useEffect(() => {
+		window.addEventListener("storage", setPreferedTheme);
+		return () => {
+			window.removeEventListener("storage", setPreferedTheme);
+		}
+	}, [])
+
+	const setPreferedTheme = () => {
+		const _mode = localStorage.getItem("mode");
+		if( _mode ) {
+			setMode(_mode)
+		}else{
+			setMode("light")
+		}
 	}
 
+	useEffect(() => {
+
+		if( mode === "dark" ) {
+			document.body.classList.add("dark");
+			localStorage.setItem("mode", "dark")
+		}else {
+			document.body.classList.remove("dark");
+			localStorage.setItem("mode", "light")
+		}
+
+	}, [mode])
+
 	return (
-		<div className="container-theme s-cross-center s-main-center s-mr-4">
-			<input className="checkbox" type="checkbox" id="chk" />
-			<label onClick={handleClickIcon} className="label-theme" htmlFor="chk">
-				<div className="ball">
-					{
-						show ? <MoonIcon /> : <SunIcon />
-					}
-				</div>
-			</label>
-		</div>
+		<>
+			{mode === "dark" ?
+			<div className="container-theme s-cross-center s-main-center s-mr-4">
+				<label onClick={ () => setMode(mode => mode === "dark" ? "light" : "dark") } className="label-theme dark" htmlFor="chk">
+					<div className="ball dark"> <MoonIcon /> </div>
+				</label>
+			</div>
+			:
+			<div className="container-theme s-cross-center s-main-center s-mr-4">
+				<label onClick={ () => setMode(mode => mode === "dark" ? "light" : "dark") } className="label-theme" htmlFor="chk">
+					<div className="ball"> <SunIcon /> </div>
+				</label>
+			</div>
+			}
+		</>
 	)
 }
 
-export default ChangeThemeButton
+export default ChangeThemeButton;
+
