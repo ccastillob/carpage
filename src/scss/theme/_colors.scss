@@ -88,3 +88,8 @@ $theme-color: (
 		color: #{map-get($dark-color, auxiliary)};
 	}
 }
+
+.primary-color {
+	color: var(--primary-color);
+	font-weight: bold;
+}

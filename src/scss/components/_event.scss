@@ -1,0 +1,18 @@
+
+.subtitle-font {
+	font-size: rem(map-get($mobile-fz, subtitle ));
+	@include from(m) {
+		font-size: rem(map-get($web-fz, subtitle ));
+	}
+}
+
+.inactive-color {
+	cursor: default;
+	color: #{map-get($light-color, title)};
+	background: #{map-get($dark-color, auxiliary)};
+
+	&:hover {
+		color: #{map-get($light-color, title)};
+		background: #{map-get($dark-color, auxiliary)};
+	}
+}

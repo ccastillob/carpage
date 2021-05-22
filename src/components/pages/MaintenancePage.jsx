@@ -86,6 +86,7 @@ export const MaintenancePage = () => {
 						</div>
 					</article>
 			</section>
+
 			</main>
 			<FooterMenu status="maintenance" />
 		</>
