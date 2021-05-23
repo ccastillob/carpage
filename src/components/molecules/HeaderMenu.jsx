@@ -31,7 +31,7 @@ const HeaderMenu = ({ status }) => {
 						</Link>
 					</div>
 						<ChangeThemeButton />
-						<ShopNavIcon />
+						<ShopNavIcon status={status === "shop" && "active"} />
 					</div>
 				</div>
 			</div>

@@ -104,6 +104,19 @@
 	row-gap: 0.25rem;
 }
 
+.ed-grid.row-gap-12 {
+		grid-row-gap: 0.25rem;
+		row-gap: 0.75rem;
+}
+
+.ed-grid.m-row-gap-8 {
+
+	@include from(m) {
+		grid-row-gap: 0.25rem;
+		row-gap: 0.5rem;
+	}
+}
+
 .ed-grid.row-gap-16 {
 	grid-row-gap: 1rem;
 	row-gap: 1rem;

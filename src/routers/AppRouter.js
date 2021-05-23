@@ -10,11 +10,17 @@ import { EventPage } from '../components/pages/EventPage';
 import { HomePage } from '../components/pages/HomePage';
 import { MaintenancePage } from '../components/pages/MaintenancePage';
 import { ModelPage } from '../components/pages/ModelPage';
+import { Shop } from '../components/pages/Shop';
 
 export const AppRouter = () => {
 	return (
 		<Router>
 			<Switch>
+				<Route
+					exact
+					path="/shop"
+					component={ Shop }
+				/>
 				<Route
 					exact
 					path="/events"
