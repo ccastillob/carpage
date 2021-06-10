@@ -5,10 +5,13 @@ import {
 	Route,
 	Redirect
 } from 'react-router-dom';
+import { DiscountDetails } from '../components/pages/DiscountDetails';
 import { DiscountPage } from '../components/pages/DiscountPage';
 import { EventPage } from '../components/pages/EventPage';
 import { HomePage } from '../components/pages/HomePage';
+import { MaintenanceDetails } from '../components/pages/MaintenanceDetails';
 import { MaintenancePage } from '../components/pages/MaintenancePage';
+import { ModelDetails } from '../components/pages/ModelDetails';
 import { ModelPage } from '../components/pages/ModelPage';
 import { Shop } from '../components/pages/Shop';
 
@@ -28,13 +31,28 @@ export const AppRouter = () => {
 				/>
 				<Route
 					exact
+					path="/discounts/:nameDiscount"
+					component={ DiscountDetails }
+				/>
+				<Route
+					exact
 					path="/discounts"
 					component={ DiscountPage }
 				/>
 				<Route
 					exact
+					path="/maintenances/:nameType"
+					component={ MaintenanceDetails }
+				/>
+				<Route
+					exact
 					path="/maintenances"
 					component={ MaintenancePage }
+				/>
+				<Route
+					exact
+					path="/models/:nameModel"
+					component={ ModelDetails }
 				/>
 				<Route
 					exact

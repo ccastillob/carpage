@@ -39,7 +39,7 @@ export const MaintenancePage = () => {
 								</div>
 							</div>
 							<div className="container-buttons mt-32">
-								<GhostButton urlTo="/" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
+								<GhostButton urlTo="/maintenances/hola" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
 								<SecondaryButton urlTo="/" icon={ <ShopIcon /> } title="Añádelo" />
 							</div>
 						</div>
@@ -80,7 +80,7 @@ export const MaintenancePage = () => {
 								</div>
 							</div>
 							<div className="container-buttons mt-32">
-								<GhostButton urlTo="/" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
+								<GhostButton urlTo="/maintenances/hola" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
 								<SecondaryButton urlTo="/" icon={ <ShopIcon /> } title="Añádelo" />
 							</div>
 						</div>

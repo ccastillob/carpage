@@ -66,9 +66,11 @@
 	// Icono que estan en botones secundarios y ghost
 	&-static {
 		width: 16px;
+		height: 16px;
 		// Icono para botones(secundario y ghost) en tamaños > 768px(lg)
 		@include from(m) {
 			width: 18px;
+			height: 18px;
 		}
 	}
 	// Icono de check para contenido
@@ -81,6 +83,25 @@
 	&-special-title {
 		width: 18px;
 		color: var(--title-color);
+	}
+
+	&-change {
+		vertical-align: middle;
+
+		@include from(m) {
+			vertical-align: middle;
+		}
+	}
+
+	&-select {
+		width: rem(22px);
+		height: rem(22px);
+		cursor: default;
+
+		@include from(m) {
+			width: rem(28px);
+			height: rem(28px);
+		}
 	}
 }
 

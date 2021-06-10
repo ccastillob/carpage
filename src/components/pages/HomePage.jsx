@@ -106,7 +106,7 @@ export const HomePage = () => {
 					</div>
 					<div className="event__group s-px-4 s-py-4 mt-24 m-order-1">
 						<p className="content-color justify">Los mejores eventos de autos en todo el mundo le pertenecen a una sola marca. ¿Te gustaría saber cuáles son?</p>
-						<PrimaryButton urlTo="/events" othersClass="s-to-center m-to-left mt-32" title="Si, vamos !" />
+						<PrimaryButton urlTo="/events/" othersClass="s-to-center m-to-left mt-32" title="Si, vamos !" />
 					</div>
 				</article>
 			</section>

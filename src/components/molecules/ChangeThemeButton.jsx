@@ -7,21 +7,21 @@ const ChangeThemeButton = () => {
 
 	const [mode, setMode] = useState(() => localStorage.getItem("mode"));
 
-	useEffect(() => {
-		window.addEventListener("storage", setPreferedTheme);
-		return () => {
-			window.removeEventListener("storage", setPreferedTheme);
-		}
-	}, [])
+	// useEffect(() => {
+	// 	window.addEventListener("storage", setPreferedTheme);
+	// 	return () => {
+	// 		window.removeEventListener("storage", setPreferedTheme);
+	// 	}
+	// }, [])
 
-	const setPreferedTheme = () => {
-		const _mode = localStorage.getItem("mode");
-		if( _mode ) {
-			setMode(_mode)
-		}else{
-			setMode("light")
-		}
-	}
+	// const setPreferedTheme = () => {
+	// 	const _mode = localStorage.getItem("mode");
+	// 	if( _mode ) {
+	// 		setMode(_mode)
+	// 	}else{
+	// 		setMode("light")
+	// 	}
+	// }
 
 	useEffect(() => {
 

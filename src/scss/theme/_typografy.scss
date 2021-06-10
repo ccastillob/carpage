@@ -8,7 +8,7 @@ $type-font: (
 	secondary-font: ('Oxygen', sans-serif),
 );
 
-// font-size variables para web >= 1024
+// font-size variables para web >= 768
 $web-fz: (
 	title: 36px,
 	subtitle: 28px,
@@ -18,7 +18,7 @@ $web-fz: (
 	smaller: 13px
 );
 
-// font-size variables para movil < 1024
+// font-size variables para movil < 768
 $mobile-fz: (
 	title: 24px,
 	subtitle: 20px,

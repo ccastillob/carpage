@@ -29,7 +29,10 @@
 }
 
 .section-card,
-.section-shop {
+.section-shop,
+.section-maintenance-details,
+.section-modeldetails,
+.section-discountdetails {
 	position: relative;
 	padding-top: rem(32px);
 	padding-bottom: rem(88px);

@@ -20,7 +20,7 @@ export const ModelPage = () => {
 							<h3 className="title-color">Audi A4</h3>
 							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
 							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton title="Conoce más" othersClass="mt-32"/>
+							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
 						</div>
 					</div>
 
@@ -33,7 +33,7 @@ export const ModelPage = () => {
 							<h3 className="title-color">Audi A4</h3>
 							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
 							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton title="Conoce más" othersClass="mt-32"/>
+							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
 						</div>
 					</div>
 
@@ -46,7 +46,7 @@ export const ModelPage = () => {
 							<h3 className="title-color">Audi A4</h3>
 							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
 							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton title="Conoce más" othersClass="mt-32"/>
+							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
 						</div>
 					</div>
 
@@ -59,7 +59,7 @@ export const ModelPage = () => {
 							<h3 className="title-color">Audi A4</h3>
 							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
 							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton title="Conoce más" othersClass="mt-32"/>
+							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
 						</div>
 					</div>
 
@@ -72,7 +72,7 @@ export const ModelPage = () => {
 							<h3 className="title-color">Audi A4</h3>
 							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
 							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton title="Conoce más" othersClass="mt-32"/>
+							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
 						</div>
 					</div>
 				</section>

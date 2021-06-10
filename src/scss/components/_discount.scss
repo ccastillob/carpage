@@ -1,5 +1,6 @@
 
-.discountpage {
+.discountpage,
+.discountdetails {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -26,4 +27,27 @@
 	@include fromTo(540px, 768px) {
 		font-size: rem(map-get($mobile-fz, title ));
 	}
+}
+
+.top-container__image {
+	margin-bottom: auto;
+}
+
+.discountdetails-box__percentage {
+	position: absolute;
+	background: var(--error-400);
+	color: map-get($dark-color, title);
+	width: 100%;
+	font-weight: normal;
+	height: calc( (100% - 1rem * 3 ) / 4);
+	border-radius: var(--border-radius);
+
+	@include fromTo(420px, 768px) {
+		font-size: rem(map-get($web-fz, title ));
+	}
+
+}
+
+.text__price-before {
+	text-decoration-line: line-through;
 }
