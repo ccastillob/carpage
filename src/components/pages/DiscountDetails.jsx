@@ -7,7 +7,7 @@ import HeaderMenu from '../molecules/HeaderMenu'
 
 export const DiscountDetails = () => {
 
-	const imagenReal = "https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+	// const imagenReal = "https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 
 	const [nameColor, setNameColor] = useState("initialState");
 	const [image, setImage] = useState("https://th.bing.com/th/id/R147d2b333a7aaee50658b9cfb9971007?rik=sTvrhVffgvY8uA&pid=ImgRaw")
