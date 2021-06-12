@@ -6,6 +6,10 @@ import HeaderMenu from '../molecules/HeaderMenu'
 
 export const ModelDetails = () => {
 
+	const imagePotencyModelDetail = "https://images.unsplash.com/photo-1543171165-6ec6ede147ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1552&q=80";
+	const imageAccelerationModelDetail = "https://images.unsplash.com/photo-1595387381801-5e290d2a1a90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
+	const imageVelocityModelDetail = "https://images.unsplash.com/photo-1563170561-435fcd7c0028?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+
 	// const [colorShow, setColorShow] = useState(false)
 
 	const color = "green"
@@ -61,7 +65,7 @@ export const ModelDetails = () => {
 
 						<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 							<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-								<img className="s-radius-2" src="https://images.unsplash.com/photo-1543171165-6ec6ede147ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1552&q=80" alt="model" />
+								<img className="s-radius-2" src={ imagePotencyModelDetail } alt="model" />
 								<div className="img-overlay"></div>
 							</div>
 							<h4 className="content-color s-center s-cols-12 m-cols-4 s-pt-2">Potencia máx</h4>
@@ -70,7 +74,7 @@ export const ModelDetails = () => {
 
 						<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 							<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-								<img className="s-radius-2" src="https://images.unsplash.com/photo-1595387381801-5e290d2a1a90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="model" />
+								<img className="s-radius-2" src={ imageAccelerationModelDetail } alt="model" />
 								<div className="img-overlay"></div>
 							</div>
 							<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-2">Aceleración(0 - 100 Km/h)</h4>
@@ -79,7 +83,7 @@ export const ModelDetails = () => {
 
 						<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 							<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-								<img className="s-radius-2" src="https://images.unsplash.com/photo-1563170561-435fcd7c0028?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="model" />
+								<img className="s-radius-2" src={ imageVelocityModelDetail } alt="model" />
 								<div className="img-overlay"></div>
 							</div>
 							<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-2">Velocidad máx</h4>

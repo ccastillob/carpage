@@ -9,12 +9,16 @@ import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 
 export const MaintenancePage = () => {
+
+	const imageMaintenanceBasicHome = "https://images.unsplash.com/photo-1590450175122-945cfdd0b2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80";
+	const imageMaintenanceAdvancedHome = "https://images.unsplash.com/photo-1518397727759-189caa3b89a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
+
 	return (
 		<>
 			<HeaderMenu status="maintenance"/>
 			<main className="main-container maintenancepage">
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1590450175122-945cfdd0b2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageMaintenanceBasicHome } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -47,7 +51,7 @@ export const MaintenancePage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1518397727759-189caa3b89a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageMaintenanceAdvancedHome } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">

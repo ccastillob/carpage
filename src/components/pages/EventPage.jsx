@@ -4,12 +4,18 @@ import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 
 export const EventPage = () => {
+
+	const imageAudiRacing = "https://images.unsplash.com/photo-1564405133580-7446ed4e260d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=734&q=80";
+	const imageAudiEvolution = "https://images.unsplash.com/photo-1600149383449-fe9ea041403f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+	const imageAudiAdvanced = "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80";
+	const imageAudiNight = "https://images.unsplash.com/photo-1574976266711-b402eb01d043?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+
 	return (
 		<>
 			<HeaderMenu status="event"/>
 			<main className="main-container eventpage">
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1564405133580-7446ed4e260d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=734&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageAudiRacing } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -23,7 +29,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1600149383449-fe9ea041403f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageAudiEvolution } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">
@@ -37,7 +43,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageAudiAdvanced } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -51,7 +57,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="https://images.unsplash.com/photo-1574976266711-b402eb01d043?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="cubone" />
+					<img className="banner__hero-image" src={ imageAudiNight } alt="cubone" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">
