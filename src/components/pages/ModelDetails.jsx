@@ -4,14 +4,21 @@ import ShopIcon from '../icons/static/ShopIcon'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 
-export const ModelDetails = () => {
+export const ModelDetails = ({match}) => {
 
 	const imagePotencyModelDetail = "https://images.unsplash.com/photo-1543171165-6ec6ede147ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1552&q=80";
 	const imageAccelerationModelDetail = "https://images.unsplash.com/photo-1595387381801-5e290d2a1a90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
 	const imageVelocityModelDetail = "https://images.unsplash.com/photo-1563170561-435fcd7c0028?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
 
 	// const [colorShow, setColorShow] = useState(false)
-
+	console.log(match.params.nameModel);
+	// Tomamos el valor que viene
+	const str = "Audi Advanced";
+	// Reemplazamos los espacios en blanco por guiones
+	const res = str.replace(" ", "-");
+	// Convertimos a minuscula
+	const convertString = res.toLowerCase();
+	console.log(convertString)
 	const color = "green"
 
 	const handleShowColor = (e) => {

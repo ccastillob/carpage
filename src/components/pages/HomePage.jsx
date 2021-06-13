@@ -26,7 +26,7 @@ export const HomePage = () => {
 				<article className="ed-grid article__banner">
 					<h1 className="title-color-dark">Nuevo Audi Etron GT</h1>
 					<h2 className="content-color-dark pt-24">Una idea que evoluciona tu camino.</h2>
-					<PrimaryButton urlTo="/" othersClass="mt-32" title="Conócelo aquí" />
+					<PrimaryButton urlTo="/models/audi-etron-gt" othersClass="mt-32" title="Conócelo aquí" />
 				</article>
 			</section>
 			<section className="section-model border-section">

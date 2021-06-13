@@ -1,10 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useFetchAllModels } from '../../hooks/useFetchAllModels'
 import SecondaryButton from '../atoms/SecondaryButton'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 
 export const ModelPage = () => {
 
+	const { data, loading } = useFetchAllModels();
+
+	useEffect(() => {
+		console.log(data[0]?.nameModel);
+		console.log(loading);
+
+	}, [data, loading])
 
 	return (
 		<>
