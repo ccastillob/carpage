@@ -94,5 +94,21 @@
 	&:hover {
 		background: var(--primary-alt-color);
 	}
+
+	&-secondary-danger {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--error-400);
+		font-size:  em(map-get($mobile-fz, normal ));
+
+		@include from(m) {
+			font-size:  em(map-get($web-fz, normal ));
+		}
+
+		&:hover {
+			background: var(--error-400);
+		}
+	}
 }
 

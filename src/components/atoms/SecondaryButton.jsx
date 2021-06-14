@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SecondaryButton = ({ othersClass, icon, title, urlTo  }) => {
+const SecondaryButton = ({ othersClass, icon, title, urlTo, event }) => {
+
+	const replaceStr = urlTo.replace(/ /g,"-");
+	const convertToLowerCase = replaceStr.toLowerCase();
+
 	return (
-		<Link to={urlTo} className={`button button-secondary ${othersClass}`}>
+		<Link onClick={event} to={convertToLowerCase} className={`button button-secondary ${othersClass}`}>
 			{icon}
 			{title}
 		</Link>
@@ -13,7 +17,7 @@ const SecondaryButton = ({ othersClass, icon, title, urlTo  }) => {
 SecondaryButton.defaultProps = {
 	othersClass: "",
 	title: "",
-	urlTo: "#"
+	urlTo: "/"
 }
 
 export default SecondaryButton

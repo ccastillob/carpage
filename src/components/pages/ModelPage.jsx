@@ -1,5 +1,8 @@
 import React from 'react'
+import { useState } from 'react'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { resetModelData } from '../../actions/model'
 import { useFetchAllModels } from '../../hooks/useFetchAllModels'
 import SecondaryButton from '../atoms/SecondaryButton'
 import FooterMenu from '../molecules/FooterMenu'
@@ -7,83 +10,73 @@ import HeaderMenu from '../molecules/HeaderMenu'
 
 export const ModelPage = () => {
 
-	const { data, loading } = useFetchAllModels();
+	const { data } = useFetchAllModels();
+	const dispatch = useDispatch();
+	const [loadingImages, setLoadingImages] = useState(false)
+	let arrayConteo = [];
+	let indice = 0;
+	// console.log(data);
 
 	useEffect(() => {
-		console.log(data[0]?.nameModel);
-		console.log(loading);
 
-	}, [data, loading])
+		dispatch( resetModelData() )
+
+	}, [dispatch])
+
+	const loadContent = (e) => {
+
+		if( e.type === "load" ){
+			arrayConteo.push(indice);
+			indice++;
+		}
+
+		if( arrayConteo.length === data.length ) {
+			setLoadingImages(true)
+		}
+
+	}
 
 	return (
 		<>
 			<HeaderMenu status="model"/>
-			<main className="main-container modelpage">
+			<main style={{ display: loadingImages ? "block" : "none" }} className="main-container modelpage">
 				<section className="section-card ed-grid s-grid-12 rows-gap">
-					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-						<div className="container__img s-ratio-16-9 img-container">
-							<img className="s-radius-2" src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="model" />
-							<div className="img-overlay"></div>
-						</div>
-						<div className="container__text s-pxy-4">
-							<h3 className="title-color">Audi A4</h3>
-							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
-							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
-						</div>
-					</div>
+					{
+						data.map( card =>
+							<div key={card._id} className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
+								<div className="container__img s-ratio-16-9 img-container">
+									<img onLoad={(e) => loadContent(e)} className="s-radius-2" src={ card?.arrayColors[0]?.imageColor } alt="imageCardModel" />
+									<div className="img-overlay"></div>
+								</div>
+								<div className="container__text s-pxy-4">
+									<h3 className="title-color">{ card.nameModel }</h3>
+									<h4 className="text__description content-color s-pt-2">{ card.descriptionModel }</h4>
+									<h4 className="content-color s-pt-4">$ { card.priceModel }</h4>
+									<SecondaryButton urlTo={`/models/${card.nameModel}`} title="Conoce más" othersClass="mt-32"/>
+								</div>
+							</div>
+						)
+					}
+				</section>
+			</main>
 
-					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-						<div className="container__img s-ratio-16-9 img-container">
-							<img className="s-radius-2" src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="model" />
-							<div className="img-overlay"></div>
-						</div>
-						<div className="container__text s-pxy-4">
-							<h3 className="title-color">Audi A4</h3>
-							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
-							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
-						</div>
-					</div>
-
-					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-						<div className="container__img s-ratio-16-9 img-container">
-							<img className="s-radius-2" src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="model" />
-							<div className="img-overlay"></div>
-						</div>
-						<div className="container__text s-pxy-4">
-							<h3 className="title-color">Audi A4</h3>
-							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
-							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
-						</div>
-					</div>
-
-					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-						<div className="container__img s-ratio-16-9 img-container">
-							<img className="s-radius-2" src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="model" />
-							<div className="img-overlay"></div>
-						</div>
-						<div className="container__text s-pxy-4">
-							<h3 className="title-color">Audi A4</h3>
-							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
-							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
-						</div>
-					</div>
-
-					<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-						<div className="container__img s-ratio-16-9 img-container">
-							<img className="s-radius-2" src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="model" />
-							<div className="img-overlay"></div>
-						</div>
-						<div className="container__text s-pxy-4">
-							<h3 className="title-color">Audi A4</h3>
-							<h4 className="text__description content-color s-pt-2">Potente, dinámico y más atractivo que nunca. El nuevo Audi A4 sorprende por su nuevo lenguaje de diseño, ampliamente renovado por dentro y por fuera.</h4>
-							<h4 className="content-color s-pt-4">$ 20800.00</h4>
-							<SecondaryButton urlTo="/models/hola" title="Conoce más" othersClass="mt-32"/>
-						</div>
-					</div>
+			<main style={{ display: loadingImages ? "none" : "block" }} className="main-container modelpage">
+				<section className="section-card ed-grid s-grid-12 rows-gap">
+					{
+						data.map( card => (
+							<div key={card._id} className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
+								<div className="container__img s-ratio-16-9 img-container">
+									<div className="img-overlay"></div>
+								</div>
+								<div className="container__text s-pxy-4">
+									<h3 className="title-color">Not title</h3>
+									<h4 className="text__description content-color s-pt-2">Not description</h4>
+									<h4 className="content-color s-pt-4">Not price</h4>
+									<SecondaryButton urlTo={`#`} title="Simple Button" othersClass="mt-32"/>
+								</div>
+							</div>
+						))
+					}
 				</section>
 			</main>
 			<FooterMenu status="model" />
