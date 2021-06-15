@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import { useFetchAllMaintenances } from '../../hooks/useFetchAllMaintenances'
 
 import GhostButton from '../atoms/GhostButton'
 import SecondaryButton from '../atoms/SecondaryButton'
@@ -13,10 +15,32 @@ export const MaintenancePage = () => {
 	const imageMaintenanceBasicHome = "https://images.unsplash.com/photo-1590450175122-945cfdd0b2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80";
 	const imageMaintenanceAdvancedHome = "https://images.unsplash.com/photo-1518397727759-189caa3b89a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
 
+	const { data, loading } = useFetchAllMaintenances();
+	const [basic, setBasic] = useState({});
+	const [advanced, setAdvanced] = useState({})
+
+	console.log(data)
+	console.log(loading)
+
+	useEffect(() => {
+		// Almacenar en cada reducer un mantenimiento
+		if( data.length > 0 ){
+			setBasic( data[0] );
+			setAdvanced( data[1] );
+		}
+
+		console.log(data[0]);
+
+	}, [data])
+
 	return (
 		<>
 			<HeaderMenu status="maintenance"/>
-			<main className="main-container maintenancepage">
+			{
+				loading ? (
+					<h1 className="title-color">Cargando toda la PAGINA...</h1>
+				) : (
+					<main className="main-container maintenancepage">
 				<section className="section-banner border-section">
 					<img className="banner__hero-image" src={ imageMaintenanceBasicHome } alt="cubone" />
 					<div className="banner__overlay"></div>
@@ -43,7 +67,7 @@ export const MaintenancePage = () => {
 								</div>
 							</div>
 							<div className="container-buttons mt-32">
-								<GhostButton urlTo="/maintenances/hola" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
+								<GhostButton urlTo={`/maintenances/${basic.nameMaintenance}`} icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
 								<SecondaryButton urlTo="/" icon={ <ShopIcon /> } title="Añádelo" />
 							</div>
 						</div>
@@ -84,7 +108,7 @@ export const MaintenancePage = () => {
 								</div>
 							</div>
 							<div className="container-buttons mt-32">
-								<GhostButton urlTo="/maintenances/hola" icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
+								<GhostButton urlTo={`/maintenances/${advanced.nameMaintenance}`} icon={<CustomizeIcon />} othersClass="mr-32" title="Personaliza" />
 								<SecondaryButton urlTo="/" icon={ <ShopIcon /> } title="Añádelo" />
 							</div>
 						</div>
@@ -92,6 +116,8 @@ export const MaintenancePage = () => {
 			</section>
 
 			</main>
+				)
+			}
 			<FooterMenu status="maintenance" />
 		</>
 	)
