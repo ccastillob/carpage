@@ -128,3 +128,14 @@
 	row-gap: 2rem;
 	--gap: 2rem;
 }
+
+.center-child {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.border-image-loader {
+	border: 2px solid var(--primary-color);
+}

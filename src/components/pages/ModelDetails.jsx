@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { SwapSpinner } from 'react-spinners-kit';
+
 import { startModelData } from '../../actions/model'
 import SecondaryButton from '../atoms/SecondaryButton'
 import ShopIcon from '../icons/static/ShopIcon'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
+import SkeletonModelDetails from '../skeletons/SkeletonModelDetails'
 
 export const ModelDetails = ({match}) => {
 
@@ -14,6 +18,11 @@ export const ModelDetails = ({match}) => {
 	const [nameColor, setNameColor] = useState("not color");
 	const [image, setImage] = useState("not image")
 	const [loading, setLoading] = useState(false)
+	const [loadingDetails, setLoadingDetails] = useState({
+		potency: false,
+		acceleration: false,
+		velocity: false
+	})
 	const [showButtonShop, setShowButtonShop] = useState(true)
 	const dataMyModel = useSelector(state => state.dataModel);
 	const { arrayColors } = useSelector(state => state.dataModel);
@@ -54,6 +63,29 @@ export const ModelDetails = ({match}) => {
 		if( e.type === "load" ) {
 			console.log("Cargue !!!");
 			setLoading(true)
+		}
+	}
+
+	const myLoadingDetails = e => {
+		console.log(e.target.alt);
+		if( e.target.alt === "potency" ) {
+			setLoadingDetails( {
+				...loadingDetails,
+				potency: true
+			} );
+		}
+		if( e.target.alt === "acceleration" ) {
+			setLoadingDetails( {
+				...loadingDetails,
+				acceleration: true
+			} );
+		}
+
+		if( e.target.alt === "velocity" ) {
+			setLoadingDetails( {
+				...loadingDetails,
+				velocity: true
+			} );
 		}
 	}
 
@@ -109,7 +141,8 @@ export const ModelDetails = ({match}) => {
 		<>
 			<HeaderMenu status="model"/>
 			{
-				arrayColors !== undefined ? (
+				( arrayColors !== undefined ) ? (
+					<SkeletonTheme color="#8e8e8f" >
 					<main className="main-container modeldetails">
 						<section className="section-modeldetails ed-grid s-grid-12">
 							<div className="p-relative content-grid-top ed-grid m-grid-12 s-cols-12">
@@ -117,8 +150,10 @@ export const ModelDetails = ({match}) => {
 									<img onLoad={ (e) => myLoading(e) } className="s-radius-2" src={ image } alt="modelDetail" />
 									<div className="img-overlay"></div>
 								</div>
-								<div style={ {display: loading ? "none" : "block"} } className="top-container__img s-ratio-16-9 img-container m-cols-6">
-									<h1 className="title-color">Cargando IMAGEN...</h1>
+								<div style={ {display: loading ? "none" : "flex"} } className="top-container__img s-ratio-16-9 border-image-loader img-container m-cols-6">
+									<div className="center-child">
+										<SwapSpinner color="#0080CA" size={70} />
+									</div>
 								</div>
 
 								<div className="top-container__text ed-grid m-grid-6 m-cols-3 s-px-4 s-pt-4 m-pxy-0 m-cols-6">
@@ -146,46 +181,55 @@ export const ModelDetails = ({match}) => {
 							<h2 className="title-color s-center m-left s-cols-12 pt-24 s-pb-4">Especificaciones técnicas</h2>
 							<div className="content-grid-bottom s-cols-12 ed-grid s-grid-12 m-grid-12 s-px-4 m-px-0 rows-gap">
 								<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
-									<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-										<img className="s-radius-2" src={ imagePotencyModelDetail } alt="model" />
+
+									<div style={ {display: loadingDetails.potency ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<img onLoad={myLoadingDetails} className="s-radius-2" src={ imagePotencyModelDetail } alt="potency" />
 										<div className="img-overlay"></div>
 									</div>
+									<div style={ {display: loadingDetails.potency ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<Skeleton style={{ position: "absolute" }} height={`100%`} width={`100%`} />
+									</div>
+
 									<h4 className="content-color s-center s-cols-12 m-cols-4 s-pt-2">Potencia máx</h4>
 									<h4 className="content-color s-center s-cols-12 m-cols-4 s-pt-1">{ dataMyModel.potency } HP</h4>
 								</div>
 
 								<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
-									<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-										<img className="s-radius-2" src={ imageAccelerationModelDetail } alt="model" />
+
+									<div style={ {display: loadingDetails.acceleration ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<img onLoad={myLoadingDetails} className="s-radius-2" src={ imageAccelerationModelDetail } alt="acceleration" />
 										<div className="img-overlay"></div>
 									</div>
+									<div style={ {display: loadingDetails.acceleration ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<Skeleton style={{ position: "absolute" }} height={`100%`} width={`100%`} />
+									</div>
+
 									<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-2">Aceleración(0 - 100 Km/h)</h4>
 									<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-1">{ dataMyModel.acceleration } s</h4>
 								</div>
 
 								<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
-									<div className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-										<img className="s-radius-2" src={ imageVelocityModelDetail } alt="model" />
+
+									<div style={ {display: loadingDetails.velocity ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<img onLoad={myLoadingDetails} className="s-radius-2" src={ imageVelocityModelDetail } alt="velocity" />
 										<div className="img-overlay"></div>
 									</div>
+									<div style={ {display: loadingDetails.velocity ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
+										<Skeleton style={{ position: "absolute" }} height={`100%`} width={`100%`} />
+									</div>
+
 									<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-2">Velocidad máx</h4>
 									<h4 className="content-color s-center s-cols-12 m-cols-4 m-cols-4 s-pt-1">{ dataMyModel.velocity } Km/h</h4>
 								</div>
 							</div>
 						</section>
 					</main>
+					</SkeletonTheme>
 				) : (
-					<main className="main-container modeldetails">
-						<section className="section-modeldetails ed-grid s-grid-12">
+					<SkeletonModelDetails />
+					)
+				}
 
-						<div className="p-relative content-grid-top ed-grid m-grid-12 s-cols-12">
-							<h1 className="title-color s-pt-4">Cargando...</h1>
-						</div>
-
-						</section>
-					</main>
-				)
-			}
 			<FooterMenu status="model" />
 		</>
 	)

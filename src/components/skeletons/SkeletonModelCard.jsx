@@ -1,10 +1,12 @@
+
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+
 const SkeletonModelCard = ({ loadingImages, dataArrLength }) => {
 
 	return(
 
-		<SkeletonTheme >
+		<SkeletonTheme color="#8e8e8f" >
 		<main style={{ display: loadingImages ? "none" : "block" }} className="main-container modelpage">
 			<section className="section-card ed-grid s-grid-12 rows-gap">
 				{
@@ -18,7 +20,8 @@ const SkeletonModelCard = ({ loadingImages, dataArrLength }) => {
 									<Skeleton width={`60%`} />
 								</h3>
 								<h4 className="text__description content-color s-pt-2">
-									<Skeleton width={`100%`} height={50} />
+									<Skeleton width={`100%`} />
+									<Skeleton width={`95%`} />
 								</h4>
 								<h4 className="content-color s-pt-4">
 									<Skeleton width={`20%`} />
