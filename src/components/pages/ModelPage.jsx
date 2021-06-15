@@ -7,6 +7,7 @@ import { useFetchAllModels } from '../../hooks/useFetchAllModels'
 import SecondaryButton from '../atoms/SecondaryButton'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
+import SkeletonModelCard from '../skeletons/SkeletonModelCard'
 
 export const ModelPage = () => {
 
@@ -60,25 +61,7 @@ export const ModelPage = () => {
 				</section>
 			</main>
 
-			<main style={{ display: loadingImages ? "none" : "block" }} className="main-container modelpage">
-				<section className="section-card ed-grid s-grid-12 rows-gap">
-					{
-						data.map( card => (
-							<div key={card._id} className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
-								<div className="container__img s-ratio-16-9 img-container">
-									<div className="img-overlay"></div>
-								</div>
-								<div className="container__text s-pxy-4">
-									<h3 className="title-color">Not title</h3>
-									<h4 className="text__description content-color s-pt-2">Not description</h4>
-									<h4 className="content-color s-pt-4">Not price</h4>
-									<SecondaryButton urlTo={`#`} title="Simple Button" othersClass="mt-32"/>
-								</div>
-							</div>
-						))
-					}
-				</section>
-			</main>
+			<SkeletonModelCard loadingImages={loadingImages} dataArrLength={data.length} />
 			<FooterMenu status="model" />
 		</>
 	)
