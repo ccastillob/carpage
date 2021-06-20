@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const GhostButton = ({ othersClass, icon, title, urlTo }) => {
+const GhostButton = ({ othersClass, icon, title, urlTo, event }) => {
 	return (
-		<Link to={urlTo} className={`button button-ghost ${othersClass}`}>
+		<Link onClick={event} to={urlTo} className={`button button-ghost ${othersClass}`}>
 			{icon}
 			{title}
 		</Link>
