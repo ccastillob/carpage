@@ -12,6 +12,8 @@ export const startModelData = (nameOfModel) => {
 			if( body.model.length > 0 ) {
 				const myModel = body.model[0];
 				dispatch( modelData(myModel) )
+			}else {
+				window.location.assign('/models')
 			}
 
 		} catch (error) {

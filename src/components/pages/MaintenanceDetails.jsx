@@ -21,7 +21,7 @@ export const MaintenanceDetails = ({match}) => {
 	const history = useHistory()
 	const [dataDetail, setDataDetail] = useState({})
 	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
-	const { arrayDetails: arrAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
+	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
 	useEffect(() => {
 
@@ -51,6 +51,14 @@ export const MaintenanceDetails = ({match}) => {
 		}
 
 	}, [data])
+
+	useEffect(() => {
+
+		if( match.params.nameType !== nameBasic || match.params.nameType === nameAdvanced ){
+			history.push("/maintenances")
+		}
+
+	}, [match, nameBasic, nameAdvanced, history])
 
 	useEffect(() => {
 

@@ -12,6 +12,8 @@ export const startDiscountData = (nameOfDiscount) => {
 			if( body.discount.length > 0 ) {
 				const myDiscount = body.discount[0];
 				dispatch( discountData(myDiscount) );
+			}else {
+				window.location.assign('/discounts')
 			}
 
 		} catch (error) {

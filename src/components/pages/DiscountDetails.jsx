@@ -124,6 +124,9 @@ export const DiscountDetails = ({match}) => {
 		e.preventDefault();
 		setShowButtonShop(false);
 		console.log("AÑADIDO");
+		console.log(nameColor);
+		console.log(((dataMyDiscount.priceDiscount*(100 - dataMyDiscount.percentage))/100).toFixed(2));
+		console.log(dataMyDiscount.nameDiscount);
 	}
 
 	const handleShopRemove = e => {
