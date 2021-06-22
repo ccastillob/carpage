@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
 import { resetDiscountData } from '../../actions/discount'
 import { useFetchAllDiscounts } from '../../hooks/useFetchAllDiscounts'
 import SecondaryButton from '../atoms/SecondaryButton'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
+import SkeletonDiscountCard from '../skeletons/SkeletonDiscountCard'
 
 export const DiscountPage = () => {
 
@@ -59,12 +61,11 @@ export const DiscountPage = () => {
 									<SecondaryButton urlTo={`/discounts/${cardDiscount.nameDiscount}`} title="Conoce más" othersClass="mt-32"/>
 								</div>
 							</div>
-
 						)
 					}
-
 				</section>
 			</main>
+			<SkeletonDiscountCard loadingImages={loadingImages} dataArrLength={data.length} />
 			<FooterMenu status="discount" />
 		</>
 	)
