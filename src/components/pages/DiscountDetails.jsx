@@ -10,6 +10,7 @@ import SecondaryButton from '../atoms/SecondaryButton'
 import ShopIcon from '../icons/static/ShopIcon'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
+import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
 
 export const DiscountDetails = ({match}) => {
 
@@ -227,7 +228,7 @@ export const DiscountDetails = ({match}) => {
 						</main>
 					</SkeletonTheme>
 				) : (
-					<h1 className="title-color">Cargando datos...</h1>
+					<SkeletonDiscountDetails />
 				)
 			}
 			<FooterMenu status="discount" />

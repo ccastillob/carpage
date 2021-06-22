@@ -27,7 +27,7 @@ const SkeletonDiscountCard = ({ loadingImages, dataArrLength }) => {
 									<Skeleton width={`20%`} />
 								</h4>
 								<h5 className="text__price-before content-color s-pt-1">
-									<Skeleton width={`20%`} />
+									<Skeleton width={`15%`} />
 								</h5>
 								<Skeleton className="mt-32 button button-secondary" width={`40%`} height={30} />
 							</div>
