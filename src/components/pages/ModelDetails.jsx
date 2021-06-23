@@ -23,14 +23,11 @@ export const ModelDetails = ({match}) => {
 		acceleration: false,
 		velocity: false
 	})
+	const [modelCart, setModelCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
 	const [showButtonShop, setShowButtonShop] = useState(true)
 	const dataMyModel = useSelector(state => state.dataModel);
 	const { arrayColors } = useSelector(state => state.dataModel);
 	const myLista = useRef(null)
-
-	// console.log(arrayColors);
-	// console.log(dataMyModel);
-	// console.log("inicio: " + loading);
 
 	const imagePotencyModelDetail = "https://images.unsplash.com/photo-1543171165-6ec6ede147ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1552&q=80";
 	const imageAccelerationModelDetail = "https://images.unsplash.com/photo-1595387381801-5e290d2a1a90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
@@ -59,6 +56,27 @@ export const ModelDetails = ({match}) => {
 
 	}, [match.params.nameModel, dispatch])
 
+	useEffect(() => {
+
+		if( modelCart !== null ) {
+
+			const nameCarModelSelect = modelCart.filter( mc => mc.nameItem === dataMyModel?.nameModel )[0];
+
+			if( nameCarModelSelect === undefined ) {
+				setShowButtonShop(true);
+			}else {
+
+				const newArrRemove = arrayColors.filter( arr => arr.nameColor === nameCarModelSelect.detailItem[0].detail )[0]
+				setImage(newArrRemove.imageColor)
+				setNameColor(newArrRemove.nameColor)
+				setShowButtonShop(false);
+
+			}
+
+		}
+
+	}, [modelCart, dataMyModel, arrayColors])
+
 	const myLoading = (e) => {
 		if( e.type === "load" ) {
 			console.log("Cargue !!!");
@@ -67,7 +85,7 @@ export const ModelDetails = ({match}) => {
 	}
 
 	const myLoadingDetails = e => {
-		console.log(e.target.alt);
+		// console.log(e.target.alt);
 		if( e.target.alt === "potency" ) {
 			setLoadingDetails( {
 				...loadingDetails,
@@ -112,9 +130,11 @@ export const ModelDetails = ({match}) => {
 		const attrValueElementSelect = elementSelect.getAttribute("disable");
 
 		if( attrValueElementSelect === "false" ) {
+
 			elementSelect.setAttribute("disable", true)
 			setNameColor( colorSelect.nameColor )
 			setImage( colorSelect.imageColor )
+
 		}else {
 			setLoading(true)
 		}
@@ -123,18 +143,49 @@ export const ModelDetails = ({match}) => {
 
 
 	const handleShopAdd = (e) => {
+
 		e.preventDefault();
 		setShowButtonShop(false);
-		console.log("AÑADIDO");
-		console.log(nameColor)
-		console.log(dataMyModel.priceModel);
-		console.log(dataMyModel.nameModel);
+		// console.log("AÑADIDO");
+		const structAddShop = [{
+			nameItem: dataMyModel.nameModel,
+			tagItem: "Normal",
+			stateItem: true,
+			priceItem: dataMyModel.priceModel,
+			detailItem: [{
+				detail: nameColor
+			}]
+		}]
+
+		if( modelCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify(structAddShop))
+			setModelCart( JSON.parse(localStorage.getItem("cart")) )
+
+		}else {
+
+			const myDataArr = JSON.parse(localStorage.getItem("cart"))
+			myDataArr.push(...structAddShop)
+			localStorage.setItem("cart", JSON.stringify(myDataArr))
+			setModelCart( JSON.parse(localStorage.getItem("cart")) )
+
+		}
+
 	}
 
 	const handleShopRemove = e => {
+
 		e.preventDefault();
+		myLista.current?.childNodes[0]?.classList.remove("active");
 		setShowButtonShop(true);
-		console.log("REMOVIDO");
+		// console.log("REMOVIDO");
+		const nameCarModelSubs = modelCart.filter( mc => mc.nameItem !== dataMyModel?.nameModel );
+		localStorage.setItem("cart", JSON.stringify(nameCarModelSubs))
+		setModelCart( JSON.parse(localStorage.getItem("cart")) )
+		const indexRemoveCarColor = arrayColors.findIndex( arrColor => arrColor.nameColor === nameColor)
+		myLista.current?.childNodes[indexRemoveCarColor]?.setAttribute("disable", true)
+		myLista.current?.childNodes[indexRemoveCarColor]?.classList.add("active");
+
 	}
 
 	return (
@@ -160,16 +211,38 @@ export const ModelDetails = ({match}) => {
 									<h2 className="title-color m-cols-6 s-center m-left">{ dataMyModel.nameModel }</h2>
 									<h3 className="text__view content-color s-pt-2 m-cols-6">{ dataMyModel.descriptionModel }</h3>
 									<h3 className="content-color s-center m-left s-pt-4 m-cols-6 s-mb-4">$ { dataMyModel.priceModel }</h3>
-									<div id="lista" ref={myLista} className="text__list-colors m-cols-4">
-										{
-											dataMyModel?.arrayColors?.map( mycolor => (
-												<div disable="false" key={mycolor._id} id={ mycolor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: mycolor.styleColor }}></div>
-											))
-										}
-									</div>
-									<h4 className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
 									{
-										showButtonShop ? (
+										(showButtonShop === true || showButtonShop === null) ? (
+											<>
+											<div style={{display:"flex"}} id="lista" ref={myLista} className="text__list-colors m-cols-4">
+												{
+
+														dataMyModel?.arrayColors?.map( mycolor => (
+															<div disable="false" key={mycolor._id} id={ mycolor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: mycolor.styleColor }}></div>
+														))
+
+												}
+											</div>
+											<h4 className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
+											</>
+										) : (
+											<>
+											<div style={{display:"none"}} id="lista" ref={myLista} className="text__list-colors m-cols-4">
+												{
+
+														dataMyModel?.arrayColors?.map( mycolor => (
+															<div disable="false" key={mycolor._id} id={ mycolor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: mycolor.styleColor }}></div>
+														))
+
+												}
+											</div>
+											<h4 style={{display:"none"}} className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
+											</>
+										)
+									}
+
+									{
+										(showButtonShop === true || showButtonShop === null) ? (
 											<SecondaryButton event={handleShopAdd} icon={<ShopIcon />} title="Añádelo al carrito" othersClass="mt-32 m-cols-6"/>
 										) : (
 											<SecondaryButton event={handleShopRemove} icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 m-cols-6 button-secondary-danger"/>
