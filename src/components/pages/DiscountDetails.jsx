@@ -29,6 +29,7 @@ export const DiscountDetails = ({match}) => {
 		acceleration: false,
 		velocity: false
 	});
+	const [discountCart, setDiscountCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
 	const [showButtonShop, setShowButtonShop] = useState(true);
 	const dataMyDiscount = useSelector(state => state.dataDiscount);
 	const { arrayColors } = useSelector(state => state.dataDiscount);
@@ -57,6 +58,26 @@ export const DiscountDetails = ({match}) => {
 
 	}, [match, dispatch])
 
+	useEffect(() => {
+
+		if( discountCart !== null ) {
+
+			const nameCarDiscountSelect = discountCart.filter( dc => dc.nameItem === dataMyDiscount?.nameDiscount )[0];
+
+			if( nameCarDiscountSelect === undefined ) {
+				setShowButtonShop(true);
+			}else {
+
+				const dataDiscountDetailsInitial = arrayColors.filter( arr => arr.nameColor === nameCarDiscountSelect.detailItem[0].detail )[0];
+				setImage(dataDiscountDetailsInitial.imageColor);
+				setNameColor(dataDiscountDetailsInitial.nameColor);
+				setShowButtonShop(false);
+
+			}
+		}
+
+	}, [discountCart, dataMyDiscount, arrayColors])
+
 	const myLoading = e => {
 
 		if( e.type === "load" ) {
@@ -68,7 +89,7 @@ export const DiscountDetails = ({match}) => {
 
 	const myLoadingDetails = e => {
 
-		console.log(e.target.alt);
+		// console.log(e.target.alt);
 		if( e.target.alt === "potency" ) {
 			setLoadingDetails({
 				...loadingDetails,
@@ -111,9 +132,11 @@ export const DiscountDetails = ({match}) => {
 		const attrValueElementSelect = elementSelect.getAttribute("disable");
 
 		if( attrValueElementSelect === "false" ) {
+
 			elementSelect.setAttribute("disable", true);
 			setNameColor( colorSelect.nameColor );
 			setImage( colorSelect.imageColor );
+
 		}else {
 			setLoading(true);
 		}
@@ -121,18 +144,52 @@ export const DiscountDetails = ({match}) => {
 	}
 
 	const handleShopAdd = e => {
+
 		e.preventDefault();
 		setShowButtonShop(false);
-		console.log("AÑADIDO");
-		console.log(nameColor);
-		console.log(((dataMyDiscount.priceDiscount*(100 - dataMyDiscount.percentage))/100).toFixed(2));
-		console.log(dataMyDiscount.nameDiscount);
+		// console.log("AÑADIDO");
+
+		const structAddShop = [{
+			nameItem: dataMyDiscount.nameDiscount,
+			tagItem: "Descuento",
+			stateItem: true,
+			priceItem: ((dataMyDiscount.priceDiscount*(100 - dataMyDiscount.percentage))/100).toFixed(2),
+			detailItem: [{
+				detail: nameColor
+			}]
+		}]
+
+		if( discountCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify( structAddShop ));
+			setDiscountCart( JSON.parse(localStorage.getItem("cart")) );
+
+		}else {
+
+			const myDataStorage = JSON.parse( localStorage.getItem("cart") );
+			myDataStorage.push(...structAddShop);
+			localStorage.setItem("cart", JSON.stringify( myDataStorage ));
+			setDiscountCart( JSON.parse( localStorage.getItem("cart") ) );
+
+		}
+
+
 	}
 
 	const handleShopRemove = e => {
+
 		e.preventDefault();
+		myLista.current?.childNodes[0]?.classList.remove("active");
 		setShowButtonShop(true);
-		console.log("REMOVIDO");
+		// console.log("REMOVIDO");
+
+		const nameCarDiscountSubs = discountCart.filter( dc => dc.nameItem !== dataMyDiscount?.nameDiscount );
+		localStorage.setItem("cart", JSON.stringify( nameCarDiscountSubs ));
+		setDiscountCart( JSON.parse( localStorage.getItem("cart") ) );
+		const indexRemoveCarColor = arrayColors.findIndex( arrColor => arrColor.nameColor === nameColor );
+		myLista.current?.childNodes[indexRemoveCarColor]?.setAttribute("disable", true);
+		myLista.current?.childNodes[indexRemoveCarColor]?.classList.add("active");
+
 	}
 
 	return (
@@ -165,16 +222,34 @@ export const DiscountDetails = ({match}) => {
 										<h3 className="text__view content-color s-pt-2 m-cols-6">{ dataMyDiscount.descriptionDiscount }</h3>
 										<h3 className="content-color s-center m-left s-pt-4 m-cols-6">$ { ((dataMyDiscount.priceDiscount*(100 - dataMyDiscount.percentage))/100).toFixed(2) }</h3>
 										<h4 className="text__price-before content-color s-center m-left s-pt-1 m-cols-6 s-mb-4">$ {dataMyDiscount.priceDiscount.toFixed(2)}</h4>
-										<div id="lista" ref={ myLista } className="text__list-colors m-cols-4">
-											{
-												dataMyDiscount?.arrayColors?.map( myColor => (
-													<div disable="false" key={myColor._id} id={ myColor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: myColor.styleColor }}></div>
-												))
-											}
-										</div>
-										<h4 className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
 										{
-											showButtonShop ? (
+											(showButtonShop === true || showButtonShop === null) ? (
+												<>
+												<div style={{display:"flex"}} id="lista" ref={ myLista } className="text__list-colors m-cols-4">
+													{
+														dataMyDiscount?.arrayColors?.map( myColor => (
+															<div disable="false" key={myColor._id} id={ myColor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: myColor.styleColor }}></div>
+														))
+													}
+												</div>
+												<h4 className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
+												</>
+											) : (
+												<>
+												<div style={{display:"none"}} id="lista" ref={ myLista } className="text__list-colors m-cols-4">
+													{
+														dataMyDiscount?.arrayColors?.map( myColor => (
+															<div disable="false" key={myColor._id} id={ myColor._id } onClick={(e) => handleShowColor(e)} className="colors__item" style={{background: myColor.styleColor }}></div>
+														))
+													}
+												</div>
+												<h4 className="text__name-colors content-color m-cols-4 s-center s-pt-1">{ nameColor }</h4>
+												</>
+											)
+										}
+
+										{
+											(showButtonShop === true || showButtonShop === null) ? (
 												<SecondaryButton event={handleShopAdd} icon={<ShopIcon />} title="Añádelo al carrito" othersClass="mt-32 m-cols-6"/>
 											) : (
 												<SecondaryButton event={handleShopRemove} icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 m-cols-6 button-secondary-danger"/>
