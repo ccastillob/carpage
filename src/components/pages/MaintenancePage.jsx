@@ -24,6 +24,7 @@ export const MaintenancePage = () => {
 		arrBasicSheleton: 4,
 		arrAdvancedSkeleton: 6
 	})
+	const [mainMaintenanceCart, setMainMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
 	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("addCart")))
 	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
@@ -87,6 +88,37 @@ export const MaintenancePage = () => {
 			shopBasic: true
 		})
 
+		const arrNamesMainBasicDetailsTrue = arrBasic.map( nd => (
+			{
+				detail: nd.nameDetail
+			}
+		))
+
+		const arrPricesMainBasicDetailsTrue = arrBasic.map( mbp => mbp.priceDetail )
+		const priceTotalMainBasicDetails = arrPricesMainBasicDetailsTrue.reduce( (a,b) => a + b,0 )
+
+		const structAddMainBasicShop = [{
+			nameItem: "Mantenimiento básico",
+			tagItem: "Full",
+			stateItem: true,
+			priceItem: priceTotalMainBasicDetails,
+			detailItem: arrNamesMainBasicDetailsTrue
+		}]
+
+		if( mainMaintenanceCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify( structAddMainBasicShop ))
+			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
+
+		}else {
+
+			const myDataMaintenanceMainBasic = JSON.parse( localStorage.getItem("cart") )
+			myDataMaintenanceMainBasic.push(...structAddMainBasicShop);
+			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainBasic));
+			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+
+		}
+
 	}
 
 	const handleMaintenanceBasicShopRemove = e => {
@@ -96,6 +128,10 @@ export const MaintenancePage = () => {
 			...showButtons,
 			shopBasic: false
 		})
+
+		const nameMaintenanceMainBasicSubs = mainMaintenanceCart.filter( mc => mc.nameItem !== "Mantenimiento básico" );
+		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainBasicSubs));
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
 
 	}
 
@@ -107,6 +143,37 @@ export const MaintenancePage = () => {
 			shopAdvanced: true
 		})
 
+		const arrNamesMainAdvancedDetailsTrue = arrAdvanced.map( nd => (
+			{
+				detail: nd.nameDetail
+			}
+		))
+
+		const arrPricesMainAdvancedDetailsTrue = arrAdvanced.map( mavp => mavp.priceDetail )
+		const priceTotalMainAdvancedDetails = arrPricesMainAdvancedDetailsTrue.reduce( (a,b) => a + b,0 )
+
+		const structAddMainAdvancedShop = [{
+			nameItem: "Mantenimiento avanzado",
+			tagItem: "Full",
+			stateItem: true,
+			priceItem: priceTotalMainAdvancedDetails,
+			detailItem: arrNamesMainAdvancedDetailsTrue
+		}]
+
+		if( mainMaintenanceCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify( structAddMainAdvancedShop ))
+			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
+
+		}else {
+
+			const myDataMaintenanceMainAdvanced = JSON.parse( localStorage.getItem("cart") )
+			myDataMaintenanceMainAdvanced.push(...structAddMainAdvancedShop);
+			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainAdvanced));
+			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
+
+		}
+
 	}
 
 	const handleMaintenanceAdvancedShopRemove = e => {
@@ -116,6 +183,10 @@ export const MaintenancePage = () => {
 			...showButtons,
 			shopAdvanced: false
 		})
+
+		const nameMaintenanceMainAdvancedSubs = mainMaintenanceCart.filter( mmavc => mmavc.nameItem !== "Mantenimiento avanzado" );
+		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainAdvancedSubs));
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
 
 	}
 

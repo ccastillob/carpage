@@ -20,6 +20,7 @@ export const MaintenanceDetails = ({match}) => {
 	const [priceAll, setPriceAll] = useState({totalPrice: 0})
 	const history = useHistory()
 	const [dataDetail, setDataDetail] = useState({})
+	const [maintenanceCart, setMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
 	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
@@ -36,8 +37,10 @@ export const MaintenanceDetails = ({match}) => {
 	useEffect(() => {
 
 		if( check === null && Object.values(dataDetail).length > 0 ) {
+
 			localStorage.setItem("maintenance", dataDetail );
 			setCheck(dataDetail);
+
 		}else {
 			localStorage.setItem("maintenance", JSON.stringify(check))
 		}
@@ -54,7 +57,7 @@ export const MaintenanceDetails = ({match}) => {
 
 	useEffect(() => {
 
-		if( match.params.nameType !== nameBasic || match.params.nameType === nameAdvanced ){
+		if( match.params.nameType !== nameBasic && match.params.nameType !== nameAdvanced ){
 			history.push("/maintenances")
 		}
 
@@ -63,36 +66,136 @@ export const MaintenanceDetails = ({match}) => {
 	useEffect(() => {
 
 		if( check !== null ) {
+
 			const arrObjectWithPriceTrue = check.filter( object => object.stateDetail === true );
 			const arrPrices = arrObjectWithPriceTrue.map( arr => arr.priceDetail )
 			const sumTotal = arrPrices.reduce( (a,b) => a + b,0 )
 			setPriceAll({totalPrice: sumTotal})
+
 		}
 
 	}, [check])
 
-	const handleAddRemoveProductCart = e => {
+	const handleAddBasicProductCart = e => {
 
 		e.preventDefault();
-		if( match.params.nameType === "basic" ) {
+		localStorage.setItem("addCart", JSON.stringify({
+			...showButtons,
+			shopBasic: true
+		}));
 
-			localStorage.setItem("addCart", JSON.stringify({
-				...showButtons,
-				shopBasic: !showButtons.shopBasic
-			}));
-			setShowButtons(JSON.parse(localStorage.getItem("addCart")));
-			console.log("Guardalo/Quitalo BASIC");
+		// Aqui debo hacer un filter y construir el objeto para almacenar en el localStorage
+		const checkBasicWithTrue = check.filter(ct => ct.stateDetail === true )
+		const arrNamesBasicDetailsTrue = checkBasicWithTrue.map( cn => (
+			{
+				detail: cn.nameDetail
+			}
+		))
+
+		const arrPricesBasicDetailsTrue = checkBasicWithTrue.map( cp => cp.priceDetail );
+		const priceTotalBasicDetails = arrPricesBasicDetailsTrue.reduce( (a,b) => a + b,0 )
+		const structAddMaintenanceBasicShop = [{
+			nameItem: "Mantenimiento básico",
+			tagItem: "Personalizado",
+			stateItem: true,
+			priceItem: priceTotalBasicDetails,
+			detailItem: arrNamesBasicDetailsTrue
+		}]
+
+		if( maintenanceCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceBasicShop ))
+			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) )
 
 		}else {
 
-			localStorage.setItem("addCart", JSON.stringify({
-				...showButtons,
-				shopAdvanced: !showButtons.shopAdvanced
-			}));
-			setShowButtons(JSON.parse(localStorage.getItem("addCart")));
-			console.log("Guardalo/Quitalo ADVANCED ");
+			const myDataMaintenanceBasic = JSON.parse( localStorage.getItem("cart") )
+			myDataMaintenanceBasic.push(...structAddMaintenanceBasicShop);
+			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceBasic));
+			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
 
 		}
+
+		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		console.log("Guardalo BASIC ");
+
+	}
+
+	const handleRemoveBasicProductCart = e => {
+
+		e.preventDefault();
+		localStorage.setItem("addCart", JSON.stringify({
+			...showButtons,
+			shopBasic: false
+		}));
+
+		const nameMaintenanceBasicSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento básico" );
+		localStorage.setItem("cart", JSON.stringify(nameMaintenanceBasicSubs));
+		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+
+		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		console.log("Quitalo BASIC ");
+
+	}
+
+	const handleAddAdvancedProductCart = e => {
+
+		e.preventDefault();
+		localStorage.setItem("addCart", JSON.stringify({
+			...showButtons,
+			shopAdvanced: true
+		}));
+
+		const checkAdvancedWithTrue = check.filter(ct => ct.stateDetail === true )
+		const arrNamesAdvancedDetailsTrue = checkAdvancedWithTrue.map( cn => (
+			{
+				detail: cn.nameDetail
+			}
+		))
+
+		const arrPricesAdvancedDetailsTrue = checkAdvancedWithTrue.map( cp => cp.priceDetail);
+		const priceTotalAdvancedDetails = arrPricesAdvancedDetailsTrue.reduce( (a,b) => a + b,0 )
+		const structAddMaintenanceAdvancedShop = [{
+			nameItem: "Mantenimiento avanzado",
+			tagItem: "Personalizado",
+			stateItem: true,
+			priceItem: priceTotalAdvancedDetails,
+			detailItem: arrNamesAdvancedDetailsTrue
+		}]
+
+		if( maintenanceCart === null ) {
+
+			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceAdvancedShop ))
+			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) )
+
+		}else {
+
+			const myDataMaintenanceAdvanced = JSON.parse( localStorage.getItem("cart") )
+			myDataMaintenanceAdvanced.push(...structAddMaintenanceAdvancedShop);
+			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceAdvanced));
+			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+
+		}
+
+		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		console.log("Guardalo ADVANCED ");
+
+	}
+
+	const handleRemoveAdvancedProductCart = e => {
+
+		e.preventDefault();
+		localStorage.setItem("addCart", JSON.stringify({
+			...showButtons,
+			shopAdvanced: false
+		}));
+
+		const nameMaintenanceAdvancedSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento avanzado" );
+		localStorage.setItem("cart", JSON.stringify(nameMaintenanceAdvancedSubs));
+		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
+
+		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		console.log("Quitalo ADVANCED ");
 
 	}
 
@@ -165,15 +268,15 @@ export const MaintenanceDetails = ({match}) => {
 								{
 									match.params.nameType === "basic" ? (
 										( showButtons?.shopBasic === false ) ? (
-											<SecondaryButton event={ handleAddRemoveProductCart } icon={ <ShopIcon /> } title="Añádelo al carrito" othersClass="mt-32"/>
+											<SecondaryButton event={ handleAddBasicProductCart } icon={ <ShopIcon /> } title="Añádelo al carrito" othersClass="mt-32"/>
 										) : (
-											<SecondaryButton event={ handleAddRemoveProductCart } icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 button-secondary-danger"/>
+											<SecondaryButton event={ handleRemoveBasicProductCart } icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 button-secondary-danger"/>
 										)
 									) : (
 										( showButtons?.shopAdvanced  === false ) ? (
-											<SecondaryButton event={ handleAddRemoveProductCart } icon={ <ShopIcon /> } title="Añádelo al carrito" othersClass="mt-32"/>
+											<SecondaryButton event={ handleAddAdvancedProductCart } icon={ <ShopIcon /> } title="Añádelo al carrito" othersClass="mt-32"/>
 										) : (
-											<SecondaryButton event={ handleAddRemoveProductCart } icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 button-secondary-danger"/>
+											<SecondaryButton event={ handleRemoveAdvancedProductCart } icon={<ShopIcon />} title="Quítalo del carrito" othersClass="mt-32 button-secondary-danger"/>
 										)
 									)
 								}
