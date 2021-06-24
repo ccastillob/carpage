@@ -117,6 +117,8 @@ export const MaintenanceDetails = ({match}) => {
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		// Redireccionamos luego de añadir el producto BASIC
+		history.push("/maintenances")
 		console.log("Guardalo BASIC ");
 
 	}
@@ -178,6 +180,8 @@ export const MaintenanceDetails = ({match}) => {
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		// Redireccionamos luego de añadir el producto ADVANCED
+		history.push("/maintenances")
 		console.log("Guardalo ADVANCED ");
 
 	}
