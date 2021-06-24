@@ -11,6 +11,7 @@ import ShopIcon from '../icons/static/ShopIcon'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
+import { useHistory } from 'react-router-dom';
 
 export const DiscountDetails = ({match}) => {
 
@@ -24,12 +25,13 @@ export const DiscountDetails = ({match}) => {
 	const [nameColor, setNameColor] = useState("not color");
 	const [image, setImage] = useState("not image");
 	const [loading, setLoading] = useState(false);
+	const history = useHistory();
 	const [loadingDetails, setLoadingDetails] = useState({
 		potency: false,
 		acceleration: false,
 		velocity: false
 	});
-	const [discountCart, setDiscountCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
+	const [discountCart, setDiscountCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
 	const [showButtonShop, setShowButtonShop] = useState(true);
 	const dataMyDiscount = useSelector(state => state.dataDiscount);
 	const { arrayColors } = useSelector(state => state.dataDiscount);
@@ -173,6 +175,8 @@ export const DiscountDetails = ({match}) => {
 
 		}
 
+		// Redireccionamos luego de añadir el producto DISCOUNTCAR
+		history.push("/shop")
 
 	}
 
