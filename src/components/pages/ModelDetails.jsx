@@ -11,6 +11,7 @@ import ShopIcon from '../icons/static/ShopIcon'
 import FooterMenu from '../molecules/FooterMenu'
 import HeaderMenu from '../molecules/HeaderMenu'
 import SkeletonModelDetails from '../skeletons/SkeletonModelDetails'
+import { useHistory } from 'react-router-dom';
 
 export const ModelDetails = ({match}) => {
 
@@ -18,6 +19,7 @@ export const ModelDetails = ({match}) => {
 	const [nameColor, setNameColor] = useState("not color");
 	const [image, setImage] = useState("not image")
 	const [loading, setLoading] = useState(false)
+	const history = useHistory()
 	const [loadingDetails, setLoadingDetails] = useState({
 		potency: false,
 		acceleration: false,
@@ -142,7 +144,7 @@ export const ModelDetails = ({match}) => {
 	}
 
 
-	const handleShopAdd = (e) => {
+	const handleShopAdd = e => {
 
 		e.preventDefault();
 		setShowButtonShop(false);
@@ -170,6 +172,9 @@ export const ModelDetails = ({match}) => {
 			setModelCart( JSON.parse(localStorage.getItem("cart")) )
 
 		}
+
+		// Redireccionamos luego de añadir el producto MODELCAR
+		history.push("/shop")
 
 	}
 
