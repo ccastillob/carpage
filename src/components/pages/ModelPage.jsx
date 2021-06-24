@@ -52,7 +52,7 @@ export const ModelPage = () => {
 								<div className="container__text s-pxy-4">
 									<h3 className="title-color">{ card.nameModel }</h3>
 									<h4 className="text__description content-color s-pt-2">{ card.descriptionModel }</h4>
-									<h4 className="content-color s-pt-4">$ { card.priceModel }</h4>
+									<h4 className="content-color s-pt-4">$ { card.priceModel.toFixed(2) }</h4>
 									<SecondaryButton urlTo={`/models/${card.nameModel}`} title="Conoce más" othersClass="mt-32"/>
 								</div>
 							</div>

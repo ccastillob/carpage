@@ -153,7 +153,7 @@ export const ModelDetails = ({match}) => {
 			nameItem: dataMyModel.nameModel,
 			tagItem: "Normal",
 			stateItem: true,
-			priceItem: dataMyModel.priceModel,
+			priceItem: dataMyModel.priceModel.toFixed(2),
 			detailItem: [{
 				detail: nameColor
 			}]
@@ -215,7 +215,7 @@ export const ModelDetails = ({match}) => {
 								<div className="top-container__text ed-grid m-grid-6 m-cols-3 s-px-4 s-pt-4 m-pxy-0 m-cols-6">
 									<h2 className="title-color m-cols-6 s-center m-left">{ dataMyModel.nameModel }</h2>
 									<h3 className="text__view content-color s-pt-2 m-cols-6">{ dataMyModel.descriptionModel }</h3>
-									<h3 className="content-color s-center m-left s-pt-4 m-cols-6 s-mb-4">$ { dataMyModel.priceModel }</h3>
+									<h3 className="content-color s-center m-left s-pt-4 m-cols-6 s-mb-4">$ { dataMyModel.priceModel.toFixed(2) }</h3>
 									{
 										(showButtonShop === true || showButtonShop === null) ? (
 											<>
