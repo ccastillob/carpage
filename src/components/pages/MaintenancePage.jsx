@@ -25,7 +25,7 @@ export const MaintenancePage = () => {
 		arrAdvancedSkeleton: 6
 	})
 	const [mainMaintenanceCart, setMainMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
-	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("addCart")))
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
 	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
@@ -47,7 +47,7 @@ export const MaintenancePage = () => {
 
 		if( showButtons === null ) {
 
-			localStorage.setItem("addCart", JSON.stringify({
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 				shopBasic: false,
 				shopAdvanced: false
 			}))
@@ -58,7 +58,7 @@ export const MaintenancePage = () => {
 			})
 
 		}else {
-			localStorage.setItem("addCart", JSON.stringify(showButtons))
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons))
 		}
 
 	}, [showButtons])
@@ -67,7 +67,7 @@ export const MaintenancePage = () => {
 	const customButtonBasic = () => {
 
 		if( showButtons.shopBasic === false ) {
-			localStorage.setItem("maintenance", null)
+			localStorage.setItem("statusDetails", null)
 		}
 
 	}
@@ -75,7 +75,7 @@ export const MaintenancePage = () => {
 	const customButtonAdvanced = () => {
 
 		if( showButtons.shopAdvanced === false ) {
-			localStorage.setItem("maintenance", null)
+			localStorage.setItem("statusDetails", null)
 		}
 
 	}

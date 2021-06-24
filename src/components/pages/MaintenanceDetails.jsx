@@ -14,8 +14,8 @@ import SkeletonMaintenanceDetails from '../skeletons/SkeletonMaintenanceDetails'
 
 export const MaintenanceDetails = ({match}) => {
 
-	const [check, setCheck] = useState(() => JSON.parse(localStorage.getItem("maintenance")));
-	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("addCart")))
+	const [check, setCheck] = useState(() => JSON.parse(localStorage.getItem("statusDetails")));
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
 	const [data, setData] = useState({});
 	const [priceAll, setPriceAll] = useState({totalPrice: 0})
 	const history = useHistory()
@@ -38,11 +38,11 @@ export const MaintenanceDetails = ({match}) => {
 
 		if( check === null && Object.values(dataDetail).length > 0 ) {
 
-			localStorage.setItem("maintenance", dataDetail );
+			localStorage.setItem("statusDetails", dataDetail );
 			setCheck(dataDetail);
 
 		}else {
-			localStorage.setItem("maintenance", JSON.stringify(check))
+			localStorage.setItem("statusDetails", JSON.stringify(check))
 		}
 
 	}, [check, dataDetail])
@@ -79,7 +79,7 @@ export const MaintenanceDetails = ({match}) => {
 	const handleAddBasicProductCart = e => {
 
 		e.preventDefault();
-		localStorage.setItem("addCart", JSON.stringify({
+		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopBasic: true
 		}));
@@ -116,7 +116,7 @@ export const MaintenanceDetails = ({match}) => {
 
 		}
 
-		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		// Redireccionamos luego de añadir el producto BASIC
 		history.push("/maintenances")
 		console.log("Guardalo BASIC ");
@@ -126,7 +126,7 @@ export const MaintenanceDetails = ({match}) => {
 	const handleRemoveBasicProductCart = e => {
 
 		e.preventDefault();
-		localStorage.setItem("addCart", JSON.stringify({
+		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopBasic: false
 		}));
@@ -135,7 +135,7 @@ export const MaintenanceDetails = ({match}) => {
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceBasicSubs));
 		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
 
-		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		console.log("Quitalo BASIC ");
 
 	}
@@ -143,7 +143,7 @@ export const MaintenanceDetails = ({match}) => {
 	const handleAddAdvancedProductCart = e => {
 
 		e.preventDefault();
-		localStorage.setItem("addCart", JSON.stringify({
+		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopAdvanced: true
 		}));
@@ -179,7 +179,7 @@ export const MaintenanceDetails = ({match}) => {
 
 		}
 
-		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		// Redireccionamos luego de añadir el producto ADVANCED
 		history.push("/maintenances")
 		console.log("Guardalo ADVANCED ");
@@ -189,7 +189,7 @@ export const MaintenanceDetails = ({match}) => {
 	const handleRemoveAdvancedProductCart = e => {
 
 		e.preventDefault();
-		localStorage.setItem("addCart", JSON.stringify({
+		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopAdvanced: false
 		}));
@@ -198,7 +198,7 @@ export const MaintenanceDetails = ({match}) => {
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceAdvancedSubs));
 		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
-		setShowButtons(JSON.parse(localStorage.getItem("addCart")));
+		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		console.log("Quitalo ADVANCED ");
 
 	}
