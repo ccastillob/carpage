@@ -3,7 +3,7 @@ import React from 'react'
 const PaymentIcon = () => {
 	return (
 		<div className="container-icon s-mr-2">
-			<svg className="icon-static" width="currentSize" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg className="icon-static" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M26.6307 15.9857L27.9673 15.4454C29.2388 14.9308 29.8634 13.4921 29.3711 12.2118L26.2424 4.07851C25.7417 2.78143 24.2843 2.13586 22.9872 2.63656C22.9689 2.64367 22.9506 2.65095 22.9324 2.65847L7.30024 9.13864C6.04925 9.65874 5.43428 11.0756 5.90864 12.3447L6.53801 14.023L7.59442 16.9181H23.4452L26.6307 15.9857Z" fill="#252B2D"/>
 				<path d="M21.6719 11.6226L26.1087 9.64194L26.4891 10.4898L22.0523 12.4705L21.6719 11.6226Z" fill="#252B2D"/>
 				<path d="M18.6954 10.636L25.1192 7.67117L25.5098 8.51733L19.0859 11.4822L18.6954 10.636Z" fill="#252B2D"/>
