@@ -1,27 +1,27 @@
 
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import SecondaryButton from '../atoms/SecondaryButton'
-import CheckIcon from '../icons/special/CheckIcon'
-import CancelIcon from '../icons/static/CancelIcon'
-import ShopIcon from '../icons/static/ShopIcon'
-import SuccessIcon from '../icons/static/SuccessIcon'
-import FooterMenu from '../molecules/FooterMenu'
-import HeaderMenu from '../molecules/HeaderMenu'
-import SkeletonMaintenanceDetails from '../skeletons/SkeletonMaintenanceDetails'
+import SecondaryButton from '../atoms/SecondaryButton';
+import CheckIcon from '../icons/special/CheckIcon';
+import CancelIcon from '../icons/static/CancelIcon';
+import ShopIcon from '../icons/static/ShopIcon';
+import SuccessIcon from '../icons/static/SuccessIcon';
+import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
+import SkeletonMaintenanceDetails from '../skeletons/SkeletonMaintenanceDetails';
 
 export const MaintenanceDetails = ({match}) => {
 
 	const [check, setCheck] = useState(() => JSON.parse(localStorage.getItem("statusDetails")));
-	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 	const [data, setData] = useState({});
-	const [priceAll, setPriceAll] = useState({totalPrice: 0})
-	const history = useHistory()
-	const [dataDetail, setDataDetail] = useState({})
-	const [maintenanceCart, setMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
-	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
+	const [priceAll, setPriceAll] = useState({totalPrice: 0});
+	const history = useHistory();
+	const [dataDetail, setDataDetail] = useState({});
+	const [maintenanceCart, setMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
+	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);;
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
 	useEffect(() => {
@@ -42,7 +42,7 @@ export const MaintenanceDetails = ({match}) => {
 			setCheck(dataDetail);
 
 		}else {
-			localStorage.setItem("statusDetails", JSON.stringify(check))
+			localStorage.setItem("statusDetails", JSON.stringify(check));
 		}
 
 	}, [check, dataDetail])
@@ -58,7 +58,7 @@ export const MaintenanceDetails = ({match}) => {
 	useEffect(() => {
 
 		if( match.params.nameType !== nameBasic && match.params.nameType !== nameAdvanced ){
-			history.push("/maintenances")
+			history.push("/maintenances");
 		}
 
 	}, [match, nameBasic, nameAdvanced, history])
@@ -68,9 +68,9 @@ export const MaintenanceDetails = ({match}) => {
 		if( check !== null ) {
 
 			const arrObjectWithPriceTrue = check.filter( object => object.stateDetail === true );
-			const arrPrices = arrObjectWithPriceTrue.map( arr => arr.priceDetail )
-			const sumTotal = arrPrices.reduce( (a,b) => a + b,0 )
-			setPriceAll({totalPrice: sumTotal})
+			const arrPrices = arrObjectWithPriceTrue.map( arr => arr.priceDetail );
+			const sumTotal = arrPrices.reduce( (a,b) => a + b,0 );
+			setPriceAll({totalPrice: sumTotal});
 
 		}
 
@@ -85,41 +85,40 @@ export const MaintenanceDetails = ({match}) => {
 		}));
 
 		// Aqui debo hacer un filter y construir el objeto para almacenar en el localStorage
-		const checkBasicWithTrue = check.filter(ct => ct.stateDetail === true )
+		const checkBasicWithTrue = check.filter(ct => ct.stateDetail === true );
 		const arrNamesBasicDetailsTrue = checkBasicWithTrue.map( cn => (
 			{
 				detail: cn.nameDetail
 			}
-		))
+		));
 
 		const arrPricesBasicDetailsTrue = checkBasicWithTrue.map( cp => cp.priceDetail );
-		const priceTotalBasicDetails = arrPricesBasicDetailsTrue.reduce( (a,b) => a + b,0 )
+		const priceTotalBasicDetails = arrPricesBasicDetailsTrue.reduce( (a,b) => a + b,0 );
 		const structAddMaintenanceBasicShop = [{
 			nameItem: "Mantenimiento básico",
 			tagItem: "Personalizado",
 			stateItem: true,
 			priceItem: priceTotalBasicDetails.toFixed(2),
 			detailItem: arrNamesBasicDetailsTrue
-		}]
+		}];
 
 		if( maintenanceCart === null ) {
 
-			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceBasicShop ))
-			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) )
+			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceBasicShop ));
+			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
 
 		}else {
 
-			const myDataMaintenanceBasic = JSON.parse( localStorage.getItem("cart") )
+			const myDataMaintenanceBasic = JSON.parse( localStorage.getItem("cart") );
 			myDataMaintenanceBasic.push(...structAddMaintenanceBasicShop);
 			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceBasic));
-			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		// Redireccionamos luego de añadir el producto BASIC
-		history.push("/maintenances")
-		console.log("Guardalo BASIC ");
+		history.push("/maintenances");
 
 	}
 
@@ -133,10 +132,8 @@ export const MaintenanceDetails = ({match}) => {
 
 		const nameMaintenanceBasicSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento básico" );
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceBasicSubs));
-		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
-
+		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
-		console.log("Quitalo BASIC ");
 
 	}
 
@@ -148,41 +145,40 @@ export const MaintenanceDetails = ({match}) => {
 			shopAdvanced: true
 		}));
 
-		const checkAdvancedWithTrue = check.filter(ct => ct.stateDetail === true )
+		const checkAdvancedWithTrue = check.filter(ct => ct.stateDetail === true );
 		const arrNamesAdvancedDetailsTrue = checkAdvancedWithTrue.map( cn => (
 			{
 				detail: cn.nameDetail
 			}
-		))
+		));
 
 		const arrPricesAdvancedDetailsTrue = checkAdvancedWithTrue.map( cp => cp.priceDetail);
-		const priceTotalAdvancedDetails = arrPricesAdvancedDetailsTrue.reduce( (a,b) => a + b,0 )
+		const priceTotalAdvancedDetails = arrPricesAdvancedDetailsTrue.reduce( (a,b) => a + b,0 );
 		const structAddMaintenanceAdvancedShop = [{
 			nameItem: "Mantenimiento avanzado",
 			tagItem: "Personalizado",
 			stateItem: true,
 			priceItem: priceTotalAdvancedDetails.toFixed(2),
 			detailItem: arrNamesAdvancedDetailsTrue
-		}]
+		}];
 
 		if( maintenanceCart === null ) {
 
-			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceAdvancedShop ))
-			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) )
+			localStorage.setItem("cart", JSON.stringify( structAddMaintenanceAdvancedShop ));
+			setMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
 
 		}else {
 
-			const myDataMaintenanceAdvanced = JSON.parse( localStorage.getItem("cart") )
+			const myDataMaintenanceAdvanced = JSON.parse( localStorage.getItem("cart") );
 			myDataMaintenanceAdvanced.push(...structAddMaintenanceAdvancedShop);
 			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceAdvanced));
-			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+			setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 		// Redireccionamos luego de añadir el producto ADVANCED
-		history.push("/maintenances")
-		console.log("Guardalo ADVANCED ");
+		history.push("/maintenances");
 
 	}
 
@@ -197,9 +193,7 @@ export const MaintenanceDetails = ({match}) => {
 		const nameMaintenanceAdvancedSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento avanzado" );
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceAdvancedSubs));
 		setMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
-
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
-		console.log("Quitalo ADVANCED ");
 
 	}
 

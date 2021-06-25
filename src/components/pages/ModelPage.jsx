@@ -1,38 +1,39 @@
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { resetModelData } from '../../actions/model'
-import { useFetchAllModels } from '../../hooks/useFetchAllModels'
-import SecondaryButton from '../atoms/SecondaryButton'
-import FooterMenu from '../molecules/FooterMenu'
-import HeaderMenu from '../molecules/HeaderMenu'
-import SkeletonModelCard from '../skeletons/SkeletonModelCard'
+
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { resetModelData } from '../../actions/model';
+import { useFetchAllModels } from '../../hooks/useFetchAllModels';
+import SecondaryButton from '../atoms/SecondaryButton';
+import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
+import SkeletonModelCard from '../skeletons/SkeletonModelCard';
 
 export const ModelPage = () => {
 
 	const { data } = useFetchAllModels();
 	const dispatch = useDispatch();
-	const [loadingImages, setLoadingImages] = useState(false)
+	const [loadingImages, setLoadingImages] = useState(false);
 	let arrayConteo = [];
 	let indice = 0;
-	// console.log(data);
 
 	useEffect(() => {
 
-		dispatch( resetModelData() )
+		dispatch( resetModelData() );
 
 	}, [dispatch])
 
 	const loadContent = (e) => {
 
 		if( e.type === "load" ){
+
 			arrayConteo.push(indice);
 			indice++;
+
 		}
 
 		if( arrayConteo.length === data.length ) {
-			setLoadingImages(true)
+			setLoadingImages(true);
 		}
 
 	}
@@ -46,7 +47,7 @@ export const ModelPage = () => {
 						data.map( card =>
 							<div key={card._id} className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
 								<div className="container__img s-ratio-16-9 img-container">
-									<img onLoad={(e) => loadContent(e)} className="s-radius-2" src={ card?.arrayColors[0]?.imageColor } alt="imageCardModel" />
+									<img onLoad={loadContent} className="s-radius-2" src={ card?.arrayColors[0]?.imageColor } alt="imageCardModel" />
 									<div className="img-overlay"></div>
 								</div>
 								<div className="container__text s-pxy-4">

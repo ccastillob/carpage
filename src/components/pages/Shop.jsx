@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import SecondaryButton from '../atoms/SecondaryButton'
 
-import CheckIcon from '../icons/special/CheckIcon'
-import DeleteIcon from '../icons/special/DeleteIcon'
-import PaymentIcon from '../icons/static/PaymentIcon'
-import FooterMenu from '../molecules/FooterMenu'
-import HeaderMenu from '../molecules/HeaderMenu'
+import React, { useState, useEffect } from 'react';
+
+import SecondaryButton from '../atoms/SecondaryButton';
+import CheckIcon from '../icons/special/CheckIcon';
+import DeleteIcon from '../icons/special/DeleteIcon';
+import PaymentIcon from '../icons/static/PaymentIcon';
+import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
 
 export const Shop = () => {
 
 	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
-	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
-	const [priceAllCart, setpriceAllCart] = useState(0)
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
+	const [priceAllCart, setpriceAllCart] = useState(0);
 
 	useEffect(() => {
 
 		const arrObjectWithPriceTrue = arrAddCart.filter( object => object.stateItem === true );
-		const arrPrices = arrObjectWithPriceTrue.map( arr => arr.priceItem )
-		const sumTotal = arrPrices.reduce( (a,b) => Number(a) + Number(b),0 )
+		const arrPrices = arrObjectWithPriceTrue.map( arr => arr.priceItem );
+		const sumTotal = arrPrices.reduce( (a,b) => Number(a) + Number(b),0 );
 		setpriceAllCart(sumTotal);
 
 	}, [arrAddCart])
@@ -30,15 +30,15 @@ export const Shop = () => {
 			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 				shopBasic: false,
 				shopAdvanced: false
-			}))
+			}));
 
 			setShowButtons({
 				shopBasic: false,
 				shopAdvanced: false
-			})
+			});
 
 		}else {
-			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons))
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons));
 		}
 
 	}, [showButtons])
@@ -54,14 +54,14 @@ export const Shop = () => {
 			setShowButtons({
 				...showButtons,
 				shopBasic: false
-			})
+			});
 		}
 
 		if( e.target.id === "Mantenimiento avanzado" ) {
 			setShowButtons({
 				...showButtons,
 				shopAdvanced: false
-			})
+			});
 		}
 
 	}

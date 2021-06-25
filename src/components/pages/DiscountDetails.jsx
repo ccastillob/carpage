@@ -1,25 +1,24 @@
-// import React, { useState } from 'react'
-import React, { useEffect, useState } from 'react'
-import { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+
+import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { SwapSpinner } from 'react-spinners-kit';
-
-import { startDiscountData } from '../../actions/discount'
-import SecondaryButton from '../atoms/SecondaryButton'
-import ShopIcon from '../icons/static/ShopIcon'
-import FooterMenu from '../molecules/FooterMenu'
-import HeaderMenu from '../molecules/HeaderMenu'
-import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
 import { useHistory } from 'react-router-dom';
+
+import { startDiscountData } from '../../actions/discount';
+import SecondaryButton from '../atoms/SecondaryButton';
+import ShopIcon from '../icons/static/ShopIcon';
+import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
+import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
 
 export const DiscountDetails = ({match}) => {
 
-	const imagePotencyDiscountDetail = "https://images.unsplash.com/photo-1543171165-6ec6ede147ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1552&q=80";
-	const imageAccelerationDiscountDetail = "https://images.unsplash.com/photo-1595387381801-5e290d2a1a90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
-	const imageVelocityDiscountDetail = "https://images.unsplash.com/photo-1563170561-435fcd7c0028?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
-
-	// const imagenReal = "https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+	// Imagenes
+	const imagePotencyDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimagePotencyDetail.jpg?alt=media&token=19043b18-3215-4768-a004-3618b4f3e1c2";
+	const imageAccelerationDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAccelerationDetail.jpg?alt=media&token=766b9d60-7a75-446e-b54b-0b8778340f77";
+	const imageVelocityDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelFirstDetailVelocity.jpg?alt=media&token=972a6d3f-f07d-467a-a3d2-239f40753978";
 
 	const dispatch = useDispatch();
 	const [nameColor, setNameColor] = useState("not color");
@@ -42,8 +41,10 @@ export const DiscountDetails = ({match}) => {
 		myLista.current?.childNodes[0]?.classList.add("active");
 
 		if( arrayColors !== undefined ) {
-			setNameColor( arrayColors[0].nameColor )
-			setImage( arrayColors[0].imageColor )
+
+			setNameColor( arrayColors[0].nameColor );
+			setImage( arrayColors[0].imageColor );
+
 		}
 
 	}, [arrayColors])
@@ -56,7 +57,7 @@ export const DiscountDetails = ({match}) => {
 		contenido = contenido.replace("Gt", "GT");
 		contenido = contenido.replace("Tfsie", "TFSIe");
 
-		dispatch( startDiscountData(contenido) )
+		dispatch( startDiscountData(contenido) );
 
 	}, [match, dispatch])
 
@@ -83,7 +84,6 @@ export const DiscountDetails = ({match}) => {
 	const myLoading = e => {
 
 		if( e.type === "load" ) {
-			console.log("CARGUE IMAGEN");
 			setLoading(true);
 		}
 
@@ -91,7 +91,6 @@ export const DiscountDetails = ({match}) => {
 
 	const myLoadingDetails = e => {
 
-		// console.log(e.target.alt);
 		if( e.target.alt === "potency" ) {
 			setLoadingDetails({
 				...loadingDetails,
@@ -149,7 +148,6 @@ export const DiscountDetails = ({match}) => {
 
 		e.preventDefault();
 		setShowButtonShop(false);
-		// console.log("AÑADIDO");
 
 		const structAddShop = [{
 			nameItem: dataMyDiscount.nameDiscount,
@@ -159,7 +157,7 @@ export const DiscountDetails = ({match}) => {
 			detailItem: [{
 				detail: nameColor
 			}]
-		}]
+		}];
 
 		if( discountCart === null ) {
 
@@ -176,7 +174,7 @@ export const DiscountDetails = ({match}) => {
 		}
 
 		// Redireccionamos luego de añadir el producto DISCOUNTCAR
-		history.push("/shop")
+		history.push("/shop");
 
 	}
 
@@ -185,7 +183,6 @@ export const DiscountDetails = ({match}) => {
 		e.preventDefault();
 		myLista.current?.childNodes[0]?.classList.remove("active");
 		setShowButtonShop(true);
-		// console.log("REMOVIDO");
 
 		const nameCarDiscountSubs = discountCart.filter( dc => dc.nameItem !== dataMyDiscount?.nameDiscount );
 		localStorage.setItem("cart", JSON.stringify( nameCarDiscountSubs ));

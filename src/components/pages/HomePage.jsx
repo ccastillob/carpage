@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React from 'react';
 
 import HeaderMenu from '../molecules/HeaderMenu';
 import FooterMenu from '../molecules/FooterMenu';
@@ -6,27 +7,28 @@ import PrimaryButton from '../atoms/PrimaryButton';
 
 export const HomePage = () => {
 
-	const imageMainCarHome = "https://images.pexels.com/photos/5975533/pexels-photo-5975533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-	const imageModelHome = "https://images.unsplash.com/photo-1519688758572-9ffb93688712?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80";
-	const imageModelFirstDetail = "https://images.unsplash.com/photo-1563170561-435fcd7c0028?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
-	const imageModelSecondDetail = "https://images.unsplash.com/photo-1527593167147-e9c94a5883e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
-	const imageModelThridDetail = "https://images.unsplash.com/flagged/photo-1568980872567-8eed8ee9fd7f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
-	const imageMaintenanceBasic = "https://images.unsplash.com/photo-1590450175122-945cfdd0b2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80";
-	const imageMaintenanceAdvanced = "https://images.unsplash.com/photo-1518397727759-189caa3b89a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
-	const imageDiscountHome = "https://images.unsplash.com/photo-1544220756-07413c2eab22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
-	const imageEventHome = "https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80";
+	// Imagenes
+	const imageMainCarHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMainCarHome.jpeg?alt=media&token=645b1f5a-21b1-4af1-86e7-9de131b8cee9";
+	const imageModelHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelHome.jpg?alt=media&token=03917931-cd40-4ffb-84fb-537a4826b23e";
+	const imageModelFirstDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelFirstDetailVelocity.jpg?alt=media&token=972a6d3f-f07d-467a-a3d2-239f40753978";
+	const imageModelSecondDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelSecondDetailComfort.jpg?alt=media&token=d9c73c58-e4ca-44e5-9925-a8d793d91be5";
+	const imageModelThridDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelThridDetailPotency.jpg?alt=media&token=36155a9c-757b-41a9-a069-6900d7e56809";
+	const imageMaintenanceBasic = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceBasic.jpg?alt=media&token=5207e8b0-2c6c-4087-9847-d2f97df99399";
+	const imageMaintenanceAdvanced = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceAdvanced.jpg?alt=media&token=f298a634-075e-426d-b140-f5fdd417e0e1";
+	const imageDiscountHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageDiscountHome.jpg?alt=media&token=618f1c26-81c0-48a8-b9f3-9f7573200eca";
+	const imageEventHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageEventHome.jpg?alt=media&token=16ea4d0b-03c9-489c-92cb-a7ef9a66042a";
 
 	return (
 		<>
 		<HeaderMenu status="home"/>
 		<main className="main-container homepage">
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src={ imageMainCarHome } alt="cubone" />
+				<img className="banner__hero-image" src={ imageMainCarHome } alt="imageMainCarHome" />
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner">
-					<h1 className="title-color-dark">Nuevo Audi Etron GT</h1>
+					<h1 className="title-color-dark">Nuevo Audi Etron GT Quattro</h1>
 					<h2 className="content-color-dark pt-24">Una idea que evoluciona tu camino.</h2>
-					<PrimaryButton urlTo="/models/audi-etron-gt" othersClass="mt-32" title="Conócelo aquí" />
+					<PrimaryButton urlTo="/models/audi-e-tron-gt-quattro" othersClass="mt-32" title="Conócelo aquí" />
 				</article>
 			</section>
 			<section className="section-model border-section">
@@ -74,7 +76,7 @@ export const HomePage = () => {
 						<div className="maintenance__group-left border m-pt-4 m-px-4">
 							<div className="group-left__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src={ imageMaintenanceBasic } alt="model" />
+									<img className="s-radius-2" src={ imageMaintenanceBasic } alt="imageMaintenanceBasic" />
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -84,7 +86,7 @@ export const HomePage = () => {
 						<div className="maintenance__group-right m-pt-4 m-px-4">
 							<div className="group-right__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src={ imageMaintenanceAdvanced } alt="model" />
+									<img className="s-radius-2" src={ imageMaintenanceAdvanced } alt="imageMaintenanceAdvanced" />
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -96,7 +98,7 @@ export const HomePage = () => {
 				</article>
 			</section>
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src={ imageDiscountHome } alt="cubone" />
+				<img className="banner__hero-image" src={ imageDiscountHome } alt="imageDiscountHome" />
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner m-grid-2">
 					<div className="banner__content m-cols-1 m-x-2">
@@ -111,7 +113,7 @@ export const HomePage = () => {
 					<h1 className="title-color s-center m-cols-2">Eventos</h1>
 					<div className="event__container-img ed-grid s-grid-1 m-grid-7 mt-32 m-order-2 s-pt-4 m-pxy-4">
 						<div className="container-img__content-img s-ratio-16-9 img-container m-cols-5 m-x-2">
-							<img className="s-radius-2" src={ imageEventHome } alt="event" />
+							<img className="s-radius-2" src={ imageEventHome } alt="imageEventHome" />
 							<div className="img-overlay"></div>
 						</div>
 					</div>

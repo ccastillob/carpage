@@ -1,31 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
-import { startMaintenanceAdvancedData } from '../../actions/maintenanceAdvanced'
-import { startMaintenanceBasicData } from '../../actions/maintenanceBasic'
-import { useFetchAllMaintenances } from '../../hooks/useFetchAllMaintenances'
-import GhostButton from '../atoms/GhostButton'
-import SecondaryButton from '../atoms/SecondaryButton'
-import CheckIcon from '../icons/special/CheckIcon'
-import CustomizeIcon from '../icons/static/CustomizeIcon'
-import ShopIcon from '../icons/static/ShopIcon'
-import FooterMenu from '../molecules/FooterMenu'
-import HeaderMenu from '../molecules/HeaderMenu'
-import SkeletonMaintenance from '../skeletons/SkeletonMaintenance'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { startMaintenanceAdvancedData } from '../../actions/maintenanceAdvanced';
+import { startMaintenanceBasicData } from '../../actions/maintenanceBasic';
+import { useFetchAllMaintenances } from '../../hooks/useFetchAllMaintenances';
+import GhostButton from '../atoms/GhostButton';
+import SecondaryButton from '../atoms/SecondaryButton';
+import CheckIcon from '../icons/special/CheckIcon';
+import CustomizeIcon from '../icons/static/CustomizeIcon';
+import ShopIcon from '../icons/static/ShopIcon';
+import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
+import SkeletonMaintenance from '../skeletons/SkeletonMaintenance';
 
 export const MaintenancePage = () => {
 
-	const imageMaintenanceBasicHome = "https://images.unsplash.com/photo-1590450175122-945cfdd0b2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80";
-	const imageMaintenanceAdvancedHome = "https://images.unsplash.com/photo-1518397727759-189caa3b89a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80";
+	// Imagenes
+	const imageMaintenanceBasicHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceBasic.jpg?alt=media&token=5207e8b0-2c6c-4087-9847-d2f97df99399";
+	const imageMaintenanceAdvancedHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceAdvanced.jpg?alt=media&token=f298a634-075e-426d-b140-f5fdd417e0e1";
 
 	const dispatch = useDispatch();
 	const { data, loading } = useFetchAllMaintenances();
 	const [arrSkeleton, setArrSkeleton] = useState({
 		arrBasicSheleton: 4,
 		arrAdvancedSkeleton: 6
-	})
-	const [mainMaintenanceCart, setMainMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
-	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
+	});
+	const [mainMaintenanceCart, setMainMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
@@ -33,12 +35,14 @@ export const MaintenancePage = () => {
 
 		// Almacenar en cada reducer un mantenimiento
 		if( data.length > 0 ){
+
 			dispatch(startMaintenanceBasicData(data[0]?.nameMaintenance));
-			dispatch( startMaintenanceAdvancedData(data[1]?.nameMaintenance) )
+			dispatch( startMaintenanceAdvancedData(data[1]?.nameMaintenance) );
 			setArrSkeleton({
 				arrBasicSheleton: data[0].arrayDetails.length,
 				arrAdvancedSkeleton: data[1].arrayDetails.length
-			})
+			});
+
 		}
 
 	}, [data, dispatch])
@@ -50,15 +54,15 @@ export const MaintenancePage = () => {
 			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 				shopBasic: false,
 				shopAdvanced: false
-			}))
+			}));
 
 			setShowButtons({
 				shopBasic: false,
 				shopAdvanced: false
-			})
+			});
 
 		}else {
-			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons))
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons));
 		}
 
 	}, [showButtons])
@@ -67,7 +71,7 @@ export const MaintenancePage = () => {
 	const customButtonBasic = () => {
 
 		if( showButtons.shopBasic === false ) {
-			localStorage.setItem("statusDetails", null)
+			localStorage.setItem("statusDetails", null);
 		}
 
 	}
@@ -75,7 +79,7 @@ export const MaintenancePage = () => {
 	const customButtonAdvanced = () => {
 
 		if( showButtons.shopAdvanced === false ) {
-			localStorage.setItem("statusDetails", null)
+			localStorage.setItem("statusDetails", null);
 		}
 
 	}
@@ -86,16 +90,16 @@ export const MaintenancePage = () => {
 		setShowButtons({
 			...showButtons,
 			shopBasic: true
-		})
+		});
 
 		const arrNamesMainBasicDetailsTrue = arrBasic.map( nd => (
 			{
 				detail: nd.nameDetail
 			}
-		))
+		));
 
-		const arrPricesMainBasicDetailsTrue = arrBasic.map( mbp => mbp.priceDetail )
-		const priceTotalMainBasicDetails = arrPricesMainBasicDetailsTrue.reduce( (a,b) => a + b,0 )
+		const arrPricesMainBasicDetailsTrue = arrBasic.map( mbp => mbp.priceDetail );
+		const priceTotalMainBasicDetails = arrPricesMainBasicDetailsTrue.reduce( (a,b) => a + b,0 );
 
 		const structAddMainBasicShop = [{
 			nameItem: "Mantenimiento básico",
@@ -103,19 +107,19 @@ export const MaintenancePage = () => {
 			stateItem: true,
 			priceItem: priceTotalMainBasicDetails.toFixed(2),
 			detailItem: arrNamesMainBasicDetailsTrue
-		}]
+		}];
 
 		if( mainMaintenanceCart === null ) {
 
-			localStorage.setItem("cart", JSON.stringify( structAddMainBasicShop ))
+			localStorage.setItem("cart", JSON.stringify( structAddMainBasicShop ));
 			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
 
 		}else {
 
-			const myDataMaintenanceMainBasic = JSON.parse( localStorage.getItem("cart") )
+			const myDataMaintenanceMainBasic = JSON.parse( localStorage.getItem("cart") );
 			myDataMaintenanceMainBasic.push(...structAddMainBasicShop);
 			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainBasic));
-			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 		}
 
@@ -127,11 +131,11 @@ export const MaintenancePage = () => {
 		setShowButtons({
 			...showButtons,
 			shopBasic: false
-		})
+		});
 
 		const nameMaintenanceMainBasicSubs = mainMaintenanceCart.filter( mc => mc.nameItem !== "Mantenimiento básico" );
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainBasicSubs));
-		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
 
@@ -141,16 +145,16 @@ export const MaintenancePage = () => {
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: true
-		})
+		});
 
 		const arrNamesMainAdvancedDetailsTrue = arrAdvanced.map( nd => (
 			{
 				detail: nd.nameDetail
 			}
-		))
+		));
 
-		const arrPricesMainAdvancedDetailsTrue = arrAdvanced.map( mavp => mavp.priceDetail )
-		const priceTotalMainAdvancedDetails = arrPricesMainAdvancedDetailsTrue.reduce( (a,b) => a + b,0 )
+		const arrPricesMainAdvancedDetailsTrue = arrAdvanced.map( mavp => mavp.priceDetail );
+		const priceTotalMainAdvancedDetails = arrPricesMainAdvancedDetailsTrue.reduce( (a,b) => a + b,0 );
 
 		const structAddMainAdvancedShop = [{
 			nameItem: "Mantenimiento avanzado",
@@ -158,16 +162,16 @@ export const MaintenancePage = () => {
 			stateItem: true,
 			priceItem: priceTotalMainAdvancedDetails.toFixed(2),
 			detailItem: arrNamesMainAdvancedDetailsTrue
-		}]
+		}];
 
 		if( mainMaintenanceCart === null ) {
 
-			localStorage.setItem("cart", JSON.stringify( structAddMainAdvancedShop ))
+			localStorage.setItem("cart", JSON.stringify( structAddMainAdvancedShop ));
 			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
 
 		}else {
 
-			const myDataMaintenanceMainAdvanced = JSON.parse( localStorage.getItem("cart") )
+			const myDataMaintenanceMainAdvanced = JSON.parse( localStorage.getItem("cart") );
 			myDataMaintenanceMainAdvanced.push(...structAddMainAdvancedShop);
 			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainAdvanced));
 			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
@@ -182,11 +186,11 @@ export const MaintenancePage = () => {
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: false
-		})
+		});
 
 		const nameMaintenanceMainAdvancedSubs = mainMaintenanceCart.filter( mmavc => mmavc.nameItem !== "Mantenimiento avanzado" );
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainAdvancedSubs));
-		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")))
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
 
