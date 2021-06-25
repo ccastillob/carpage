@@ -101,7 +101,7 @@ export const MaintenancePage = () => {
 			nameItem: "Mantenimiento básico",
 			tagItem: "Full",
 			stateItem: true,
-			priceItem: priceTotalMainBasicDetails,
+			priceItem: priceTotalMainBasicDetails.toFixed(2),
 			detailItem: arrNamesMainBasicDetailsTrue
 		}]
 
@@ -156,7 +156,7 @@ export const MaintenancePage = () => {
 			nameItem: "Mantenimiento avanzado",
 			tagItem: "Full",
 			stateItem: true,
-			priceItem: priceTotalMainAdvancedDetails,
+			priceItem: priceTotalMainAdvancedDetails.toFixed(2),
 			detailItem: arrNamesMainAdvancedDetailsTrue
 		}]
 

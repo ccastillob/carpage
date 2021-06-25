@@ -98,7 +98,7 @@ export const MaintenanceDetails = ({match}) => {
 			nameItem: "Mantenimiento básico",
 			tagItem: "Personalizado",
 			stateItem: true,
-			priceItem: priceTotalBasicDetails,
+			priceItem: priceTotalBasicDetails.toFixed(2),
 			detailItem: arrNamesBasicDetailsTrue
 		}]
 
@@ -161,7 +161,7 @@ export const MaintenanceDetails = ({match}) => {
 			nameItem: "Mantenimiento avanzado",
 			tagItem: "Personalizado",
 			stateItem: true,
-			priceItem: priceTotalAdvancedDetails,
+			priceItem: priceTotalAdvancedDetails.toFixed(2),
 			detailItem: arrNamesAdvancedDetailsTrue
 		}]
 
@@ -238,7 +238,7 @@ export const MaintenanceDetails = ({match}) => {
 													<CheckIcon otherClass="check-content-color" containerClass="check-container" />
 													<h3 className="content-color">{ details.nameDetail }</h3>
 												</div>
-												<h3 className="maintenance-services__price content-color m-cols-1 m-main-end m-x-3">$ { details.priceDetail }</h3>
+												<h3 className="maintenance-services__price content-color m-cols-1 m-main-end m-x-3">$ { details.priceDetail.toFixed(2) }</h3>
 												<div className="maintenance-services__delete s-main-end s-x-4 s-cols-1">
 													{
 														details.stateDetail === true ? (
@@ -265,7 +265,7 @@ export const MaintenanceDetails = ({match}) => {
 
 							<div className="maintenance-container-total ed-grid s-grid-4 s-cols-12 col-gap-16 s-pt-4">
 								<h3 className="total__text s-cols-2 content-color s-main-end">TOTAL</h3>
-								<h3 className="total__price s-cols-2 content-color m-cols-1 s-main-end m-x-3">$ {priceAll.totalPrice}</h3>
+								<h3 className="total__price s-cols-2 content-color m-cols-1 s-main-end m-x-3">$ {priceAll.totalPrice.toFixed(2)}</h3>
 							</div>
 
 							<div className="maintenance-container-button s-cols-12 s-main-end">
