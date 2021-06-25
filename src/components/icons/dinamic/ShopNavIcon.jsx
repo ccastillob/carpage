@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
 const ShopNav = ( {width, status} ) => {
 
-	const arrAddCart = useSelector(() => JSON.parse(localStorage.getItem("cart")));
+	let arrAddCart = useSelector(() => JSON.parse(localStorage.getItem("cart")));
+
+	if( arrAddCart.length === null ) {
+		arrAddCart = [];
+	}
 
 	return (
 		<>
