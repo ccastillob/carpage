@@ -10,10 +10,9 @@ import HeaderMenu from '../molecules/HeaderMenu'
 
 export const Shop = () => {
 
-	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")))
+	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
+	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")))
 	const [priceAllCart, setpriceAllCart] = useState(0)
-
-	console.log(arrAddCart);
 
 	useEffect(() => {
 
@@ -24,12 +23,46 @@ export const Shop = () => {
 
 	}, [arrAddCart])
 
+	useEffect(() => {
+
+		if( showButtons === null ) {
+
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
+				shopBasic: false,
+				shopAdvanced: false
+			}))
+
+			setShowButtons({
+				shopBasic: false,
+				shopAdvanced: false
+			})
+
+		}else {
+			localStorage.setItem("stateButtonsMaintenance", JSON.stringify(showButtons))
+		}
+
+	}, [showButtons])
+
 	const handleDelete = e => {
 
 		e.preventDefault();
 		const arrNameDetailSubs = arrAddCart.filter( c => c.nameItem !== e.target.id);
 		localStorage.setItem("cart", JSON.stringify(arrNameDetailSubs));
 		setArrAddCart(JSON.parse(localStorage.getItem("cart")));
+
+		if( e.target.id === "Mantenimiento básico" ) {
+			setShowButtons({
+				...showButtons,
+				shopBasic: false
+			})
+		}
+
+		if( e.target.id === "Mantenimiento avanzado" ) {
+			setShowButtons({
+				...showButtons,
+				shopAdvanced: false
+			})
+		}
 
 	}
 
