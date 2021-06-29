@@ -8,7 +8,7 @@ import PrimaryButton from '../atoms/PrimaryButton';
 export const HomePage = () => {
 
 	// Imagenes
-	const imageMainCarHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMainCarHome.jpeg?alt=media&token=645b1f5a-21b1-4af1-86e7-9de131b8cee9";
+	const imageMainCarHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMainCarHome.jpg?alt=media&token=47159615-e21f-429b-a100-0aad6ff8cab9";
 	const imageModelHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelHome.jpg?alt=media&token=03917931-cd40-4ffb-84fb-537a4826b23e";
 	const imageModelFirstDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelFirstDetailVelocity.jpg?alt=media&token=972a6d3f-f07d-467a-a3d2-239f40753978";
 	const imageModelSecondDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelSecondDetailComfort.jpg?alt=media&token=d9c73c58-e4ca-44e5-9925-a8d793d91be5";
