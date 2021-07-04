@@ -1,4 +1,3 @@
-
 // Importamos el useEffect y useState
 import { useEffect, useState } from 'react';
 // Importamos nuestro helper

@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PrimaryButton = ({ othersClass, title, urlTo }) => {
 	return (
@@ -13,4 +14,4 @@ PrimaryButton.defaultProps = {
 	urlTo: "/"
 }
 
-export default PrimaryButton
+export default PrimaryButton;

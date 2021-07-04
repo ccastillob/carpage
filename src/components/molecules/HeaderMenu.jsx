@@ -1,9 +1,10 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
 
-import ShopNavIcon from '../icons/dinamic/ShopNavIcon'
-import Logo from '../icons/static/Logo'
-import ChangeThemeButton from './ChangeThemeButton'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import ShopNavIcon from '../icons/dinamic/ShopNavIcon';
+import Logo from '../icons/static/Logo';
+import ChangeThemeButton from './ChangeThemeButton';
 
 const HeaderMenu = ({ status }) => {
 

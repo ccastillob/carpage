@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React from 'react';
 
 const DeleteIcon = ({event, myId}) => {
 	return (
@@ -12,4 +13,4 @@ const DeleteIcon = ({event, myId}) => {
 	)
 }
 
-export default DeleteIcon
+export default DeleteIcon;

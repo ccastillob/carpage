@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SecondaryButton = ({ othersClass, icon, title, urlTo, event }) => {
 
@@ -20,4 +21,4 @@ SecondaryButton.defaultProps = {
 	urlTo: "/"
 }
 
-export default SecondaryButton
+export default SecondaryButton;

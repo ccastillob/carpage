@@ -1,11 +1,12 @@
-import React from 'react'
 
-import ModelIcon from '../icons/dinamic/ModelIcon'
-import MaintenanceIcon from '../icons/dinamic/MaintenanceIcon'
-import HomeIcon from '../icons/dinamic/HomeIcon'
-import DiscountIcon from '../icons/dinamic/DiscountIcon'
-import EventIcon from '../icons/dinamic/EventIcon'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import ModelIcon from '../icons/dinamic/ModelIcon';
+import MaintenanceIcon from '../icons/dinamic/MaintenanceIcon';
+import HomeIcon from '../icons/dinamic/HomeIcon';
+import DiscountIcon from '../icons/dinamic/DiscountIcon';
+import EventIcon from '../icons/dinamic/EventIcon';
 
 const FooterMenu = ({ status }) => {
 
@@ -32,4 +33,4 @@ const FooterMenu = ({ status }) => {
 	)
 }
 
-export default FooterMenu
+export default FooterMenu;

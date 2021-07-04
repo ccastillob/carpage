@@ -21,7 +21,7 @@ export const MaintenanceDetails = ({match}) => {
 	const history = useHistory();
 	const [dataDetail, setDataDetail] = useState({});
 	const [maintenanceCart, setMaintenanceCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
-	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);;
+	const { arrayDetails: arrBasic, nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
 
 	useEffect(() => {

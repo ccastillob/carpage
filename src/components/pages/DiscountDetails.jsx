@@ -173,7 +173,7 @@ export const DiscountDetails = ({match}) => {
 
 		}
 
-		// Redireccionamos luego de añadir el producto DISCOUNTCAR
+		// Redireccionamos luego de añadir un producto
 		history.push("/shop");
 
 	}

@@ -177,7 +177,7 @@ export const ModelDetails = ({match}) => {
 
 		}
 
-		// Redireccionamos luego de añadir el producto MODELCAR
+		// Redireccionamos luego de añadir un producto
 		history.push("/shop");
 
 	}

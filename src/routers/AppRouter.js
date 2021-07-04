@@ -1,3 +1,4 @@
+// Importamos todo lo necesario para usar las rutas
 import React from 'react'
 import {
 	BrowserRouter as Router,
@@ -5,6 +6,8 @@ import {
 	Route,
 	Redirect
 } from 'react-router-dom';
+
+// Importamos nuestros componentes que se visualizarán para cada ruta
 import { DiscountDetails } from '../components/pages/DiscountDetails';
 import { DiscountPage } from '../components/pages/DiscountPage';
 import { EventPage } from '../components/pages/EventPage';
@@ -15,6 +18,7 @@ import { ModelDetails } from '../components/pages/ModelDetails';
 import { ModelPage } from '../components/pages/ModelPage';
 import { Shop } from '../components/pages/Shop';
 
+// Exportamos cada una de nuestras rutas con su respectivo componente
 export const AppRouter = () => {
 	return (
 		<Router>

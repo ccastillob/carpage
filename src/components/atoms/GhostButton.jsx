@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GhostButton = ({ othersClass, icon, title, urlTo, event }) => {
 	return (
@@ -16,4 +17,4 @@ GhostButton.defaultProps = {
 	urlTo: "/"
 }
 
-export default GhostButton
+export default GhostButton;

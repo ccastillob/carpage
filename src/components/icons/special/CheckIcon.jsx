@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React from 'react';
 
 const CheckIcon = ({ otherClass, containerClass }) => {
 	return (
@@ -15,4 +16,4 @@ CheckIcon.defaultProps = {
 	containerClass: ""
 }
 
-export default CheckIcon
+export default CheckIcon;

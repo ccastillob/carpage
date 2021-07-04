@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React from 'react';
 
 const CancelIcon = ( {width, otherClass, event, myid} ) => {
 	return (

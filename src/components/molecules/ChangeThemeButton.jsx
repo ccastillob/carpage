@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+
+import React, { useEffect, useState } from 'react';
 
 import MoonIcon from '../icons/static/MoonIcon';
 import SunIcon from '../icons/static/SunIcon';
@@ -17,9 +18,9 @@ const ChangeThemeButton = () => {
 	// const setPreferedTheme = () => {
 	// 	const _mode = localStorage.getItem("mode");
 	// 	if( _mode ) {
-	// 		setMode(_mode)
+	// 		setMode(_mode);
 	// 	}else{
-	// 		setMode("light")
+	// 		setMode("light");
 	// 	}
 	// }
 
@@ -27,10 +28,10 @@ const ChangeThemeButton = () => {
 
 		if( mode === "dark" ) {
 			document.body.classList.add("dark");
-			localStorage.setItem("mode", "dark")
+			localStorage.setItem("mode", "dark");
 		}else {
 			document.body.classList.remove("dark");
-			localStorage.setItem("mode", "light")
+			localStorage.setItem("mode", "light");
 		}
 
 	}, [mode])

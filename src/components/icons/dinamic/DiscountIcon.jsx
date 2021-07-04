@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React from 'react';
 
 const Discount = () => {
 	return (
@@ -13,4 +14,4 @@ const Discount = () => {
 	)
 }
 
-export default Discount
+export default Discount;
