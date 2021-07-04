@@ -15,11 +15,6 @@ import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
 
 export const DiscountDetails = ({match}) => {
 
-	// Imagenes
-	const imagePotencyDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimagePotencyDetail.jpg?alt=media&token=19043b18-3215-4768-a004-3618b4f3e1c2";
-	const imageAccelerationDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAccelerationDetail.jpg?alt=media&token=766b9d60-7a75-446e-b54b-0b8778340f77";
-	const imageVelocityDiscountDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelFirstDetailVelocity.jpg?alt=media&token=972a6d3f-f07d-467a-a3d2-239f40753978";
-
 	const dispatch = useDispatch();
 	const [nameColor, setNameColor] = useState("not color");
 	const [image, setImage] = useState("not image");
@@ -264,7 +259,7 @@ export const DiscountDetails = ({match}) => {
 									<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 
 										<div style={ {display: loadingDetails.potency ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-											<img onLoad={myLoadingDetails} className="s-radius-2" src={ imagePotencyDiscountDetail } alt="potency" />
+											<img onLoad={myLoadingDetails} className="s-radius-2" src="/assets/imagePotencyDetail.jpg" alt="potency" />
 											<div className="img-overlay"></div>
 										</div>
 										<div style={ {display: loadingDetails.potency ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
@@ -278,7 +273,7 @@ export const DiscountDetails = ({match}) => {
 									<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 
 										<div style={ {display: loadingDetails.acceleration ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-											<img onLoad={myLoadingDetails} className="s-radius-2" src={ imageAccelerationDiscountDetail } alt="acceleration" />
+											<img onLoad={myLoadingDetails} className="s-radius-2" src="/assets/imageAccelerationDetail.jpg" alt="acceleration" />
 											<div className="img-overlay"></div>
 										</div>
 										<div style={ {display: loadingDetails.acceleration ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
@@ -292,7 +287,7 @@ export const DiscountDetails = ({match}) => {
 									<div className="bottom-specification ed-grid s-grid-12 s-cols-12 m-grid-4 m-cols-4">
 
 										<div style={ {display: loadingDetails.velocity ? "block" : "none"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">
-											<img onLoad={myLoadingDetails} className="s-radius-2" src={ imageVelocityDiscountDetail } alt="velocity" />
+											<img onLoad={myLoadingDetails} className="s-radius-2" src="/assets/imageModelFirstDetailVelocity.jpg" alt="velocity" />
 											<div className="img-overlay"></div>
 										</div>
 										<div style={ {display: loadingDetails.velocity ? "none" : "block"} } className="specification-item__img s-ratio-4-3 img-container s-cols-6 s-x-4 m-cols-2 m-x-2">

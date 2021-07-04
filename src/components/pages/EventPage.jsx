@@ -7,18 +7,12 @@ import HeaderMenu from '../molecules/HeaderMenu';
 
 export const EventPage = () => {
 
-	// Imagenes
-	const imageAudiRacing = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAudiRacing.jpg?alt=media&token=27822745-0c4d-436d-99db-e78a6db4a5ee";
-	const imageAudiEvolution = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAudiEvolution.jpg?alt=media&token=7056e76b-2ed7-485a-a6a2-a0feb58d9718";
-	const imageAudiAdvanced = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAudiAdvanced.jpg?alt=media&token=8c54c73b-615a-4b44-9c63-8da4f15cd17b";
-	const imageAudiNight = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageAudiNight.jpg?alt=media&token=b51f40e2-73de-445b-a8be-70c3b6751fde";
-
 	return (
 		<>
 			<HeaderMenu status="event"/>
 			<main className="main-container eventpage">
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src={ imageAudiRacing } alt="imageAudiRacing" />
+					<img className="banner__hero-image" src="/assets/imageAudiRacing.jpg" alt="imageAudiRacing" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -32,7 +26,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src={ imageAudiEvolution } alt="imageAudiEvolution" />
+					<img className="banner__hero-image" src="/assets/imageAudiEvolution.jpg" alt="imageAudiEvolution" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">
@@ -46,7 +40,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src={ imageAudiAdvanced } alt="imageAudiAdvanced" />
+					<img className="banner__hero-image" src="/assets/imageAudiAdvanced.jpg" alt="imageAudiAdvanced" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -60,7 +54,7 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src={ imageAudiNight } alt="imageAudiNight" />
+					<img className="banner__hero-image" src="/assets/imageAudiNight.jpg" alt="imageAudiNight" />
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">

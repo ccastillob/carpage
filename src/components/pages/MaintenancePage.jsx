@@ -16,10 +16,6 @@ import SkeletonMaintenance from '../skeletons/SkeletonMaintenance';
 
 export const MaintenancePage = () => {
 
-	// Imagenes
-	const imageMaintenanceBasicHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceBasic.jpg?alt=media&token=5207e8b0-2c6c-4087-9847-d2f97df99399";
-	const imageMaintenanceAdvancedHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceAdvanced.jpg?alt=media&token=f298a634-075e-426d-b140-f5fdd417e0e1";
-
 	const dispatch = useDispatch();
 	const { data, loading } = useFetchAllMaintenances();
 	const [arrSkeleton, setArrSkeleton] = useState({
@@ -203,7 +199,7 @@ export const MaintenancePage = () => {
 				) : (
 					<main className="main-container maintenancepage">
 						<section className="section-banner border-section">
-							<img className="banner__hero-image" src={ imageMaintenanceBasicHome } alt="imgBgMaintenanceBasic" />
+							<img className="banner__hero-image" src="/assets/imageMaintenanceBasic.jpg" alt="imgBgMaintenanceBasic" />
 							<div className="banner__overlay"></div>
 							<article className="ed-grid article__banner m-grid-2">
 								<div className="banner__content m-cols-1">
@@ -238,7 +234,7 @@ export const MaintenancePage = () => {
 						</section>
 
 						<section className="section-banner border-section">
-							<img className="banner__hero-image" src={ imageMaintenanceAdvancedHome } alt="imgBgMaintenanceAdvanced" />
+							<img className="banner__hero-image" src="/assets/imageMaintenanceAdvanced.jpg" alt="imgBgMaintenanceAdvanced" />
 							<div className="banner__overlay"></div>
 							<article className="ed-grid article__banner m-grid-2">
 								<div className="banner__content m-cols-1 m-x-2">

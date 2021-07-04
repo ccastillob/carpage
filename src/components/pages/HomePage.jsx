@@ -7,23 +7,12 @@ import PrimaryButton from '../atoms/PrimaryButton';
 
 export const HomePage = () => {
 
-	// Imagenes
-	const imageMainCarHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMainCarHome.jpg?alt=media&token=47159615-e21f-429b-a100-0aad6ff8cab9";
-	const imageModelHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelHome.jpg?alt=media&token=03917931-cd40-4ffb-84fb-537a4826b23e";
-	const imageModelFirstDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelFirstDetailVelocity.jpg?alt=media&token=972a6d3f-f07d-467a-a3d2-239f40753978";
-	const imageModelSecondDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelSecondDetailComfort.jpg?alt=media&token=d9c73c58-e4ca-44e5-9925-a8d793d91be5";
-	const imageModelThridDetail = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageModelThridDetailPotency.jpg?alt=media&token=36155a9c-757b-41a9-a069-6900d7e56809";
-	const imageMaintenanceBasic = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceBasic.jpg?alt=media&token=5207e8b0-2c6c-4087-9847-d2f97df99399";
-	const imageMaintenanceAdvanced = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageMaintenanceAdvanced.jpg?alt=media&token=f298a634-075e-426d-b140-f5fdd417e0e1";
-	const imageDiscountHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageDiscountHome.jpg?alt=media&token=618f1c26-81c0-48a8-b9f3-9f7573200eca";
-	const imageEventHome = "https://firebasestorage.googleapis.com/v0/b/appcarpage.appspot.com/o/banner%2FimageEventHome.jpg?alt=media&token=16ea4d0b-03c9-489c-92cb-a7ef9a66042a";
-
 	return (
 		<>
 		<HeaderMenu status="home"/>
 		<main className="main-container homepage">
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src={ imageMainCarHome } alt="imageMainCarHome" />
+				<img className="banner__hero-image" src="/assets/imageMainCarHome.jpg" alt="imageMainCarHome" />
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner">
 					<h1 className="title-color-dark">Nuevo Audi Etron GT Quattro</h1>
@@ -36,7 +25,7 @@ export const HomePage = () => {
 					<h1 className="title-color s-center m-cols-2">Modelos</h1>
 					<div className="model__container-img ed-grid s-grid-1 m-grid-7 mt-32 m-order-2 m-px-4 m-py-4">
 						<div className="container-img__content-img s-ratio-16-9 img-container m-cols-5 m-x-2">
-							<img className="s-radius-2" src={ imageModelHome } alt="model" />
+							<img className="s-radius-2" src="/assets/imageModelHome.jpg" alt="model" />
 							<div className="img-overlay"></div>
 						</div>
 					</div>
@@ -45,21 +34,21 @@ export const HomePage = () => {
 						<div className="group__detail mt-24 ed-grid m-grid-3 rows-gap">
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src={ imageModelFirstDetail } alt="velocidad" />
+									<img className="s-radius-2" src="/assets/imageModelFirstDetailVelocity.jpg" alt="velocidad" />
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Velocidad</h4>
 							</div>
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src={ imageModelSecondDetail } alt="comodidad" />
+									<img className="s-radius-2" src="/assets/imageModelSecondDetailComfort.jpg" alt="comodidad" />
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Comodidad</h4>
 							</div>
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box ">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src={ imageModelThridDetail } alt="potencia" />
+									<img className="s-radius-2" src="/assets/imageModelThridDetailPotency.jpg" alt="potencia" />
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Potencia</h4>
@@ -76,7 +65,7 @@ export const HomePage = () => {
 						<div className="maintenance__group-left border m-pt-4 m-px-4">
 							<div className="group-left__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src={ imageMaintenanceBasic } alt="imageMaintenanceBasic" />
+									<img className="s-radius-2" src="/assets/imageMaintenanceBasic.jpg" alt="imageMaintenanceBasic" />
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -86,7 +75,7 @@ export const HomePage = () => {
 						<div className="maintenance__group-right m-pt-4 m-px-4">
 							<div className="group-right__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src={ imageMaintenanceAdvanced } alt="imageMaintenanceAdvanced" />
+									<img className="s-radius-2" src="/assets/imageMaintenanceAdvanced.jpg" alt="imageMaintenanceAdvanced" />
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -98,7 +87,7 @@ export const HomePage = () => {
 				</article>
 			</section>
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src={ imageDiscountHome } alt="imageDiscountHome" />
+				<img className="banner__hero-image" src="/assets/imageDiscountHome.jpg" alt="imageDiscountHome" />
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner m-grid-2">
 					<div className="banner__content m-cols-1 m-x-2">
@@ -113,7 +102,7 @@ export const HomePage = () => {
 					<h1 className="title-color s-center m-cols-2">Eventos</h1>
 					<div className="event__container-img ed-grid s-grid-1 m-grid-7 mt-32 m-order-2 s-pt-4 m-pxy-4">
 						<div className="container-img__content-img s-ratio-16-9 img-container m-cols-5 m-x-2">
-							<img className="s-radius-2" src={ imageEventHome } alt="imageEventHome" />
+							<img className="s-radius-2" src="/assets/imageEventHome.jpg" alt="imageEventHome" />
 							<div className="img-overlay"></div>
 						</div>
 					</div>
