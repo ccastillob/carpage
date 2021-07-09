@@ -22,6 +22,11 @@ export const useFetchAllModels = () => {
 					data: infoData.allListModels,
 					loading: false
 				})
+			}).catch( error => {
+				setState({
+					data: undefined,
+					loading: true
+				})
 			});
 
 	}, []);
