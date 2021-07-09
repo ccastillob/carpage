@@ -11,7 +11,7 @@ import { SectionMaintenanceAdvanced } from '../organisms/SectionMaintenanceAdvan
 import { SectionMaintenanceBasic } from '../organisms/SectionMaintenanceBasic';
 import SkeletonMaintenance from '../skeletons/SkeletonMaintenance';
 
-export const MaintenancePage = () => {
+const MaintenancePage = () => {
 
 	const dispatch = useDispatch();
 	const { data, loading } = useFetchAllMaintenances();
@@ -60,22 +60,24 @@ export const MaintenancePage = () => {
 	}, [showButtons])
 
 	return (
-		<>
-			<HeaderMenu status="maintenance"/>
-			{
-				( loading === true || arrBasic === undefined ) ? (
-					<SkeletonMaintenance dataArrBasicLength={arrSkeleton.arrBasicSheleton} dataArrAdvancedLength={arrSkeleton.arrAdvancedSkeleton}/>
-				) : (
-					<main className="main-container maintenancepage">
 
-						<SectionMaintenanceBasic arrBasic={arrBasic} showButtons={showButtons} setShowButtons={setShowButtons} mainMaintenanceCart={mainMaintenanceCart} setMainMaintenanceCart={setMainMaintenanceCart} />
+		( loading === true || arrBasic === undefined ) ? (
+			<SkeletonMaintenance dataArrBasicLength={arrSkeleton.arrBasicSheleton} dataArrAdvancedLength={arrSkeleton.arrAdvancedSkeleton}/>
+		) : (
+			<>
+				<HeaderMenu status="maintenance"/>
+				<main className="main-container maintenancepage">
 
-						<SectionMaintenanceAdvanced showButtons={ showButtons } setShowButtons={ setShowButtons } mainMaintenanceCart={ mainMaintenanceCart } setMainMaintenanceCart={ setMainMaintenanceCart } />
+					<SectionMaintenanceBasic arrBasic={arrBasic} showButtons={showButtons} setShowButtons={setShowButtons} mainMaintenanceCart={mainMaintenanceCart} setMainMaintenanceCart={setMainMaintenanceCart} />
 
-					</main>
-				)
-			}
-			<FooterMenu status="maintenance" />
-		</>
+					<SectionMaintenanceAdvanced showButtons={ showButtons } setShowButtons={ setShowButtons } mainMaintenanceCart={ mainMaintenanceCart } setMainMaintenanceCart={ setMainMaintenanceCart } />
+
+				</main>
+				<FooterMenu status="maintenance" />
+			</>
+		)
+
 	)
 }
+
+export default MaintenancePage;

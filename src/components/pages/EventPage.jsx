@@ -1,18 +1,25 @@
 
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import PrimaryButton from '../atoms/PrimaryButton';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
 
-export const EventPage = () => {
+const EventPage = () => {
 
 	return (
 		<>
 			<HeaderMenu status="event"/>
 			<main className="main-container eventpage">
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="/assets/imageAudiRacing.jpg" alt="imageAudiRacing" />
+					<LazyLoadImage
+						className="banner__hero-image"
+						src="/assets/imageAudiRacing.jpg"
+						alt="imageAudiRacing"
+						effect="blur"
+					/>
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -26,7 +33,12 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="/assets/imageAudiEvolution.jpg" alt="imageAudiEvolution" />
+					<LazyLoadImage
+						className="banner__hero-image"
+						src="/assets/imageAudiEvolution.jpg"
+						alt="imageAudiEvolution"
+						effect="blur"
+					/>
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">
@@ -40,7 +52,12 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="/assets/imageAudiAdvanced.jpg" alt="imageAudiAdvanced" />
+					<LazyLoadImage
+						className="banner__hero-image"
+						src="/assets/imageAudiAdvanced.jpg"
+						alt="imageAudiAdvanced"
+						effect="blur"
+					/>
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1">
@@ -54,7 +71,12 @@ export const EventPage = () => {
 				</section>
 
 				<section className="section-banner border-section">
-					<img className="banner__hero-image" src="/assets/imageAudiNight.jpg" alt="imageAudiNight" />
+					<LazyLoadImage
+						className="banner__hero-image"
+						src="/assets/imageAudiNight.jpg"
+						alt="imageAudiNight"
+						effect="blur"
+					/>
 					<div className="banner__overlay"></div>
 					<article className="ed-grid article__banner m-grid-2">
 						<div className="banner__content m-cols-1 m-x-2">
@@ -71,3 +93,5 @@ export const EventPage = () => {
 		</>
 	)
 }
+
+export default EventPage;

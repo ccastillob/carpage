@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { resetDiscountData } from '../../actions/discount';
@@ -9,13 +9,10 @@ import HeaderMenu from '../molecules/HeaderMenu';
 import { CardDiscount } from '../organisms/CardDiscount';
 import SkeletonDiscountCard from '../skeletons/SkeletonDiscountCard';
 
-export const DiscountPage = () => {
+const DiscountPage = () => {
 
 	const { data } = useFetchAllDiscounts();
 	const dispatch = useDispatch();
-	const [loadingImages, setLoadingImages] = useState(false);
-	let arrayConteo = [];
-	let indice = 0;
 
 	useEffect(() => {
 
@@ -23,36 +20,29 @@ export const DiscountPage = () => {
 
 	}, [dispatch])
 
-	// Espera la carga de imagenes de todos los descuentos, mientras muestra el skeleton
-	const loadContent = e => {
-
-		if( e.type === "load" ) {
-
-			arrayConteo.push(indice);
-			indice++;
-
-		}
-
-		if( arrayConteo.length === data.length ) {
-			setLoadingImages(true);
-		}
-
-	}
-
 	return (
-		<>
-			<HeaderMenu status="discount"/>
-			<main style={{ display: loadingImages ? "block" : "none" }} className="main-container discountpage">
-				<section className="section-card ed-grid s-grid-12 rows-gap">
-					{
-						data.map( cardDiscount =>
-							<CardDiscount key={ cardDiscount._id } loadContent={ loadContent } discount={ cardDiscount }/>
-						)
-					}
-				</section>
-			</main>
-			<SkeletonDiscountCard loadingImages={loadingImages} dataArrLength={data.length} />
-			<FooterMenu status="discount" />
-		</>
+
+		data.length ? (
+
+			<>
+				<HeaderMenu status="discount"/>
+				<main className="main-container discountpage">
+					<section className="section-card ed-grid s-grid-12 rows-gap">
+						{
+							data.map( cardDiscount =>
+								<CardDiscount key={ cardDiscount._id } discount={ cardDiscount }/>
+							)
+						}
+					</section>
+				</main>
+				<FooterMenu status="discount" />
+			</>
+
+		) : (
+			<SkeletonDiscountCard dataArrLength={8} />
+		)
+
 	)
 }
+
+export default DiscountPage;

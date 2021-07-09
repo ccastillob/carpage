@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import GhostButton from '../atoms/GhostButton';
 import SecondaryButton from '../atoms/SecondaryButton';
@@ -76,7 +78,12 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 
 	return (
 		<section className="section-banner border-section">
-			<img className="banner__hero-image" src="/assets/imageMaintenanceAdvanced.jpg" alt="imgBgMaintenanceAdvanced" />
+			<LazyLoadImage
+				className="banner__hero-image"
+				src="/assets/imageMaintenanceAdvanced.jpg"
+				alt="imgBgMaintenanceAdvanced"
+				effect="blur"
+			/>
 			<div className="banner__overlay"></div>
 			<article className="ed-grid article__banner m-grid-2">
 				<div className="banner__content m-cols-1 m-x-2">

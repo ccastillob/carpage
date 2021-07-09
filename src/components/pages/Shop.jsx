@@ -8,7 +8,7 @@ import PaymentIcon from '../icons/static/PaymentIcon';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
 
-export const Shop = () => {
+const Shop = () => {
 
 	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
 	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
@@ -133,3 +133,5 @@ export const Shop = () => {
 		</>
 	)
 }
+
+export default Shop;

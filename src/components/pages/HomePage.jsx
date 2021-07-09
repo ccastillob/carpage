@@ -1,18 +1,25 @@
 
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import HeaderMenu from '../molecules/HeaderMenu';
 import FooterMenu from '../molecules/FooterMenu';
 import PrimaryButton from '../atoms/PrimaryButton';
 
-export const HomePage = () => {
+const HomePage = () => {
 
 	return (
 		<>
 		<HeaderMenu status="home"/>
 		<main className="main-container homepage">
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src="/assets/imageMainCarHome.jpg" alt="imageMainCarHome" />
+				<LazyLoadImage
+					className="banner__hero-image"
+					src="/assets/imageMainCarHome.jpg"
+					alt="imageMainCarHome"
+					effect="blur"
+				/>
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner">
 					<h1 className="title-color-dark">Nuevo Audi Etron GT Quattro</h1>
@@ -25,7 +32,12 @@ export const HomePage = () => {
 					<h1 className="title-color s-center m-cols-2">Modelos</h1>
 					<div className="model__container-img ed-grid s-grid-1 m-grid-7 mt-32 m-order-2 m-px-4 m-py-4">
 						<div className="container-img__content-img s-ratio-16-9 img-container m-cols-5 m-x-2">
-							<img className="s-radius-2" src="/assets/imageModelHome.jpg" alt="model" />
+							<LazyLoadImage
+								className="s-radius-2"
+								src="/assets/imageModelHome.jpg"
+								alt="model"
+								effect="blur"
+							/>
 							<div className="img-overlay"></div>
 						</div>
 					</div>
@@ -34,21 +46,36 @@ export const HomePage = () => {
 						<div className="group__detail mt-24 ed-grid m-grid-3 rows-gap">
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src="/assets/imageModelFirstDetailVelocity.jpg" alt="velocidad" />
+									<LazyLoadImage
+										className="s-radius-2"
+										src="/assets/imageModelFirstDetailVelocity.jpg"
+										alt="velocidad"
+										effect="blur"
+									/>
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Velocidad</h4>
 							</div>
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src="/assets/imageModelSecondDetailComfort.jpg" alt="comodidad" />
+									<LazyLoadImage
+									 className="s-radius-2"
+									 src="/assets/imageModelSecondDetailComfort.jpg"
+									 alt="comodidad"
+									 effect="blur"
+									/>
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Comodidad</h4>
 							</div>
 							<div className="ed-grid s-grid-4 m-grid-1 col-gap-32 detail__box ">
 								<div className="box__img s-ratio-4-3 img-container s-cols-2 s-x-2 m-cols-1 m-x-1">
-									<img className="s-radius-2" src="/assets/imageModelThridDetailPotency.jpg" alt="potencia" />
+									<LazyLoadImage
+										className="s-radius-2"
+										src="/assets/imageModelThridDetailPotency.jpg"
+										alt="potencia"
+										effect="blur"
+									/>
 									<div className="img-overlay"></div>
 								</div>
 								<h4 className="box__text s-pt-1 s-center content-color s-cols-4 m-cols-1">Potencia</h4>
@@ -65,7 +92,12 @@ export const HomePage = () => {
 						<div className="maintenance__group-left border m-pt-4 m-px-4">
 							<div className="group-left__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src="/assets/imageMaintenanceBasic.jpg" alt="imageMaintenanceBasic" />
+									<LazyLoadImage
+										className="s-radius-2"
+										src="/assets/imageMaintenanceBasic.jpg"
+										alt="imageMaintenanceBasic"
+										effect="blur"
+									/>
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -75,7 +107,12 @@ export const HomePage = () => {
 						<div className="maintenance__group-right m-pt-4 m-px-4">
 							<div className="group-right__container-img ed-grid s-grid-1 m-grid-7">
 								<div className="s-ratio-16-9 img-container m-cols-5 m-x-2">
-									<img className="s-radius-2" src="/assets/imageMaintenanceAdvanced.jpg" alt="imageMaintenanceAdvanced" />
+									<LazyLoadImage
+										className="s-radius-2"
+										src="/assets/imageMaintenanceAdvanced.jpg"
+										alt="imageMaintenanceAdvanced"
+										effect="blur"
+									/>
 									<div className="img-overlay"></div>
 								</div>
 							</div>
@@ -87,7 +124,12 @@ export const HomePage = () => {
 				</article>
 			</section>
 			<section className="section-banner border-section">
-				<img className="banner__hero-image" src="/assets/imageDiscountHome.jpg" alt="imageDiscountHome" />
+				<LazyLoadImage
+					className="banner__hero-image"
+					src="/assets/imageDiscountHome.jpg"
+					alt="imageDiscountHome"
+					effect="blur"
+				/>
 				<div className="banner__overlay"></div>
 				<article className="ed-grid article__banner m-grid-2">
 					<div className="banner__content m-cols-1 m-x-2">
@@ -102,7 +144,12 @@ export const HomePage = () => {
 					<h1 className="title-color s-center m-cols-2">Eventos</h1>
 					<div className="event__container-img ed-grid s-grid-1 m-grid-7 mt-32 m-order-2 s-pt-4 m-pxy-4">
 						<div className="container-img__content-img s-ratio-16-9 img-container m-cols-5 m-x-2">
-							<img className="s-radius-2" src="/assets/imageEventHome.jpg" alt="imageEventHome" />
+							<LazyLoadImage
+								className="s-radius-2"
+								src="/assets/imageEventHome.jpg"
+								alt="imageEventHome"
+								effect="blur"
+							/>
 							<div className="img-overlay"></div>
 						</div>
 					</div>
@@ -119,3 +166,4 @@ export const HomePage = () => {
   )
 }
 
+export default HomePage;

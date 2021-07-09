@@ -1,15 +1,24 @@
 
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import SecondaryButton from '../atoms/SecondaryButton';
 
-export const CardDiscount = ({ discount, loadContent }) => {
+export const CardDiscount = ({ discount }) => {
+
 	return (
 
 		<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
 			<div className="ed-grid p-relative s-grid-3 s-gap-4 rows-gap">
 				<div className="s-cols-3 s-rows-4">
 					<div className="container__img s-ratio-16-9 img-container">
-						<img onLoad={loadContent} className="s-radius-2" src={ discount?.arrayColors[0]?.imageColor } alt="imageCardDiscount" />
+						<LazyLoadImage
+							className="s-radius-2"
+							src={ discount?.arrayColors[0]?.imageColor }
+							alt="imageCardDiscount"
+							effect="blur"
+						/>
 						<div className="img-overlay"></div>
 					</div>
 				</div>
