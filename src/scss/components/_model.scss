@@ -40,3 +40,14 @@
 		height: rem(40px);
 	}
 }
+
+.img-container {
+	position: relative;
+
+	span {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+}

@@ -5,6 +5,12 @@
 	max-height: calc(100vh - var(--header-height-mobile));
 	height: calc(100vh - var(--header-height-mobile));
 
+	&> span {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
 	@include from(m) {
 		height: 620px;
 		max-height: none;
