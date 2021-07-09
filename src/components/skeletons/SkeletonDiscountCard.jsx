@@ -2,12 +2,16 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-const SkeletonDiscountCard = ({ loadingImages, dataArrLength }) => {
+import SkeletonHeader from './SkeletonHeader';
+
+const SkeletonDiscountCard = ({ dataArrLength }) => {
 
 	return(
 
+		<>
+		<SkeletonHeader />
 		<SkeletonTheme color="#8e8e8f" >
-		<main style={{ display: loadingImages ? "none" : "block" }} className="main-container discountpage">
+		<main className="main-container discountpage">
 			<section className="section-card ed-grid s-grid-12 rows-gap">
 				{
 					Array(dataArrLength).fill().map( (cardDiscount, index) => (
@@ -37,6 +41,8 @@ const SkeletonDiscountCard = ({ loadingImages, dataArrLength }) => {
 			</section>
 		</main>
 		</SkeletonTheme>
+		</>
+
 	)
 }
 

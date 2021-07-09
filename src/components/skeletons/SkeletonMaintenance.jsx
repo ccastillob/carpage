@@ -2,10 +2,14 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import SkeletonHeader from './SkeletonHeader';
+
 const SkeletonMaintenance = ({ dataArrBasicLength, dataArrAdvancedLength }) => {
 
 	return(
 
+		<>
+		<SkeletonHeader />
 		<SkeletonTheme color="#8e8e8f" >
 			<main className="main-container maintenancepage">
 				<section className="section-banner border-section">
@@ -71,6 +75,8 @@ const SkeletonMaintenance = ({ dataArrBasicLength, dataArrAdvancedLength }) => {
 				</section>
 			</main>
 		</SkeletonTheme>
+		</>
+
 	)
 }
 

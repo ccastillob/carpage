@@ -2,12 +2,16 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-const SkeletonModelCard = ({ loadingImages, dataArrLength }) => {
+import SkeletonHeader from './SkeletonHeader';
+
+const SkeletonModelCard = ({ dataArrLength }) => {
 
 	return(
 
+		<>
+		<SkeletonHeader />
 		<SkeletonTheme color="#8e8e8f" >
-		<main style={{ display: loadingImages ? "none" : "block" }} className="main-container modelpage">
+		<main className="main-container modelpage">
 			<section className="section-card ed-grid s-grid-12 rows-gap">
 				{
 					Array(dataArrLength).fill().map( (card, index) => (
@@ -34,6 +38,8 @@ const SkeletonModelCard = ({ loadingImages, dataArrLength }) => {
 			</section>
 		</main>
 		</SkeletonTheme>
+		</>
+
 	)
 }
 

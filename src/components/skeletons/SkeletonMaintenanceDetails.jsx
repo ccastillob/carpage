@@ -2,10 +2,14 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import SkeletonHeader from './SkeletonHeader';
+
 const SkeletonMaintenanceDetails = ({ dataArrBasicLength, dataArrAdvancedLength, matchType }) => {
 
 	return(
 
+		<>
+		<SkeletonHeader />
 		<SkeletonTheme color="#8e8e8f" >
 			<main className="main-container maintenancedetails">
 				<section className="section-maintenance-details ed-grid s-grid-12">
@@ -80,6 +84,8 @@ const SkeletonMaintenanceDetails = ({ dataArrBasicLength, dataArrAdvancedLength,
 				</section>
 			</main>
 		</SkeletonTheme>
+		</>
+
 	)
 }
 

@@ -2,9 +2,14 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import SkeletonHeader from './SkeletonHeader';
+
 const SkeletonModelDetails = () => {
 
 	return (
+
+		<>
+		<SkeletonHeader />
 		<SkeletonTheme color="#8e8e8f" >
 			<main className="main-container modeldetails">
 				<section className="section-modeldetails ed-grid s-grid-12">
@@ -90,8 +95,9 @@ const SkeletonModelDetails = () => {
 				</section>
 			</main>
 		</SkeletonTheme>
-	)
+		</>
 
+	)
 }
 
 export default SkeletonModelDetails;
