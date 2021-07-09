@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ShopNav = ( {width, status} ) => {
 
 	const arrAddCart = useSelector(() => JSON.parse(localStorage.getItem("cart")));
-	console.log(arrAddCart?.length);
+
 	useEffect(() => {
 
 		if( arrAddCart === null ) {
