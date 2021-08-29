@@ -8,7 +8,8 @@ import {
 } from 'react-router-dom';
 
 import { LoadingPage } from '../components/pages/LoadingPage';
-import { ScrollToTop } from '../hooks/scrollToTop';
+import { ScrollToTop } from '../helpers/scrollToTop';
+
 
 const ModelPage = lazy(() => import('../components/pages/ModelPage'));
 const HomePage = lazy(() => import('../components/pages/HomePage'));
