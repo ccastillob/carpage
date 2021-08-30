@@ -112,3 +112,16 @@
 	}
 }
 
+.Toastify__toast {
+	background: var(--bg-body);
+	color: var(--title-color);
+}
+
+.Toastify__toast--success {
+	border: 2px solid var(--success-700);
+}
+
+
+.Toastify__toast--error {
+	border: 2px solid var(--error-700);
+}

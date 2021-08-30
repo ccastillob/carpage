@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { SwapSpinner } from 'react-spinners-kit';
-import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { startModelData } from '../../actions/model';
 import SecondaryButton from '../atoms/SecondaryButton';
@@ -19,7 +19,6 @@ const ModelDetails = ({match}) => {
 	const [nameColor, setNameColor] = useState("not color");
 	const [image, setImage] = useState("not image");
 	const [loading, setLoading] = useState(false);
-	const history = useHistory();
 	const [modelCart, setModelCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
 	const [showButtonShop, setShowButtonShop] = useState(true);
 	const dataMyModel = useSelector(state => state.dataModel);
@@ -118,6 +117,15 @@ const ModelDetails = ({match}) => {
 
 		e.preventDefault();
 		setShowButtonShop(false);
+		toast.success('Añadiste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
 
 		const structAddShop = [{
 			nameItem: dataMyModel.nameModel,
@@ -143,9 +151,6 @@ const ModelDetails = ({match}) => {
 
 		}
 
-		// Redireccionamos luego de añadir un producto
-		history.push("/shop");
-
 	}
 
 	const handleShopRemove = e => {
@@ -153,6 +158,15 @@ const ModelDetails = ({match}) => {
 		e.preventDefault();
 		myLista.current?.childNodes[0]?.classList.remove("active");
 		setShowButtonShop(true);
+		toast.error('Quitaste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
 
 		const nameCarModelSubs = modelCart.filter( mc => mc.nameItem !== dataMyModel?.nameModel );
 		localStorage.setItem("cart", JSON.stringify(nameCarModelSubs));

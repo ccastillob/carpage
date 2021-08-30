@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import SecondaryButton from '../atoms/SecondaryButton';
 import CheckIcon from '../icons/special/CheckIcon';
@@ -79,6 +80,16 @@ const MaintenanceDetails = ({match}) => {
 	const handleAddBasicProductCart = e => {
 
 		e.preventDefault();
+		toast.success('Añadiste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
+
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopBasic: true
@@ -117,14 +128,22 @@ const MaintenanceDetails = ({match}) => {
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
-		// Redireccionamos luego de añadir el producto BASIC
-		history.push("/maintenances");
 
 	}
 
 	const handleRemoveBasicProductCart = e => {
 
 		e.preventDefault();
+		toast.error('Quitaste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
+
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopBasic: false
@@ -140,6 +159,16 @@ const MaintenanceDetails = ({match}) => {
 	const handleAddAdvancedProductCart = e => {
 
 		e.preventDefault();
+		toast.success('Añadiste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
+
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopAdvanced: true
@@ -177,14 +206,22 @@ const MaintenanceDetails = ({match}) => {
 		}
 
 		setShowButtons(JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
-		// Redireccionamos luego de añadir el producto ADVANCED
-		history.push("/maintenances");
 
 	}
 
 	const handleRemoveAdvancedProductCart = e => {
 
 		e.preventDefault();
+		toast.error('Quitaste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+		});
+
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
 			shopAdvanced: false

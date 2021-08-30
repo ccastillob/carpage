@@ -6,6 +6,7 @@ import {
 	Route,
 	Redirect
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { LoadingPage } from '../components/pages/LoadingPage';
 import { ScrollToTop } from '../helpers/scrollToTop';
@@ -75,6 +76,7 @@ export const AppRouter = () => {
 					/>
 					<Redirect to="/" />
 				</Switch>
+				<ToastContainer pauseOnFocusLoss={false} limit={3} />
 			</Suspense>
 		</Router>
 	)

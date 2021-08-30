@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { toast } from 'react-toastify';
 
 import GhostButton from '../atoms/GhostButton';
 import SecondaryButton from '../atoms/SecondaryButton';
@@ -19,6 +20,15 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: true
+		});
+		toast.success('Añadiste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
 		});
 
 		const arrNamesMainAdvancedDetailsTrue = arrAdvanced.map( nd => (
@@ -60,6 +70,15 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: false
+		});
+		toast.error('Quitaste un producto', {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
 		});
 
 		const nameMaintenanceMainAdvancedSubs = mainMaintenanceCart.filter( mmavc => mmavc.nameItem !== "Mantenimiento avanzado" );
