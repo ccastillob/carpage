@@ -5,12 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import "../scss/styles.scss";
 import { Provider } from 'react-redux';
 import { AppRouter } from '../routers/AppRouter';
-import { store } from './store/store';
+import { configureStore } from './store/store';
 
 const App = () => {
 
   return (
-		<Provider store={ store }>
+		<Provider store={ configureStore() }>
 			<AppRouter />
 		</Provider>
   )
