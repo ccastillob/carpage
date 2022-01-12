@@ -1,20 +1,20 @@
 
 import React, { useEffect, useState } from 'react';
-import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { SwapSpinner } from 'react-spinners-kit';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRef } from 'react';
 
-import { startDiscountData } from '../../actions/discount';
-import SecondaryButton from '../atoms/SecondaryButton';
-import ShopIcon from '../icons/static/ShopIcon';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
+import SecondaryButton from '../atoms/SecondaryButton';
+import ShopIcon from '../icons/static/ShopIcon';
 import SkeletonDiscountDetails from '../skeletons/SkeletonDiscountDetails';
+import { startDiscountData } from '../../actions/discount';
 import { TechnicalSpecifications } from '../organisms/TechnicalSpecifications';
 
-const DiscountDetails = ({match}) => {
+const DiscountDetails = ({ match }) => {
 
 	const dispatch = useDispatch();
 	const [nameColor, setNameColor] = useState("not color");
@@ -112,7 +112,9 @@ const DiscountDetails = ({match}) => {
 	const handleShopAdd = e => {
 
 		e.preventDefault();
+
 		setShowButtonShop(false);
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -130,7 +132,7 @@ const DiscountDetails = ({match}) => {
 			priceItem: ((dataMyDiscount.priceDiscount*(100 - dataMyDiscount.percentage))/100).toFixed(2),
 			detailItem: [{
 				detail: nameColor
-			}]
+			}],
 		}];
 
 		if( discountCart === null ) {
@@ -152,8 +154,11 @@ const DiscountDetails = ({match}) => {
 	const handleShopRemove = e => {
 
 		e.preventDefault();
+
 		myLista.current?.childNodes[0]?.classList.remove("active");
+
 		setShowButtonShop(true);
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -190,7 +195,7 @@ const DiscountDetails = ({match}) => {
 										<div className="img-overlay"></div>
 									</div>
 								</div>
-								<h2 className="discountdetails-box__percentage s-x-3 s-y-1 s-main-center s-cross-center">50 %</h2>
+								<h2 className="discountdetails-box__percentage s-x-3 s-y-1 s-main-center s-cross-center">{ dataMyDiscount.percentage } %</h2>
 							</div>
 							<div style={ {display: loading ? "none" : "flex"} } className="top-container__img s-ratio-16-9 border-image-loader img-container m-cols-6">
 								<div className="center-child">
@@ -251,6 +256,7 @@ const DiscountDetails = ({match}) => {
 		)
 
 	)
+
 }
 
 export default DiscountDetails;
