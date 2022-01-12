@@ -1,17 +1,17 @@
 
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import SecondaryButton from '../atoms/SecondaryButton';
-import CheckIcon from '../icons/special/CheckIcon';
 import CancelIcon from '../icons/static/CancelIcon';
-import ShopIcon from '../icons/static/ShopIcon';
-import SuccessIcon from '../icons/static/SuccessIcon';
+import CheckIcon from '../icons/special/CheckIcon';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
+import SecondaryButton from '../atoms/SecondaryButton';
+import ShopIcon from '../icons/static/ShopIcon';
 import SkeletonMaintenanceDetails from '../skeletons/SkeletonMaintenanceDetails';
+import SuccessIcon from '../icons/static/SuccessIcon';
 
 const MaintenanceDetails = ({match}) => {
 
@@ -80,6 +80,7 @@ const MaintenanceDetails = ({match}) => {
 	const handleAddBasicProductCart = e => {
 
 		e.preventDefault();
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -92,10 +93,9 @@ const MaintenanceDetails = ({match}) => {
 
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
-			shopBasic: true
+			shopBasic: true,
 		}));
 
-		// Aqui debo hacer un filter y construir el objeto para almacenar en el localStorage
 		const checkBasicWithTrue = check.filter(ct => ct.stateDetail === true );
 		const arrNamesBasicDetailsTrue = checkBasicWithTrue.map( cn => (
 			{
@@ -110,7 +110,7 @@ const MaintenanceDetails = ({match}) => {
 			tagItem: "Personalizado",
 			stateItem: true,
 			priceItem: priceTotalBasicDetails.toFixed(2),
-			detailItem: arrNamesBasicDetailsTrue
+			detailItem: arrNamesBasicDetailsTrue,
 		}];
 
 		if( maintenanceCart === null ) {
@@ -134,6 +134,7 @@ const MaintenanceDetails = ({match}) => {
 	const handleRemoveBasicProductCart = e => {
 
 		e.preventDefault();
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -146,7 +147,7 @@ const MaintenanceDetails = ({match}) => {
 
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
-			shopBasic: false
+			shopBasic: false,
 		}));
 
 		const nameMaintenanceBasicSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento básico" );
@@ -159,6 +160,7 @@ const MaintenanceDetails = ({match}) => {
 	const handleAddAdvancedProductCart = e => {
 
 		e.preventDefault();
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -171,7 +173,7 @@ const MaintenanceDetails = ({match}) => {
 
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
-			shopAdvanced: true
+			shopAdvanced: true,
 		}));
 
 		const checkAdvancedWithTrue = check.filter(ct => ct.stateDetail === true );
@@ -180,7 +182,6 @@ const MaintenanceDetails = ({match}) => {
 				detail: cn.nameDetail
 			}
 		));
-
 		const arrPricesAdvancedDetailsTrue = checkAdvancedWithTrue.map( cp => cp.priceDetail);
 		const priceTotalAdvancedDetails = arrPricesAdvancedDetailsTrue.reduce( (a,b) => a + b,0 );
 		const structAddMaintenanceAdvancedShop = [{
@@ -188,7 +189,7 @@ const MaintenanceDetails = ({match}) => {
 			tagItem: "Personalizado",
 			stateItem: true,
 			priceItem: priceTotalAdvancedDetails.toFixed(2),
-			detailItem: arrNamesAdvancedDetailsTrue
+			detailItem: arrNamesAdvancedDetailsTrue,
 		}];
 
 		if( maintenanceCart === null ) {
@@ -212,6 +213,7 @@ const MaintenanceDetails = ({match}) => {
 	const handleRemoveAdvancedProductCart = e => {
 
 		e.preventDefault();
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -224,7 +226,7 @@ const MaintenanceDetails = ({match}) => {
 
 		localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 			...showButtons,
-			shopAdvanced: false
+			shopAdvanced: false,
 		}));
 
 		const nameMaintenanceAdvancedSubs = maintenanceCart.filter( mac => mac.nameItem !== "Mantenimiento avanzado" );
@@ -239,11 +241,14 @@ const MaintenanceDetails = ({match}) => {
 		const myIndexInObject = check.findIndex( d => d.nameDetail === e.target.id );
 
 		if( check[myIndexInObject].nameDetail === e.target.id ) {
+
 			check[myIndexInObject] = {
 				...check[myIndexInObject],
-				stateDetail: !check[myIndexInObject].stateDetail
+				stateDetail: !check[myIndexInObject].stateDetail,
 			}
+
 		};
+
 		setCheck([...check]);
 
 	}
@@ -323,6 +328,7 @@ const MaintenanceDetails = ({match}) => {
 		)
 
 	)
+
 }
 
 export default MaintenanceDetails;

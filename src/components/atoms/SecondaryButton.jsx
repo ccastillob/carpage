@@ -13,12 +13,13 @@ const SecondaryButton = ({ othersClass, icon, title, urlTo, event }) => {
 			{title}
 		</Link>
 	)
+
 }
 
 SecondaryButton.defaultProps = {
 	othersClass: "",
 	title: "",
-	urlTo: "/"
+	urlTo: "/",
 }
 
 export default SecondaryButton;

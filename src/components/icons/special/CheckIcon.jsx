@@ -13,7 +13,7 @@ const CheckIcon = ({ otherClass, containerClass }) => {
 
 CheckIcon.defaultProps = {
 	otherClass : "",
-	containerClass: ""
+	containerClass: "",
 }
 
 export default CheckIcon;

@@ -6,9 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import SecondaryButton from '../atoms/SecondaryButton';
 
 export const CardModel = ({ model }) => {
-
 	return (
-
 		<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
 			<div className="container__img s-ratio-16-9 img-container">
 				<LazyLoadImage
@@ -26,6 +24,5 @@ export const CardModel = ({ model }) => {
 				<SecondaryButton urlTo={`/models/${model.nameModel}`} title="Conoce más" othersClass="mt-32"/>
 			</div>
 		</div>
-
 	)
 }

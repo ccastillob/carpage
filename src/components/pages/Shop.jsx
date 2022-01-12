@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 
-import SecondaryButton from '../atoms/SecondaryButton';
 import CheckIcon from '../icons/special/CheckIcon';
 import DeleteIcon from '../icons/special/DeleteIcon';
-import PaymentIcon from '../icons/static/PaymentIcon';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
+import PaymentIcon from '../icons/static/PaymentIcon';
+import SecondaryButton from '../atoms/SecondaryButton';
 
 const Shop = () => {
 
@@ -29,12 +29,12 @@ const Shop = () => {
 
 			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 				shopBasic: false,
-				shopAdvanced: false
+				shopAdvanced: false,
 			}));
 
 			setShowButtons({
 				shopBasic: false,
-				shopAdvanced: false
+				shopAdvanced: false,
 			});
 
 		}else {
@@ -46,6 +46,7 @@ const Shop = () => {
 	const handleDelete = e => {
 
 		e.preventDefault();
+
 		const arrNameDetailSubs = arrAddCart.filter( c => c.nameItem !== e.target.id);
 		localStorage.setItem("cart", JSON.stringify(arrNameDetailSubs));
 		setArrAddCart(JSON.parse(localStorage.getItem("cart")));
@@ -53,14 +54,14 @@ const Shop = () => {
 		if( e.target.id === "Mantenimiento básico" ) {
 			setShowButtons({
 				...showButtons,
-				shopBasic: false
+				shopBasic: false,
 			});
 		}
 
 		if( e.target.id === "Mantenimiento avanzado" ) {
 			setShowButtons({
 				...showButtons,
-				shopAdvanced: false
+				shopAdvanced: false,
 			});
 		}
 
@@ -132,6 +133,7 @@ const Shop = () => {
 			<FooterMenu />
 		</>
 	)
+
 }
 
 export default Shop;

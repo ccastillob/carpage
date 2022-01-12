@@ -6,9 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import SecondaryButton from '../atoms/SecondaryButton';
 
 export const CardDiscount = ({ discount }) => {
-
 	return (
-
 		<div className="p-relative card-container s-cols-12 m-cols-4 lg-cols-3">
 			<div className="ed-grid p-relative s-grid-3 s-gap-4 rows-gap">
 				<div className="s-cols-3 s-rows-4">
@@ -32,6 +30,5 @@ export const CardDiscount = ({ discount }) => {
 				<SecondaryButton urlTo={`/discounts/${discount.nameDiscount}`} title="Conoce más" othersClass="mt-32"/>
 			</div>
 		</div>
-
 	)
 }

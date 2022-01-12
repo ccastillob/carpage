@@ -2,12 +2,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { resetDiscountData } from '../../actions/discount';
-import { useFetchAllDiscounts } from '../../hooks/useFetchAllDiscounts';
+import { CardDiscount } from '../organisms/CardDiscount';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
-import { CardDiscount } from '../organisms/CardDiscount';
+import { resetDiscountData } from '../../actions/discount';
 import SkeletonDiscountCard from '../skeletons/SkeletonDiscountCard';
+import { useFetchAllDiscounts } from '../../hooks/useFetchAllDiscounts';
 
 const DiscountPage = () => {
 
@@ -15,9 +15,7 @@ const DiscountPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-
 		dispatch( resetDiscountData() );
-
 	}, [dispatch])
 
 	return (
@@ -43,6 +41,7 @@ const DiscountPage = () => {
 		)
 
 	)
+
 }
 
 export default DiscountPage;

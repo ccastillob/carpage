@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { startMaintenanceAdvancedData } from '../../actions/maintenanceAdvanced';
-import { startMaintenanceBasicData } from '../../actions/maintenanceBasic';
-import { useFetchAllMaintenances } from '../../hooks/useFetchAllMaintenances';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
+import { startMaintenanceAdvancedData } from '../../actions/maintenanceAdvanced';
+import { startMaintenanceBasicData } from '../../actions/maintenanceBasic';
 import { SectionMaintenanceAdvanced } from '../organisms/SectionMaintenanceAdvanced';
 import { SectionMaintenanceBasic } from '../organisms/SectionMaintenanceBasic';
 import SkeletonMaintenance from '../skeletons/SkeletonMaintenance';
+import { useFetchAllMaintenances } from '../../hooks/useFetchAllMaintenances';
 
 const MaintenancePage = () => {
 
@@ -25,14 +25,13 @@ const MaintenancePage = () => {
 
 	useEffect(() => {
 
-		// Almacenar en cada reducer un mantenimiento
 		if( data.length > 0 ){
 
 			dispatch(startMaintenanceBasicData(data[0]?.nameMaintenance));
 			dispatch( startMaintenanceAdvancedData(data[1]?.nameMaintenance) );
 			setArrSkeleton({
 				arrBasicSheleton: data[0].arrayDetails.length,
-				arrAdvancedSkeleton: data[1].arrayDetails.length
+				arrAdvancedSkeleton: data[1].arrayDetails.length,
 			});
 
 		}
@@ -45,12 +44,12 @@ const MaintenancePage = () => {
 
 			localStorage.setItem("stateButtonsMaintenance", JSON.stringify({
 				shopBasic: false,
-				shopAdvanced: false
+				shopAdvanced: false,
 			}));
 
 			setShowButtons({
 				shopBasic: false,
-				shopAdvanced: false
+				shopAdvanced: false,
 			});
 
 		}else {
@@ -78,6 +77,7 @@ const MaintenancePage = () => {
 		)
 
 	)
+
 }
 
 export default MaintenancePage;

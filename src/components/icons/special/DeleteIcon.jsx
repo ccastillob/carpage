@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const DeleteIcon = ({event, myId}) => {
+const DeleteIcon = ({ event, myId }) => {
 	return (
 		<div onClick={event} className="container-icon-delete">
 			<div className="container-icon">

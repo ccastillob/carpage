@@ -1,19 +1,20 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import GhostButton from '../atoms/GhostButton';
-import SecondaryButton from '../atoms/SecondaryButton';
 import CheckIcon from '../icons/special/CheckIcon';
 import CustomizeIcon from '../icons/static/CustomizeIcon';
+import GhostButton from '../atoms/GhostButton';
+import SecondaryButton from '../atoms/SecondaryButton';
 import ShopIcon from '../icons/static/ShopIcon';
 
 export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons, mainMaintenanceCart, setMainMaintenanceCart }) => {
 
 	const { nameMaintenance: nameBasic } = useSelector(state => state.dataMaintenanceBasic);
+
 	const customButtonBasic = () => {
 
 		if( showButtons.shopBasic === false ) {
@@ -25,10 +26,12 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 	const handleMaintenanceBasicShopAdd = e => {
 
 		e.preventDefault();
+
 		setShowButtons({
 			...showButtons,
 			shopBasic: true
 		});
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -47,13 +50,12 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 
 		const arrPricesMainBasicDetailsTrue = arrBasic.map( mbp => mbp.priceDetail );
 		const priceTotalMainBasicDetails = arrPricesMainBasicDetailsTrue.reduce( (a,b) => a + b,0 );
-
 		const structAddMainBasicShop = [{
 			nameItem: "Mantenimiento básico",
 			tagItem: "Full",
 			stateItem: true,
 			priceItem: priceTotalMainBasicDetails.toFixed(2),
-			detailItem: arrNamesMainBasicDetailsTrue
+			detailItem: arrNamesMainBasicDetailsTrue,
 		}];
 
 		if( mainMaintenanceCart === null ) {
@@ -75,10 +77,12 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 	const handleMaintenanceBasicShopRemove = e => {
 
 		e.preventDefault();
+
 		setShowButtons({
 			...showButtons,
 			shopBasic: false
 		});
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -90,13 +94,14 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 		});
 
 		const nameMaintenanceMainBasicSubs = mainMaintenanceCart.filter( mc => mc.nameItem !== "Mantenimiento básico" );
+
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainBasicSubs));
+
 		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
 
 	return (
-
 		<section className="section-banner border-section">
 			<LazyLoadImage
 				className="banner__hero-image"
@@ -136,6 +141,6 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 				</div>
 			</article>
 		</section>
-
 	)
+
 }

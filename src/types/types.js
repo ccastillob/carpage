@@ -1,7 +1,5 @@
 
-
 export const types = {
-
 
 	modelData: '[model] ModelData loaded',
 	modelResetData: '[model] ModelData reset',
@@ -10,6 +8,6 @@ export const types = {
 	maintenanceAdvancedData: '[maintenance] AdvancedData loaded',
 
 	discountData: '[discount] DiscountData loaded',
-	discountResetData: '[discount] DiscountData reset'
+	discountResetData: '[discount] DiscountData reset',
 
 }

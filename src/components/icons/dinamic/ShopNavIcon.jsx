@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const ShopNav = ( {width, status} ) => {
+const ShopNav = ({ width, status }) => {
 
 	const arrAddCart = useSelector(() => JSON.parse(localStorage.getItem("cart")));
 
@@ -32,7 +32,7 @@ const ShopNav = ( {width, status} ) => {
 ShopNav.defaultProps = {
 	status: "",
 	width: '24',
-	count: 0
+	count: 0,
 }
 
 export default ShopNav;

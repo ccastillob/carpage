@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const SunIcon = ( {width} ) => {
+const SunIcon = ({ width }) => {
 	return (
 		<div className="container-icon">
 			<svg width={width} height={width} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

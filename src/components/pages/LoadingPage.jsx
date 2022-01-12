@@ -3,7 +3,6 @@ import React from 'react';
 import { SwapSpinner } from 'react-spinners-kit';
 
 export const LoadingPage = () => {
-
 	return (
 		<main className="main-container shoppage">
 				<section className="section-shop ed-grid s-grid-12">

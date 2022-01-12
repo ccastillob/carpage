@@ -2,12 +2,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { resetModelData } from '../../actions/model';
-import { useFetchAllModels } from '../../hooks/useFetchAllModels';
+import { CardModel } from '../organisms/CardModel';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
-import { CardModel } from '../organisms/CardModel';
+import { resetModelData } from '../../actions/model';
 import SkeletonModelCard from '../skeletons/SkeletonModelCard';
+import { useFetchAllModels } from '../../hooks/useFetchAllModels';
 
 const ModelPage = () => {
 
@@ -15,9 +15,7 @@ const ModelPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-
 		dispatch( resetModelData() );
-
 	}, [dispatch])
 
 	return (
@@ -43,6 +41,7 @@ const ModelPage = () => {
 		)
 
 	)
+
 }
 
 export default ModelPage;

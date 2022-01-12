@@ -1,16 +1,16 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { SwapSpinner } from 'react-spinners-kit';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { startModelData } from '../../actions/model';
-import SecondaryButton from '../atoms/SecondaryButton';
-import ShopIcon from '../icons/static/ShopIcon';
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
+import SecondaryButton from '../atoms/SecondaryButton';
+import ShopIcon from '../icons/static/ShopIcon';
 import SkeletonModelDetails from '../skeletons/SkeletonModelDetails';
+import { startModelData } from '../../actions/model';
 import { TechnicalSpecifications } from '../organisms/TechnicalSpecifications';
 
 const ModelDetails = ({match}) => {
@@ -25,7 +25,6 @@ const ModelDetails = ({match}) => {
 	const { arrayColors } = useSelector(state => state.dataModel);
 	const myLista = useRef(null);
 
-	// SOLO LA LISTA(para activar el primer item)
 	useEffect(() => {
 
 		myLista.current?.childNodes[0]?.classList.add("active");
@@ -41,7 +40,6 @@ const ModelDetails = ({match}) => {
 
 	useEffect(() => {
 
-		// Validamos que lo que pase sea buscado en la BD
 		const convertReverse = match.params.nameModel.replace(/\b\w/g, c => c.toUpperCase()).replace(/-/g, " ");
 		let	contenido = convertReverse.replace("E Tron", "E-tron");
 		contenido = contenido.replace("Gt", "GT");
@@ -82,21 +80,14 @@ const ModelDetails = ({match}) => {
 
 		setLoading(false);
 
-		// Agrupar en un array los elementos que no fueron seleccionados
 		const noActive = dataMyModel.arrayColors.filter( colorArr => e.target.id !== colorArr._id);
 		const elementSelect = e.target;
-
-		// Colocarle la clase "active" al elemento seleccionado
 		elementSelect?.classList?.add("active");
-
-		// Quitarle la clase "active" a los elementos que no fueron seleccionados
 		noActive.map ( elements => {
 			const elementIDs = document.getElementById(elements._id);
 			elementIDs.setAttribute("disable", false);
 			return elementIDs?.classList?.remove("active");
 		});
-
-		// Designar el color correspondiente al elemento seleccionado
 		const colorSelect = arrayColors.filter( c => elementSelect.id === c._id )[0];
 		const attrValueElementSelect = elementSelect.getAttribute("disable");
 
@@ -116,7 +107,9 @@ const ModelDetails = ({match}) => {
 	const handleShopAdd = e => {
 
 		e.preventDefault();
+
 		setShowButtonShop(false);
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -134,7 +127,7 @@ const ModelDetails = ({match}) => {
 			priceItem: dataMyModel.priceModel.toFixed(2),
 			detailItem: [{
 				detail: nameColor
-			}]
+			}],
 		}];
 
 		if( modelCart === null ) {
@@ -156,8 +149,11 @@ const ModelDetails = ({match}) => {
 	const handleShopRemove = e => {
 
 		e.preventDefault();
+
 		myLista.current?.childNodes[0]?.classList.remove("active");
+
 		setShowButtonShop(true);
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -252,6 +248,7 @@ const ModelDetails = ({match}) => {
 		)
 
 	)
+
 }
 
 export default ModelDetails;

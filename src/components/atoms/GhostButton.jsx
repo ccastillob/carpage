@@ -14,7 +14,7 @@ const GhostButton = ({ othersClass, icon, title, urlTo, event }) => {
 GhostButton.defaultProps = {
 	othersClass: "",
 	title: "",
-	urlTo: "/"
+	urlTo: "/",
 }
 
 export default GhostButton;

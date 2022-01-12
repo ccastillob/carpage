@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const CancelIcon = ( {width, otherClass, event, myid} ) => {
+const CancelIcon = ({ width, otherClass, event, myid }) => {
 	return (
 		<div className="container-icon icon-change">
 			<svg className={otherClass} width={width} height={width} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@ CancelIcon.defaultProps = {
 	width: '32',
 	otherClass: "",
 	event: null,
-	myid: ""
+	myid: "",
 }
 
 export default CancelIcon;

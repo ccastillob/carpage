@@ -11,7 +11,7 @@ const PrimaryButton = ({ othersClass, title, urlTo }) => {
 PrimaryButton.defaultProps = {
 	othersClass: "",
 	title: "",
-	urlTo: "/"
+	urlTo: "/",
 }
 
 export default PrimaryButton;

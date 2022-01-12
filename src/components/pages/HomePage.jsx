@@ -3,12 +3,11 @@ import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import HeaderMenu from '../molecules/HeaderMenu';
 import FooterMenu from '../molecules/FooterMenu';
+import HeaderMenu from '../molecules/HeaderMenu';
 import PrimaryButton from '../atoms/PrimaryButton';
 
 const HomePage = () => {
-
 	return (
 		<>
 		<HeaderMenu status="home"/>

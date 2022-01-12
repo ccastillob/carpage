@@ -1,26 +1,29 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import GhostButton from '../atoms/GhostButton';
-import SecondaryButton from '../atoms/SecondaryButton';
 import CheckIcon from '../icons/special/CheckIcon';
 import CustomizeIcon from '../icons/static/CustomizeIcon';
+import GhostButton from '../atoms/GhostButton';
+import SecondaryButton from '../atoms/SecondaryButton';
 import ShopIcon from '../icons/static/ShopIcon';
 
 export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMaintenanceCart, setMainMaintenanceCart }) => {
 
 	const { arrayDetails: arrAdvanced, nameMaintenance: nameAdvanced } = useSelector(state => state.dataMaintenanceAdvanced);
+
 	const handleMaintenanceAdvancedShopAdd = e => {
 
 		e.preventDefault();
+
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: true
 		});
+
 		toast.success('Añadiste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -45,7 +48,7 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 			tagItem: "Full",
 			stateItem: true,
 			priceItem: priceTotalMainAdvancedDetails.toFixed(2),
-			detailItem: arrNamesMainAdvancedDetailsTrue
+			detailItem: arrNamesMainAdvancedDetailsTrue,
 		}];
 
 		if( mainMaintenanceCart === null ) {
@@ -67,10 +70,12 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 	const handleMaintenanceAdvancedShopRemove = e => {
 
 		e.preventDefault();
+
 		setShowButtons({
 			...showButtons,
 			shopAdvanced: false
 		});
+
 		toast.error('Quitaste un producto', {
 			position: "bottom-right",
 			autoClose: 3000,
@@ -82,7 +87,9 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 		});
 
 		const nameMaintenanceMainAdvancedSubs = mainMaintenanceCart.filter( mmavc => mmavc.nameItem !== "Mantenimiento avanzado" );
+
 		localStorage.setItem("cart", JSON.stringify(nameMaintenanceMainAdvancedSubs));
+
 		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
@@ -136,4 +143,5 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 			</article>
 		</section>
 	)
+
 }

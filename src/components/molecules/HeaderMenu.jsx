@@ -2,12 +2,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import ShopNavIcon from '../icons/dinamic/ShopNavIcon';
-import Logo from '../icons/static/Logo';
 import ChangeThemeButton from './ChangeThemeButton';
+import Logo from '../icons/static/Logo';
+import ShopNavIcon from '../icons/dinamic/ShopNavIcon';
 
 const HeaderMenu = ({ status }) => {
-
 	return (
 		<header className="main-header s-main-center">
 			<div className="ed-grid">
