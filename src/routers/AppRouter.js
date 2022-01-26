@@ -1,4 +1,5 @@
 
+import ScrollToTop from 'components/pages/ScrollToTop';
 import React, { lazy, Suspense } from 'react';
 import {
 	BrowserRouter as Router,
@@ -9,7 +10,6 @@ import {
 import { ToastContainer } from 'react-toastify';
 
 import { LoadingPage } from '../components/pages/LoadingPage';
-import { ScrollToTop } from '../helpers/scrollToTop';
 
 const DiscountDetails = lazy(() => import('../components/pages/DiscountDetails'));
 const DiscountPage = lazy(() => import('../components/pages/DiscountPage'));
@@ -22,10 +22,12 @@ const ModelPage = lazy(() => import('../components/pages/ModelPage'));
 const Shop = lazy(() => import('../components/pages/Shop'));
 
 export const AppRouter = () => {
+
 	return (
+		<>
 		<Router>
+			<ScrollToTop />
 			<Suspense fallback={<LoadingPage />}>
-				<ScrollToTop />
 				<Switch>
 					<Route
 						exact
@@ -77,5 +79,6 @@ export const AppRouter = () => {
 				<ToastContainer pauseOnFocusLoss={false} limit={3} />
 			</Suspense>
 		</Router>
+		</>
 	)
 }
