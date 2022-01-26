@@ -10,7 +10,7 @@ import SecondaryButton from '../atoms/SecondaryButton';
 
 const Shop = () => {
 
-	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")));
+	const [arrAddCart, setArrAddCart] = useState(() => JSON.parse(localStorage.getItem("cart")) || [] );
 	const [showButtons, setShowButtons] = useState(() => JSON.parse(localStorage.getItem("stateButtonsMaintenance")));
 	const [priceAllCart, setpriceAllCart] = useState(0);
 
