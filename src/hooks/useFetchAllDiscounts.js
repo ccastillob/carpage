@@ -11,13 +11,23 @@ export const useFetchAllDiscounts = () => {
 
 	useEffect(() => {
 
+		let isMounted = true;
+
 		getAllDiscounts()
 			.then( infoData => {
+				if (isMounted)
 				setState({
 					data: infoData.allListDiscounts,
 					loading: false,
 				})
+			}).catch( error => {
+				setState({
+					data: undefined,
+					loading: true,
+				})
 			});
+
+			return () => { isMounted = false };
 
 	}, []);
 

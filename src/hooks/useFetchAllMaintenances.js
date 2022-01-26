@@ -11,13 +11,23 @@ export const useFetchAllMaintenances = () => {
 
 	useEffect(() => {
 
+		let isMounted = true;
+
 		getAllMaintenances()
 			.then( infoData => {
+				if (isMounted)
 				setState({
 					data: infoData.allListMaintenances,
 					loading: false,
 				})
+			}).catch( error => {
+				setState({
+					data: undefined,
+					loading: true,
+				})
 			});
+
+			return () => { isMounted = false };
 
 	}, []);
 

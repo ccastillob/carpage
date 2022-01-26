@@ -11,8 +11,11 @@ export const useFetchAllModels = () => {
 
 	useEffect(() => {
 
+		let isMounted = true;
+
 		getAllModels()
 			.then( infoData => {
+				if (isMounted)
 				setState({
 					data: infoData.allListModels,
 					loading: false,
@@ -23,6 +26,8 @@ export const useFetchAllModels = () => {
 					loading: true,
 				})
 			});
+
+			return () => { isMounted = false };
 
 	}, []);
 
