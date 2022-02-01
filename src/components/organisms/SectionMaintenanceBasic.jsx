@@ -50,6 +50,7 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 
 		const arrPricesMainBasicDetailsTrue = arrBasic.map( mbp => mbp.priceDetail );
 		const priceTotalMainBasicDetails = arrPricesMainBasicDetailsTrue.reduce( (a,b) => a + b,0 );
+
 		const structAddMainBasicShop = [{
 			nameItem: "Mantenimiento básico",
 			tagItem: "Full",
@@ -58,19 +59,10 @@ export const SectionMaintenanceBasic = ({ arrBasic, showButtons, setShowButtons,
 			detailItem: arrNamesMainBasicDetailsTrue,
 		}];
 
-		if( mainMaintenanceCart === null ) {
-
-			localStorage.setItem("cart", JSON.stringify( structAddMainBasicShop ));
-			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
-
-		}else {
-
-			const myDataMaintenanceMainBasic = JSON.parse( localStorage.getItem("cart") );
-			myDataMaintenanceMainBasic.push(...structAddMainBasicShop);
-			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainBasic));
-			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
-
-		}
+		const myDataMaintenanceMainBasic = JSON.parse( localStorage.getItem("cart") ) || [];
+		myDataMaintenanceMainBasic.push(...structAddMainBasicShop);
+		localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainBasic));
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
 

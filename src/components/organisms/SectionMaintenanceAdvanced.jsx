@@ -51,19 +51,10 @@ export const SectionMaintenanceAdvanced = ({ showButtons, setShowButtons, mainMa
 			detailItem: arrNamesMainAdvancedDetailsTrue,
 		}];
 
-		if( mainMaintenanceCart === null ) {
-
-			localStorage.setItem("cart", JSON.stringify( structAddMainAdvancedShop ));
-			setMainMaintenanceCart( JSON.parse(localStorage.getItem("cart")) );
-
-		}else {
-
-			const myDataMaintenanceMainAdvanced = JSON.parse( localStorage.getItem("cart") );
-			myDataMaintenanceMainAdvanced.push(...structAddMainAdvancedShop);
-			localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainAdvanced));
-			setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
-
-		}
+		const myDataMaintenanceMainAdvanced = JSON.parse( localStorage.getItem("cart") ) || [];
+		myDataMaintenanceMainAdvanced.push(...structAddMainAdvancedShop);
+		localStorage.setItem("cart", JSON.stringify(myDataMaintenanceMainAdvanced));
+		setMainMaintenanceCart(JSON.parse(localStorage.getItem("cart")));
 
 	}
 
