@@ -82,23 +82,26 @@ const DiscountDetails = ({ match }) => {
 	const handleShowColor = e => {
 
 		setLoading(false);
-
-		const noActive = dataMyDiscount.arrayColors.filter( colorArr => e.target.id !== colorArr._id );
 		const elementSelect = e.target;
+		const indexColorSelect = dataMyDiscount.arrayColors.findIndex( color => e.target.id === color._id );
 
 		elementSelect?.classList?.add("active");
 
-		noActive.map( elements =>  {
-			const elementIDs = document.getElementById(elements._id);
-			elementIDs.setAttribute("disable", false);
-			return elementIDs?.classList?.remove("active");
-		});
+		dataMyDiscount.arrayColors.map( (color, index) => {
+
+			if( indexColorSelect !== index ) {
+				myLista.current.childNodes[index]?.setAttribute("disable", false);
+				myLista.current.childNodes[index]?.classList?.remove("active");
+			}
+
+			return null;
+
+		})
 
 		const colorSelect = arrayColors.filter( c => elementSelect.id === c._id )[0];
 		const attrValueElementSelect = elementSelect.getAttribute("disable");
 
 		if( attrValueElementSelect === "false" ) {
-
 			elementSelect.setAttribute("disable", true);
 			setNameColor( colorSelect.nameColor );
 			setImage( colorSelect.imageColor );
