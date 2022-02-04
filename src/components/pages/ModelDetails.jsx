@@ -79,15 +79,22 @@ const ModelDetails = ({match}) => {
 	const handleShowColor = (e) => {
 
 		setLoading(false);
-
-		const noActive = dataMyModel.arrayColors.filter( colorArr => e.target.id !== colorArr._id);
 		const elementSelect = e.target;
+		const indexColorSelect = dataMyModel.arrayColors.findIndex( color => e.target.id === color._id );
+
 		elementSelect?.classList?.add("active");
-		noActive.map ( elements => {
-			const elementIDs = document.getElementById(elements._id);
-			elementIDs.setAttribute("disable", false);
-			return elementIDs?.classList?.remove("active");
-		});
+
+		dataMyModel.arrayColors.map( (color, index) => {
+
+			if( indexColorSelect !== index ) {
+				myLista.current.childNodes[index]?.setAttribute("disable", false);
+				myLista.current.childNodes[index]?.classList?.remove("active");
+			}
+
+			return null;
+
+		})
+
 		const colorSelect = arrayColors.filter( c => elementSelect.id === c._id )[0];
 		const attrValueElementSelect = elementSelect.getAttribute("disable");
 
