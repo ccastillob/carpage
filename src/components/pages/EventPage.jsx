@@ -1,96 +1,52 @@
-
-import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import FooterMenu from '../molecules/FooterMenu';
 import HeaderMenu from '../molecules/HeaderMenu';
-import PrimaryButton from '../atoms/PrimaryButton';
+import EventSectionBannerLeft from 'components/molecules/EventSectionBannerLeft';
+import EventSectionBannerRight from 'components/molecules/EventSectionBannerRight';
 
 const EventPage = () => {
-	return (
-		<>
-			<HeaderMenu status="event"/>
-			<main className="main-container eventpage">
-				<section className="section-banner border-section">
-					<LazyLoadImage
-						className="banner__hero-image"
-						src="/assets/imageAudiRacing.jpg"
-						alt="imageAudiRacing"
-						effect="blur"
-					/>
-					<div className="banner__overlay"></div>
-					<article className="ed-grid article__banner m-grid-2">
-						<div className="banner__content m-cols-1">
-							<h1 className="title-color-dark ">Audi Racing</h1>
-							<h2 className="title-color-dark pt-24">Un evento que te dejará <span className="subtitle-font primary-color">sin aliento</span>.</h2>
-							<p className="content-color-dark pt-20">Lugar: Venecia - Italia</p>
-							<PrimaryButton urlTo="#" othersClass="mt-32 inactive-color" title="Registrate aquí" />
-							<h6 className="title-color-dark">*Opción aún no habilitada</h6>
-						</div>
-					</article>
-				</section>
+  return (
+    <>
+      <HeaderMenu status="event" />
+      <main className="main-container eventpage">
+        <EventSectionBannerLeft
+          pathImage="imageAudiRacing.jpg"
+          title="Audi Racing"
+          description="Un evento que te dejará"
+          shadedText="sin aliento"
+          eventLocation="Venecia - Italia"
+        />
 
-				<section className="section-banner border-section">
-					<LazyLoadImage
-						className="banner__hero-image"
-						src="/assets/imageAudiEvolution.jpg"
-						alt="imageAudiEvolution"
-						effect="blur"
-					/>
-					<div className="banner__overlay"></div>
-					<article className="ed-grid article__banner m-grid-2">
-						<div className="banner__content m-cols-1 m-x-2">
-							<h1 className="title-color-dark ">Audi Evolution</h1>
-							<h2 className="title-color-dark pt-24">Una nueva <span className="subtitle-font primary-color">generación</span> está por comenzar.</h2>
-							<p className="content-color-dark pt-20">Lugar: Edimburgo - Escocia</p>
-							<PrimaryButton urlTo="#" othersClass="mt-32 inactive-color" title="Registrate aquí" />
-							<h6 className="title-color-dark">*Opción aún no habilitada</h6>
-						</div>
-					</article>
-				</section>
+        <EventSectionBannerRight
+          pathImage="imageAudiEvolution.jpg"
+          title="Audi Evolution"
+          description="Una nueva"
+          shadedText="generación"
+          continueText="está por comenzar"
+          eventLocation="Edimburgo - Escocia"
+        />
 
-				<section className="section-banner border-section">
-					<LazyLoadImage
-						className="banner__hero-image"
-						src="/assets/imageAudiAdvanced.jpg"
-						alt="imageAudiAdvanced"
-						effect="blur"
-					/>
-					<div className="banner__overlay"></div>
-					<article className="ed-grid article__banner m-grid-2">
-						<div className="banner__content m-cols-1">
-							<h1 className="title-color-dark ">Audi Advanced</h1>
-							<h2 className="title-color-dark pt-24">Más potencia, tecnología y <span className="subtitle-font primary-color">rendimiento</span>.</h2>
-							<p className="content-color-dark pt-20">Lugar: Kiev - Ucrania</p>
-							<PrimaryButton urlTo="#" othersClass="mt-32 inactive-color" title="Registrate aquí" />
-							<h6 className="title-color-dark">*Opción aún no habilitada</h6>
-						</div>
-					</article>
-				</section>
+        <EventSectionBannerLeft
+          pathImage="imageAudiAdvanced.jpg"
+          title="Audi Advanced"
+          description="Más potencia, tecnología y"
+          shadedText="rendimiento"
+          eventLocation="Kiev - Ucrania"
+        />
 
-				<section className="section-banner border-section">
-					<LazyLoadImage
-						className="banner__hero-image"
-						src="/assets/imageAudiNight.jpg"
-						alt="imageAudiNight"
-						effect="blur"
-					/>
-					<div className="banner__overlay"></div>
-					<article className="ed-grid article__banner m-grid-2">
-						<div className="banner__content m-cols-1 m-x-2">
-							<h1 className="title-color-dark ">Audi Night</h1>
-							<h2 className="title-color-dark pt-24">Atrevete a conocer el <span className="subtitle-font primary-color">sinónimo</span> de elegancia.</h2>
-							<p className="content-color-dark pt-20">Lugar: Paris - Francia</p>
-							<PrimaryButton urlTo="#" othersClass="mt-32 inactive-color" title="Registrate aquí" />
-							<h6 className="title-color-dark">*Opción aún no habilitada</h6>
-						</div>
-					</article>
-				</section>
-			</main>
-			<FooterMenu status="event" />
-		</>
-	)
-}
+        <EventSectionBannerRight
+          pathImage="imageAudiNight.jpg"
+          title="Audi Night"
+          description="Atrevete a conocer el"
+          shadedText="sinónimo"
+          continueText="de elegancia"
+          eventLocation="Paris - Francia"
+        />
+      </main>
+      <FooterMenu status="event" />
+    </>
+  );
+};
 
 export default EventPage;
