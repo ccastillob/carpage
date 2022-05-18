@@ -21,6 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+		"format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx}\"",
+		"lint": "eslint --ignore-path .gitignore .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +53,10 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "redux-mock-store": "^1.5.4",
+		"eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "2.6.2",
     "sass": "1.49.7"
   }
 }
