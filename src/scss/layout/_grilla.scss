@@ -138,4 +138,9 @@
 
 .border-image-loader {
 	border: 2px solid var(--primary-color);
+	border-radius: 0.5rem;
+}
+
+.opacity-image-loader {
+	opacity: 0.25;
 }
