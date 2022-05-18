@@ -17,6 +17,7 @@
 	position: relative;
 	height: 26px;
 	width: 50px;
+	border: 0;
 	background: var(--bg-section-icon-light);
 
 	// Tema oscuro
@@ -110,18 +111,4 @@
 			background: var(--error-400);
 		}
 	}
-}
-
-.Toastify__toast {
-	background: var(--bg-body);
-	color: var(--title-color);
-}
-
-.Toastify__toast--success {
-	border: 2px solid var(--success-700);
-}
-
-
-.Toastify__toast--error {
-	border: 2px solid var(--error-700);
 }
