@@ -1,6 +1,7 @@
 import TextDataDiscountDetail from 'components/atoms/TextDataDiscountDetail';
 import ContainerButtonProduct from 'components/molecules/ContainerButtonProduct';
 import ImageDiscountDetail from 'components/molecules/ImageDiscountDetail';
+import SkeletonDiscountDetails from 'components/skeletons/SkeletonDiscountDetails';
 import useDiscount from 'hooks/useDiscount';
 import useProduct from 'hooks/useProduct';
 import React from 'react';
@@ -42,7 +43,7 @@ const SectionDiscountDetails = () => {
       />
     </section>
   ) : (
-    <h1 className="content-color">Cargando descuentos</h1>
+    <SkeletonDiscountDetails />
   );
 };
 

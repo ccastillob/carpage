@@ -1,6 +1,7 @@
 import TextDataModelDetail from 'components/atoms/TextDataModelDetail';
 import ContainerButtonProduct from 'components/molecules/ContainerButtonProduct';
 import ImageModelDetail from 'components/molecules/ImageModelDetail';
+import SkeletonModelDetails from 'components/skeletons/SkeletonModelDetails';
 import useModel from 'hooks/useModel';
 import useProduct from 'hooks/useProduct';
 import React from 'react';
@@ -38,7 +39,7 @@ const SectionModelDetails = () => {
       />
     </section>
   ) : (
-    <h1 className="content-color">Cargando modelos</h1>
+    <SkeletonModelDetails />
   );
 };
 
