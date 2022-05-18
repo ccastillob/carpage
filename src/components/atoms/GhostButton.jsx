@@ -1,20 +1,10 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const GhostButton = ({ othersClass, icon, title, urlTo, event }) => {
-	return (
-		<Link onClick={event} to={urlTo} className={`button button-ghost ${othersClass}`}>
-			{icon}
-			{title}
-		</Link>
-	)
-}
-
-GhostButton.defaultProps = {
-	othersClass: "",
-	title: "",
-	urlTo: "/",
-}
+const GhostButton = ({ othersClass = '', icon, title = '', event }) => {
+  return (
+    <button onClick={event} className={`button button-ghost ${othersClass}`}>
+      {icon}
+      {title}
+    </button>
+  );
+};
 
 export default GhostButton;
